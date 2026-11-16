@@ -2,14 +2,14 @@
 
 ## Live preview link (share this with clients)
 
-**https://varundigiyou-beep.github.io/aarush-suzuki-demo/**
+**https://digiyou-mu.github.io/aarush-suzuki/**
 
 - Free hosting on GitHub Pages, online 24/7 (does not depend on this PC).
 - Opens on any phone, tablet or computer. Clients do not need to install anything or log in.
 - HTTPS is on, so it shows as secure in every browser.
 - This is a preview copy. The real site at aarushsuzuki.in is not affected.
 
-GitHub repository: https://github.com/varundigiyou-beep/aarush-suzuki-demo
+GitHub repository: https://github.com/digiyou-mu/aarush-suzuki
 
 ## How to update the preview after making changes
 
@@ -44,3 +44,5 @@ Before going live:
 - The repository is public, as GitHub Pages requires on the free plan. It contains only the website files. Local tools, the zip and old drafts are excluded by `.gitignore`.
 - Search engines are pointed to aarushsuzuki.in by the canonical tags on each page, so the preview copy won't compete with the real site in Google.
 - The old `trycloudflare.com` links were temporary and only worked while this PC was running them. Use the GitHub Pages link instead.
+- The repository lives in the free **digiyou-mu** GitHub organization. Other client previews can go there too, each at `https://digiyou-mu.github.io/<repository-name>/`.
+- The first preview link (`varundigiyou-beep.github.io/aarush-suzuki-demo/`) stopped working when the repository moved, because GitHub does not redirect Pages sites. Send clients the link above.
