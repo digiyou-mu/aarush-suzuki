@@ -1,0 +1,20 @@
+{
+  "_source": "Google reviews as published on the client's own page https://aarushsuzuki.in/reviews/ (all rated 5 out of 5). Text kept as written; only spacing, capitalisation and a truncated ending were tidied. Add new reviews only from the Google Business Profile.",
+  "moreUrl": "https://www.google.com/maps/search/?api=1&query=Aarush+Suzuki+Hyderabad",
+  "items": [
+    { "name": "Faisal Rak", "type": "Sales", "branch": "Attapur", "rating": 5,
+      "text": "Nikita Singh was very supportive. She supported us in giving the particular colour we needed in very less time. Even Ahmed sir, the finance guy, was also helpful. Our overall experience was great in this showroom. Highly recommended." },
+    { "name": "Swagat Reddy", "type": "Service", "rating": 5,
+      "text": "I gave my bike for service around 10 AM in the morning. Shaukat, the advisor over there, understood the condition and advised me accordingly. I am very happy with the service provided." },
+    { "name": "Sainath Trivedi", "type": "Delivery", "rating": 5,
+      "text": "Good customer experience. Well behaved staff. Thanks Sadiq for delivery of my scooter as promised." },
+    { "name": "Wajhi Uddin Siddiqui", "type": "Service", "rating": 5,
+      "text": "Excellent service provided by Shaukat and Vinit. Thanks, Aarush service team." },
+    { "name": "Mohd Dastagir Ahmed", "type": "Sales", "branch": "Bahadurpura", "rating": 5,
+      "text": "Good service, well mannered staff. Very good response with Aarush Suzuki showroom Bahadurpura." },
+    { "name": "Syed Zameer Ibrahim", "type": "Delivery", "rating": 5,
+      "text": "Best service spot for vehicle delivery and polite behaviour of staff. I recommend this showroom for all." },
+    { "name": "Mansoor Khan", "type": "Service", "rating": 5,
+      "text": "Very polite and helpful staff with quick service and response." }
+  ]
+}

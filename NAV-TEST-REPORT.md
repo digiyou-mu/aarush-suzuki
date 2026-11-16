@@ -140,3 +140,8 @@ Tests: 1,679 internal links/assets resolve; no horizontal overflow on any of the
 3. **Scooters hero slider** — heading, intro and "Compare the range" stay fixed; the scooter auto-rotates Access → Avenis → Burgman Street → Burgman Street EX every 4.5 s (slide + fade), on a shared contact shadow, with name/tag link and homepage-style progress dots. Holds on hover/focus; swipe and arrow keys; reduced-motion = no auto-play. All four scooters draw at the same height, wheels on the shadow.
 
 Tests: all 24 pages, no horizontal overflow at 375 / 768 / 1440 px; 6 forms submitted with test data.
+
+## Round 13 – Homepage FAQs and Google reviews (16 Nov 2026)
+- New "Google reviews" section above the footer: 7 genuine 5-star Google reviews from the client's own page (aarushsuzuki.in/reviews/), covering sales, delivery and service. Shows one large quote at a time and moves on every 7 s. Arrows, dots, swipe and the arrow keys also work, and hover or focus pauses it. "Read more reviews on Google" opens Google Maps. The reviews are kept in `src/data/reviews.json`.
+- New FAQ section below it: 10 questions in an accordion where one opens at a time. The answers come from facts already on the site or the client's site. FAQPage JSON-LD is generated from `src/data/faqs.json`.
+- Checked: no horizontal overflow at 375, 768 and desktop widths; accordion is exclusive; carousel arrows and dots work; JSON-LD parses.

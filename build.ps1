@@ -431,6 +431,86 @@ function Render-Token($name, $arg) {
     </section>
 "@
     }
+    'REVIEWS' {
+      # Genuine Google reviews (src/data/reviews.json), shown one at a time as a large quote.
+      $rv = Read-Text "$src/data/reviews.json" | ConvertFrom-Json
+      $n = @($rv.items).Count; $k = 0
+      $star = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg>'
+      $quotes = foreach ($r in $rv.items) {
+        $sub = Enc $r.type; if ($r.branch) { $sub += " &middot; $(Enc $r.branch)" }
+        $stars = ($star * [int]$r.rating)
+        $cls = if ($k -eq 0) { 'rv__quote is-active' } else { 'rv__quote' }
+        $k++
+@"
+<figure class="$cls" data-rv-item aria-roledescription="slide" aria-label="Review $k of $n">
+            <p class="rv__stars" role="img" aria-label="Rated $($r.rating) out of 5">$stars</p>
+            <blockquote><p>$(Enc $r.text)</p></blockquote>
+            <figcaption><strong>$(Enc $r.name)</strong><span>$sub &middot; Google review</span></figcaption>
+          </figure>
+"@
+      }
+      $dots = (1..$n | ForEach-Object { "<button type=`"button`" class=`"hs__dot`" data-rv-goto=`"$($_ - 1)`" aria-label=`"Show review $_`" aria-current=`"$(if ($_ -eq 1) {'true'} else {'false'})`"><i></i></button>" }) -join ''
+@"
+<section class="rv" aria-labelledby="rv-title">
+      <div class="rv__inner">
+        <header class="rv__head">
+          <p class="rv__kicker"><span class="rv__g" aria-hidden="true">G</span>Google reviews</p>
+          <h2 class="rv__title" id="rv-title">In our riders&rsquo; words.</h2>
+          <p class="rv__lead">What customers say about buying, collecting and servicing their Suzuki at Aarush Suzuki.</p>
+          <a class="btn btn--outline rv__more" href="$(Enc $rv.moreUrl)" target="_blank" rel="noopener">Read more reviews on Google</a>
+        </header>
+        <div class="rv__stage" data-reviews aria-roledescription="carousel" aria-label="Customer reviews">
+          <span class="rv__mark" aria-hidden="true">&ldquo;</span>
+          <div class="rv__quotes" aria-live="polite">
+          $($quotes -join "`n          ")
+          </div>
+          <div class="rv__bar">
+            <p class="rv__count" aria-hidden="true"><b data-rv-now>01</b> / $('{0:D2}' -f $n)</p>
+            <div class="rv__dots" role="group" aria-label="Choose review">$dots</div>
+            <div class="rv__arrows">
+              <button type="button" class="rv__arrow" data-rv-prev aria-label="Previous review"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button type="button" class="rv__arrow" data-rv-next aria-label="Next review"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+"@
+    }
+    'FAQ' {
+      # Accordion from src/data/faqs.json (FAQPage JSON-LD is added on the home page from the same file).
+      $faqs = Read-Text "$src/data/faqs.json" | ConvertFrom-Json
+      $k = 0
+      $items = foreach ($f in $faqs) {
+        $k++
+        $more = if ($f.link) { " <a class=`"faq__link`" href=`"$($f.link[0])`">$(Enc $f.link[1])</a>" } else { '' }
+@"
+<details class="faq__item" name="faq"$(if ($k -eq 1) { ' open' })>
+            <summary><span class="faq__num">$('{0:D2}' -f $k)</span><span class="faq__q">$(Enc $f.q)</span><i class="faq__icon" aria-hidden="true"></i></summary>
+            <div class="faq__a"><p>$(Enc $f.a)$more</p></div>
+          </details>
+"@
+      }
+@"
+<section class="faq" aria-labelledby="faq-title">
+      <div class="faq__inner">
+        <header class="faq__head">
+          <p class="faq__kicker">FAQs</p>
+          <h2 class="faq__title" id="faq-title">Questions, answered.</h2>
+          <p class="faq__lead">Test rides, bookings, servicing and our showrooms, in brief. Anything else, just ask.</p>
+          <dl class="faq__lines">
+            <div><dt>Sales</dt><dd><a href="tel:+918885246633">88852 46633</a></dd></div>
+            <div><dt>Service</dt><dd><a href="tel:+918885106633">88851 06633</a></dd></div>
+          </dl>
+          <a class="link-arrow" href="https://wa.me/918885246633" target="_blank" rel="noopener">Ask us on WhatsApp</a>
+        </header>
+        <div class="faq__list">
+          $($items -join "`n          ")
+        </div>
+      </div>
+    </section>
+"@
+    }
     'SHOWROOM_PHOTOS' {
       # Add real showroom photos to site.json "showroomPhotos": [["/assets/img/showrooms/attapur.jpg", "Caption"], ...]
       if (-not $site.showroomPhotos -or $site.showroomPhotos.Count -eq 0) { return '' }
@@ -681,7 +761,11 @@ Get-ChildItem "$src/pages" -Filter *.html | ForEach-Object {
   }
   if ($meta.schema -eq 'showrooms') { $ld += Script-Ld (Showrooms-JsonLd) }
   if ($meta.schema -eq 'services') { $ld += Script-Ld (Services-JsonLd) }
-  if ($meta.schema -eq 'home') { $ld += Script-Ld (Read-Text "$src/data/home-ld.json") }
+  if ($meta.schema -eq 'home') {
+    $ld += Script-Ld (Read-Text "$src/data/home-ld.json")
+    $qa = (Read-Text "$src/data/faqs.json" | ConvertFrom-Json | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_.q),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_.a)}}" }) -join ','
+    $ld += Script-Ld "{`"@context`":`"https://schema.org`",`"@type`":`"FAQPage`",`"mainEntity`":[$qa]}"
+  }
   $meta.jsonld = $ld
   $html = Assemble $meta $body
   $target = if ($meta.output) { Join-Path $out $meta.output } else { Join-Path $out (($meta.path.Trim('/') + '/index.html').TrimStart('/')) }

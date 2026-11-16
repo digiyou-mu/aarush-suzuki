@@ -244,6 +244,51 @@
     document.addEventListener('visibilitychange', run);
   });
 
+  /* ---------- Google reviews: one large quote at a time ----------
+     Advances every 7 s while on screen; hover, focus or a hidden tab holds it. Arrows, dots,
+     swipe and the arrow keys move it by hand. */
+  $$('[data-reviews]').forEach((box) => {
+    const items = $$('[data-rv-item]', box);
+    if (items.length < 2) return;
+    const dots = $$('[data-rv-goto]', box), now = $('[data-rv-now]', box);
+    const DUR = 7000;
+    box.style.setProperty('--rv-duration', `${DUR / 1000}s`);
+    let i = 0, timer = null, held = false, inView = !('IntersectionObserver' in window);
+    const show = (k) => {
+      i = (k + items.length) % items.length;
+      items.forEach((el, n) => { el.classList.toggle('is-active', n === i); el.setAttribute('aria-hidden', String(n !== i)); });
+      dots.forEach((d, n) => d.setAttribute('aria-current', String(n === i)));
+      if (now) now.textContent = String(i + 1).padStart(2, '0');
+      schedule();
+    };
+    const schedule = () => {
+      clearTimeout(timer);
+      const run = !reduce && !held && inView && !document.hidden;
+      box.classList.remove('is-running');
+      if (!run) return;
+      void box.offsetWidth; // restart the dot progress animation
+      box.classList.add('is-running');
+      timer = setTimeout(() => show(i + 1), DUR);
+    };
+    dots.forEach((d) => d.addEventListener('click', () => show(+d.dataset.rvGoto)));
+    $('[data-rv-prev]', box)?.addEventListener('click', () => show(i - 1));
+    $('[data-rv-next]', box)?.addEventListener('click', () => show(i + 1));
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+    });
+    const hold = (v) => () => { held = v; schedule(); };
+    box.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hold(true)(); }); box.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hold(false)(); });
+    box.addEventListener('focusin', hold(true)); box.addEventListener('focusout', hold(false));
+    let x0 = null;
+    box.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+    box.addEventListener('pointerup', (e) => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1); });
+    document.addEventListener('visibilitychange', schedule);
+    if (!inView) new IntersectionObserver((es) => { inView = es[0].isIntersecting; schedule(); }, { threshold: 0.3 }).observe(box);
+    box.classList.add('is-ready');
+    show(0);
+  });
+
   /* ---------- EV colour explorer ----------
      Swatches swap the scooter image with a soft cross-fade. Until someone picks a colour it cycles
      slowly while on screen; any interaction stops the cycle. */
