@@ -1,0 +1,44 @@
+{
+ "siteUrl": "https://aarushsuzuki.in",
+ "contact": {
+  "sales": "8885246633",
+  "service": "8885106633",
+  "whatsapp": "918885246633",
+  "email": "hyderabad.aarush.sales@suzukidealers.in",
+  "facebook": "https://www.facebook.com/aarushsuzukihyd.ABC/",
+  "instagram": "https://www.instagram.com/aarushsuzuki_/",
+  "youtube": "",
+  "_youtubeHelp": "Paste the Aarush Suzuki YouTube channel URL here and rebuild; the header/footer YouTube icon appears automatically. Left empty because no official channel could be found."
+ },
+ "instagramHandle": "aarushsuzuki_",
+ "reels": [
+  { "code": "DeobTsdCegK", "views": "61.1K", "video": "/assets/video/reels/reel-1.mp4", "poster": "/assets/video/reels/reel-1.jpg" },
+  { "code": "DeGjUnbt0OS", "views": "52.3K", "video": "/assets/video/reels/reel-2.mp4", "poster": "/assets/video/reels/reel-2.jpg" },
+  { "code": "Dejj9ZPt5wb", "views": "35.3K", "video": "/assets/video/reels/reel-3.mp4", "poster": "/assets/video/reels/reel-3.jpg" },
+  { "code": "Den0h3iNKA9", "views": "24.6K", "video": "/assets/video/reels/reel-4.mp4", "poster": "/assets/video/reels/reel-4.jpg" }
+ ],
+ "_reelsHelp": "Reels show as a video-only grid. Without a local MP4 each reel shows Instagram's player cropped to the video (plays on tap). To autoplay muted when visible, put the reel MP4 in site/assets/video/reels/ and set video to /assets/video/reels/<file>.mp4 (optionally a poster image), then rebuild.",
+ "heroSlides": [
+  { "model": "v-strom-sx", "label": "V-Strom SX", "note": "Suzuki festive offer valid till 30 Nov 2026" },
+  { "model": "gixxer-sf-250", "label": "Gixxer SF 250" },
+  { "model": "e-access", "label": "e-Access" },
+  { "model": "avenis", "label": "Avenis" },
+  { "model": "gixxer-250", "label": "Gixxer 250" },
+  { "model": "burgman-street", "label": "Burgman Street" },
+  { "model": "access", "label": "Access" },
+  { "model": "gsx-8r", "label": "GSX-8R" }
+ ],
+ "forms": {
+  "endpoint": "",
+  "_help": "Optional. A URL that accepts a JSON POST (e.g. https://formspree.io/f/xxxx or https://api.web3forms.com/submit). When empty, forms hand the request to WhatsApp and say so honestly.",
+  "accessKey": ""
+ },
+ "showroomPhotos": [],
+ "featured": ["v-strom-sx", "gixxer-sf-250", "gixxer-250", "avenis", "burgman-street-ex", "e-access"],
+ "categories": [
+  { "id": "motorcycles", "name": "Motorcycles", "url": "/motorcycles/", "hero": "gixxer-sf-250" },
+  { "id": "scooters", "name": "Scooters", "url": "/scooters/", "hero": "burgman-street-ex" },
+  { "id": "electric", "name": "Electric", "url": "/electric-vehicles/", "hero": "e-access" },
+  { "id": "premium", "name": "Premium Bikes", "url": "/premium-bikes/", "hero": "hayabusa" }
+ ]
+}

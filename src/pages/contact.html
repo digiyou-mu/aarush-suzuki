@@ -1,0 +1,61 @@
+<!--
+title: Contact Aarush Suzuki – 12 Suzuki Showrooms in Hyderabad & Telangana
+description: Addresses, sales and service numbers, WhatsApp and directions for all 12 Aarush Suzuki showrooms in Hyderabad, Sircilla, Jangaon, Nirmal and Adilabad. Send us an enquiry.
+path: /contact/
+bodyClass: page-contact
+crumbs: Contact=/contact/
+schema: showrooms
+-->
+<main id="main">
+    <section class="ct-hero" aria-labelledby="ct-title">
+      <div class="wrap ct-hero__grid">
+        <div>
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i aria-hidden="true">/</i><span aria-current="page">Contact</span></nav>
+          <h1 class="ct-hero__title" id="ct-title">Talk to us.</h1>
+          <p class="ct-hero__lead">Call, message or visit any of our twelve showrooms. Every location handles sales and service.</p>
+        </div>
+        <ul class="ct-lines">
+          <li><a href="tel:+918885246633"><span>Sales</span><strong>88852 46633</strong></a></li>
+          <li><a href="tel:+918885106633"><span>Service</span><strong>88851 06633</strong></a></li>
+          <li><a href="https://wa.me/918885246633" target="_blank" rel="noopener"><span>WhatsApp</span><strong>Message us</strong></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ct-dir" aria-labelledby="dir-title">
+      <div class="wrap">
+        <div class="directory__head">
+          <h2 class="directory__title" id="dir-title">Showroom directory</h2>
+          <div class="seg" role="tablist" aria-label="Region" data-region-filter>
+            <button type="button" role="tab" aria-selected="false" data-region="all">All (12)</button>
+            <button type="button" role="tab" aria-selected="true" data-region="hyderabad">Hyderabad (8)</button>
+            <button type="button" role="tab" aria-selected="false" data-region="telangana">Telangana (4)</button>
+          </div>
+        </div>
+        <div class="ct-dir__layout">
+          <ul class="branches" data-branches>
+            {{DIRECTORY:}}
+          </ul>
+          <aside class="ct-map" aria-label="Map">
+            <div class="ct-map__frame" data-map>
+              <iframe src="https://www.google.com/maps?q=aarush+suzuki&amp;ll=17.394044,78.452263&amp;z=12&amp;output=embed" title="Map of Aarush Suzuki showrooms in Hyderabad" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+            <div class="ct-map__bar">
+              <p class="ct-map__hint" data-map-label>All Aarush Suzuki showrooms. Select <strong>Show on map</strong> on any branch to zoom in.</p>
+              <button class="ct-map__reset" type="button" data-map-reset hidden>All showrooms</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ev-enquire ct-form" id="enquire" aria-labelledby="cf-title">
+      <div class="wrap ev-enquire__grid">
+        <div>
+          <h2 class="ev-enquire__title" id="cf-title">Send an enquiry.</h2>
+          <p>Ask about a vehicle, the on-road price, finance, a test ride or a service. Your nearest showroom will call you back.</p>
+        </div>
+        {{FORM:contact||Sends your enquiry to Aarush Suzuki on WhatsApp.}}
+      </div>
+    </section>
+  </main>

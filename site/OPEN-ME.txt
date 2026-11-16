@@ -1,0 +1,22 @@
+AARUSH SUZUKI — DEMO WEBSITE
+============================
+
+View it on your computer
+  Double-click index.html in this folder. All pages, links and images work offline.
+  (Scroll animations, Google Maps, WhatsApp and brochure downloads need an internet connection.)
+
+Get a shareable link (free, about 1 minute)
+  1. Go to https://app.netlify.com/drop
+  2. Drag THIS whole folder onto the page.
+  3. Netlify gives you a link such as https://aarush-suzuki-demo.netlify.app to share.
+  The _redirects file in this folder makes the old aarushsuzuki.in URLs redirect correctly there.
+
+Upload to the real hosting (cPanel / Apache)
+  Upload the contents of this folder to public_html. The .htaccess file redirects every old
+  WordPress URL to its new page.
+
+Demo notes
+  - Prices: official Suzuki ex-showroom prices for Hyderabad, read on 12 Nov 2026.
+  - Forms open WhatsApp with the request filled in; nothing is sent until the customer presses Send.
+  - Product photos, colour images, accessories and brochures are Suzuki Motorcycle India material.
+    Confirm usage rights with Suzuki before the site goes live.

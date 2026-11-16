@@ -1,0 +1,3778 @@
+[
+ {
+  "id": "gixxer",
+  "name": "Gixxer",
+  "category": "motorcycles",
+  "url": "/motorcycles/gixxer/",
+  "tagline": "Never Lets Me Down",
+  "summary": "155cc naked street bike, light and easy to handle.",
+  "overview": "The Gixxer is Suzuki’s naked 155cc street bike. A fuel-injected, air-cooled single with a 5-speed gearbox, a 12-litre tank and a 141 kg kerb mass keeps it light in traffic and lively on an open road.",
+  "image": "/assets/img/models/gixxer.png",
+  "highlights": [
+   [
+    "Displacement",
+    "155 cc"
+   ],
+   [
+    "Max power",
+    "13.6 PS @ 8,000 rpm"
+   ],
+   [
+    "Max torque",
+    "13.8 Nm @ 6,000 rpm"
+   ],
+   [
+    "Kerb weight",
+    "141 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Metallic Oort Gray / Pearl Blaze Orange",
+    "#6c757d",
+    ""
+   ],
+   [
+    "Glass Sparkle Black / Metallic Oort Gray",
+    "#000000",
+    "/assets/img/official/gixxer/colour-2.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Pearl Glacier White",
+    "#5faee5",
+    "/assets/img/official/gixxer/colour-3.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Glass Sparkle Black",
+    "#225593",
+    "/assets/img/official/gixxer/colour-4.jpg"
+   ]
+  ],
+  "coloursShared": true,
+  "features": [
+   [
+    "E20 Compliant",
+    "As a part of our effort towards carbon reduction, entire range of Suzuki GIXXER SF/ GIXXER are now E20 compliant. E20 Fuel type is more environment friendly as its use results in lower carbon emission.",
+    "/assets/img/official/gixxer/feature-1.jpg"
+   ],
+   [
+    "Aerodynamic Design",
+    "Inspired from the recent European design trend. The aerodynamic design with edgy character lines and lower centre of gravity adds to the styling as well as functional beauty of the motorcycle.",
+    "/assets/img/official/gixxer/feature-2.jpg"
+   ],
+   [
+    "LED Headlamp",
+    "Futuristic LED headlamp design, exclusive to the Indian market marks strong and aggressive impression of this motorcycle. The compact size and thin design of headlamp unit not only complements street sport look of the mo",
+    "/assets/img/official/gixxer/feature-3.jpg"
+   ],
+   [
+    "LED Tail Lamp",
+    "Gixxer Styled LED tail lamp shares high resemblance to the original tail light design of Gixxer. The compact design with highly illuminated LED lights accomplish the rear design of the motorcycle and serves the functiona",
+    "/assets/img/official/gixxer/feature-4.jpg"
+   ],
+   [
+    "Bluetooth Enabled Digital Console",
+    "Bluetooth® Enabled Digital console with features like Turn by Turn Navigation, Missed Call alert and Caller ID, Call, SMS & WhatsApp Alert, Over-Speed Warning, ETA Updates, Phone Battery Level Display.",
+    "/assets/img/official/gixxer/feature-5.jpg"
+   ],
+   [
+    "Stiffer 41mm Large Diameter Front Forks",
+    "Increased rigidity around the front section to rightly suit the separate handle set-up at front.",
+    "/assets/img/official/gixxer/feature-6.jpg"
+   ],
+   [
+    "Twin Muffler",
+    "The new end cap design for the dual exhaust outlet is exclusive to the new Gixxer giving distinctive look and macho character to the sporty design.",
+    "/assets/img/official/gixxer/feature-7.jpg"
+   ],
+   [
+    "Disc ABS",
+    "Single Channel ABS (Anti-Lock Brake System) is the supplemental system which automatically controls the braking force efficiently and avoids wheel lock up due to the slippery road, the sudden change of road conditions or",
+    "/assets/img/official/gixxer/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Cycle, 1-cylinder, Air cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC"
+     ],
+     [
+      "Displacement",
+      "155 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "56 mm x 62.9 mm"
+     ],
+     [
+      "Max Power",
+      "13.6 PS @ 8,000 rpm"
+     ],
+     [
+      "Max Torque",
+      "13.8 Nm @ 6,000 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "ELECTRIC"
+     ],
+     [
+      "Transmission Type",
+      "5 Speed, MT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Wheels",
+      "CAST"
+     ],
+     [
+      "Overall Height",
+      "1,035 mm"
+     ],
+     [
+      "Seat Height",
+      "795 mm"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "12 L"
+     ],
+     [
+      "Overall Width",
+      "800 mm"
+     ],
+     [
+      "Overall Length",
+      "2,020 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,335 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Kerb Mass",
+      "141 kg"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "100/80-17M/C 52P"
+     ],
+     [
+      "Rear",
+      "140/60R17M/C 63P"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing arm"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance free 12V, 3Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/gixxer/gallery-1.jpg",
+   "/assets/img/official/gixxer/gallery-2.jpg",
+   "/assets/img/official/gixxer/gallery-3.jpg",
+   "/assets/img/official/gixxer/gallery-4.jpg",
+   "/assets/img/official/gixxer/gallery-5.jpg",
+   "/assets/img/official/gixxer/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/gixxer-sf",
+  "similar": [
+   "gixxer-sf",
+   "gixxer-250",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "DC Socket",
+    "/assets/img/official/gixxer/accessory-1.jpg"
+   ],
+   [
+    "Seat Cover",
+    "/assets/img/official/gixxer/accessory-2.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Blue",
+    "/assets/img/official/gixxer/accessory-3.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Black",
+    "/assets/img/official/gixxer/accessory-4.jpg"
+   ],
+   [
+    "Tape Set Knee Grip Pad",
+    "/assets/img/official/gixxer/accessory-5.jpg"
+   ],
+   [
+    "Tape Set Protection",
+    "/assets/img/official/gixxer/accessory-6.jpg"
+   ],
+   [
+    "Knuckle Cover",
+    "/assets/img/official/gixxer/accessory-7.jpg"
+   ],
+   [
+    "Front Bumper",
+    "/assets/img/official/gixxer/accessory-8.jpg"
+   ],
+   [
+    "Under Cowling",
+    "/assets/img/official/gixxer/accessory-9.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Gixxer",
+    "https://www.suzukimotorcycle.co.in/brochure/10696_S_GIXXER%20leaflet%20Artwork-30%20OCT.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Gixxer (OBD-2B)",
+    "₹1,39,321"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "gixxer-sf",
+  "name": "Gixxer SF",
+  "category": "motorcycles",
+  "url": "/motorcycles/gixxer-sf/",
+  "tagline": "Never Lets Me Down",
+  "summary": "155cc fully-faired sport bike with racing-inspired styling.",
+  "overview": "The Gixxer SF puts the same 155cc fuel-injected engine inside aerodynamic, fully-faired bodywork. LED lighting, a twin muffler and a Bluetooth-enabled digital console complete a sport bike made for everyday riding.",
+  "image": "/assets/img/models/gixxer-sf.png",
+  "highlights": [
+   [
+    "Displacement",
+    "155 cc"
+   ],
+   [
+    "Max power",
+    "13.6 PS @ 8,000 rpm"
+   ],
+   [
+    "Max torque",
+    "13.8 Nm @ 6,000 rpm"
+   ],
+   [
+    "Kerb weight",
+    "148 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Metallic Oort Gray / Pearl Blaze Orange",
+    "#6c757d",
+    ""
+   ],
+   [
+    "Glass Sparkle Black / Metallic Oort Gray",
+    "#000000",
+    "/assets/img/official/gixxer-sf/colour-2.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Pearl Glacier White",
+    "#5faee5",
+    "/assets/img/official/gixxer-sf/colour-3.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Glass Sparkle Black",
+    "#225593",
+    "/assets/img/official/gixxer-sf/colour-4.jpg"
+   ]
+  ],
+  "coloursShared": true,
+  "features": [
+   [
+    "E20 Compliant",
+    "As a part of our effort towards carbon reduction, entire range of Suzuki GIXXER SF/ GIXXER are now E20 compliant. E20 Fuel type is more environment friendly as its use results in lower carbon emission.",
+    "/assets/img/official/gixxer-sf/feature-1.jpg"
+   ],
+   [
+    "Aerodynamic Design",
+    "Inspired from the recent European design trend. The aerodynamic design with edgy character lines and lower centre of gravity adds to the styling as well as functional beauty of the motorcycle.",
+    "/assets/img/official/gixxer-sf/feature-2.jpg"
+   ],
+   [
+    "LED Headlamp",
+    "Futuristic LED headlamp design, exclusive to the Indian market marks strong and aggressive impression of this motorcycle. The compact size and thin design of headlamp unit not only complements street sport look of the mo",
+    "/assets/img/official/gixxer-sf/feature-3.jpg"
+   ],
+   [
+    "LED Tail Lamp",
+    "Gixxer Styled LED tail lamp shares high resemblance to the original tail light design of Gixxer. The compact design with highly illuminated LED lights accomplish the rear design of the motorcycle and serves the functiona",
+    "/assets/img/official/gixxer-sf/feature-4.jpg"
+   ],
+   [
+    "Bluetooth Enabled Digital Console",
+    "Bluetooth® Enabled Digital console with features like Turn by Turn Navigation, Missed Call alert and Caller ID, Call, SMS & WhatsApp Alert, Over-Speed Warning, ETA Updates, Phone Battery Level Display.",
+    "/assets/img/official/gixxer-sf/feature-5.jpg"
+   ],
+   [
+    "Twin Muffler",
+    "The new end cap design for the dual exhaust outlet is exclusive to the new Gixxer giving distinctive look and macho character to the sporty design.",
+    "/assets/img/official/gixxer-sf/feature-6.jpg"
+   ],
+   [
+    "Disc ABS",
+    "Single Channel ABS (Anti-Lock Brake System) is the supplemental system which automatically controls the braking force efficiently and avoids wheel lock up due to the slippery road, the sudden change of road conditions or",
+    "/assets/img/official/gixxer-sf/feature-7.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Cycle, 1-cylinder, Air cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC"
+     ],
+     [
+      "Displacement",
+      "155 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "56 mm x 62.9 mm"
+     ],
+     [
+      "Max Power",
+      "13.6 PS @ 8,000 rpm"
+     ],
+     [
+      "Max Torque",
+      "13.8 Nm @ 6,000 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "ELECTRIC"
+     ],
+     [
+      "Transmission Type",
+      "5 Speed, MT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Wheels",
+      "CAST"
+     ],
+     [
+      "Overall Height",
+      "1,035 mm"
+     ],
+     [
+      "Seat Height",
+      "795 mm"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "12 L"
+     ],
+     [
+      "Overall Width",
+      "715 mm"
+     ],
+     [
+      "Overall Length",
+      "2,025 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,340 mm"
+     ],
+     [
+      "Ground Clearance",
+      "165 mm"
+     ],
+     [
+      "Kerb Mass",
+      "148 kg"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "100/80-17M/C 52P"
+     ],
+     [
+      "Rear",
+      "140/60R17M/C 63P"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing arm"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance free 12V, 3Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/gixxer-sf/gallery-1.jpg",
+   "/assets/img/official/gixxer-sf/gallery-2.jpg",
+   "/assets/img/official/gixxer-sf/gallery-3.jpg",
+   "/assets/img/official/gixxer-sf/gallery-4.jpg",
+   "/assets/img/official/gixxer-sf/gallery-5.jpg",
+   "/assets/img/official/gixxer-sf/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/gixxer-sf",
+  "similar": [
+   "gixxer",
+   "gixxer-sf-250",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "DC Socket",
+    "/assets/img/official/gixxer-sf/accessory-1.jpg"
+   ],
+   [
+    "Seat Cover",
+    "/assets/img/official/gixxer-sf/accessory-2.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Blue",
+    "/assets/img/official/gixxer-sf/accessory-3.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Black",
+    "/assets/img/official/gixxer-sf/accessory-4.jpg"
+   ],
+   [
+    "Tape Set Knee Grip Pad",
+    "/assets/img/official/gixxer-sf/accessory-5.jpg"
+   ],
+   [
+    "Tape Set Protection",
+    "/assets/img/official/gixxer-sf/accessory-6.jpg"
+   ],
+   [
+    "Meter Visor",
+    "/assets/img/official/gixxer-sf/accessory-7.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Gixxer",
+    "https://www.suzukimotorcycle.co.in/brochure/10696_S_GIXXER%20leaflet%20Artwork-30%20OCT.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Gixxer SF (OBD-2B)",
+    "₹1,42,831"
+   ],
+   [
+    "Gixxer SF Special Edition (OBD-2B)",
+    "₹1,43,292"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "gixxer-250",
+  "name": "Gixxer 250",
+  "category": "motorcycles",
+  "url": "/motorcycles/gixxer-250/",
+  "tagline": "Never Lets Me Down",
+  "summary": "The naked 250. Upright, muscular and made for the city.",
+  "overview": "The Gixxer 250 combines Suzuki’s 249cc oil-cooled engine with an upright, naked stance. 26.5 PS, 22.2 Nm, a 6-speed gearbox and disc brakes at both ends make it quick, composed and easy to live with.",
+  "image": "/assets/img/models/gixxer-250.png",
+  "highlights": [
+   [
+    "Displacement",
+    "249 cc"
+   ],
+   [
+    "Max power",
+    "26.5 PS @ 9,300 rpm"
+   ],
+   [
+    "Max torque",
+    "22.2 Nm @ 7,300 rpm"
+   ],
+   [
+    "Kerb weight",
+    "156 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Glass Sparkle Black / Metallic Oort Gray",
+    "#797071",
+    "/assets/img/official/gixxer-250/colour-1.jpg"
+   ],
+   [
+    "Glass Sparkle Black",
+    "#000000",
+    "/assets/img/official/gixxer-250/colour-2.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Pearl Glacier White",
+    "#0185d2",
+    "/assets/img/official/gixxer-250/colour-3.png"
+   ],
+   [
+    "Metallic Triton Blue / Glass Sparkle Black",
+    "#046dcd",
+    "/assets/img/official/gixxer-250/colour-4.jpg"
+   ]
+  ],
+  "coloursShared": true,
+  "features": [
+   [
+    "LED Headlamp",
+    "To complement the mass forward design of the motorcycle. The wide LED headlamp design ensures the front look marks the essence of sporty motorcycle along with offering long and wide field of view from its extremely brigh",
+    "/assets/img/official/gixxer-250/feature-1.jpg"
+   ],
+   [
+    "LED Tail Lamp",
+    "Styled LED tail lamp shares high resemblance to the original taillight design of GIXXER. The compact design with highly illuminated LED lights accomplishes the rear design of the motorcycle and serves the functionality a",
+    "/assets/img/official/gixxer-250/feature-2.jpg"
+   ],
+   [
+    "Suzuki Easy Start System",
+    "smoothens ease of starting the motorcycling thus resulting in stress free starting every time. The rider can easily start the engine by simply pulling the clutch and pressing the starter switch just one time.",
+    "/assets/img/official/gixxer-250/feature-3.jpg"
+   ],
+   [
+    "250cc SOCS Engine",
+    "Suzuki oil cooling system (SOCS) – Oil cooling system in engine was first introduced by Suzuki to the world for creating lightweight and fast engines which provides high performance for a wide range of needs, from city-r",
+    "/assets/img/official/gixxer-250/feature-4.jpg"
+   ],
+   [
+    "6-Speed Gearbox",
+    "For extra relaxed cruising on long journeys without compromising on fuel efficiency",
+    "/assets/img/official/gixxer-250/feature-5.jpg"
+   ],
+   [
+    "Front Bigger Disc with Dual Channel ABS",
+    "The motorcycle is equipped with a full-size 300 mm front disc brake that not only looks stylish but also delivers strong braking performance. ABS acts as a supplemental system, efficiently controlling braking force and p",
+    "/assets/img/official/gixxer-250/feature-6.jpg"
+   ],
+   [
+    "Wider Tyres",
+    "ensures excellent road grip and superior performance while riding on different road conditions. The wide tyre combination boosts your confidence while going fast around corners by providing superb stability.",
+    "/assets/img/official/gixxer-250/feature-7.jpg"
+   ],
+   [
+    "Rear Tyre Hugger",
+    "Equipped to the motorcycle which further accentuates the macho appeal of the motorcycle along with its rear wide tire.",
+    "/assets/img/official/gixxer-250/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Cycle, 1-cylinder, Oil cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC"
+     ],
+     [
+      "Displacement",
+      "249 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "76 mm x 54.9 mm"
+     ],
+     [
+      "Max Power",
+      "26.5 PS @ 9,300 rpm"
+     ],
+     [
+      "Max Torque",
+      "22.2 Nm @ 7,300 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "ELECTRIC"
+     ],
+     [
+      "Transmission Type",
+      "6 Speed, MT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Wheels",
+      "CAST"
+     ],
+     [
+      "Overall Length",
+      "2,010 mm"
+     ],
+     [
+      "Overall Height",
+      "1,035 mm"
+     ],
+     [
+      "Ground Clearance",
+      "165 mm"
+     ],
+     [
+      "Seat Height",
+      "800 mm"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "12 L"
+     ],
+     [
+      "Overall Width",
+      "805 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,340 mm"
+     ],
+     [
+      "Kerb Mass",
+      "156 kg"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing arm"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "110/70R17M/C 54S"
+     ],
+     [
+      "Rear",
+      "150/60R17M/C 66S"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance free, 12V 6Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/gixxer-250/gallery-1.jpg",
+   "/assets/img/official/gixxer-250/gallery-2.jpg",
+   "/assets/img/official/gixxer-250/gallery-3.jpg",
+   "/assets/img/official/gixxer-250/gallery-4.jpg",
+   "/assets/img/official/gixxer-250/gallery-5.jpg",
+   "/assets/img/official/gixxer-250/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/gixxer-sf-250",
+  "similar": [
+   "gixxer-sf-250",
+   "gixxer",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "DC Socket",
+    "/assets/img/official/gixxer-250/accessory-1.jpg"
+   ],
+   [
+    "Seat Cover",
+    "/assets/img/official/gixxer-250/accessory-2.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Blue",
+    "/assets/img/official/gixxer-250/accessory-3.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Silver",
+    "/assets/img/official/gixxer-250/accessory-4.jpg"
+   ],
+   [
+    "Tape Set Knee Grip Pad",
+    "/assets/img/official/gixxer-250/accessory-5.jpg"
+   ],
+   [
+    "Tape Set Protection",
+    "/assets/img/official/gixxer-250/accessory-6.jpg"
+   ],
+   [
+    "Knuckle Cover",
+    "/assets/img/official/gixxer-250/accessory-7.jpg"
+   ],
+   [
+    "Front Bumper",
+    "/assets/img/official/gixxer-250/accessory-8.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Gixxer SF 250 FFV",
+    "https://www.suzukimotorcycle.co.in/brochure/gixxer-250-sf-ffv-feb-25.pdf"
+   ],
+   [
+    "Gixxer SF 250",
+    "https://www.suzukimotorcycle.co.in/brochure/10795S-Gixxer-250-jan.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Gixxer 250 (OBD-2B)",
+    "₹1,86,619"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "gixxer-sf-250",
+  "name": "Gixxer SF 250",
+  "category": "motorcycles",
+  "url": "/motorcycles/gixxer-sf-250/",
+  "tagline": "Never Lets Me Down",
+  "summary": "Fully-faired 250cc sport bike with Suzuki’s oil-cooled engine.",
+  "overview": "The Gixxer SF 250 wraps Suzuki’s 249cc oil-cooled (SOCS) engine in full fairing. 26.5 PS at 9,300 rpm, 22.2 Nm and a 6-speed gearbox, with LED lighting and the Suzuki Easy Start System. Suzuki also lists a flex-fuel (E85) version of the SF 250.",
+  "image": "/assets/img/models/gixxer-sf-250.png",
+  "highlights": [
+   [
+    "Displacement",
+    "249 cc"
+   ],
+   [
+    "Max power",
+    "26.5 PS @ 9,300 rpm"
+   ],
+   [
+    "Max torque",
+    "22.2 Nm @ 7,300 rpm"
+   ],
+   [
+    "Kerb weight",
+    "161 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Glass Sparkle Black / Metallic Oort Gray",
+    "#797071",
+    "/assets/img/official/gixxer-sf-250/colour-1.jpg"
+   ],
+   [
+    "Glass Sparkle Black",
+    "#000000",
+    "/assets/img/official/gixxer-sf-250/colour-2.jpg"
+   ],
+   [
+    "Metallic Triton Blue / Pearl Glacier White",
+    "#0185d2",
+    "/assets/img/official/gixxer-sf-250/colour-3.png"
+   ],
+   [
+    "Metallic Triton Blue / Glass Sparkle Black",
+    "#046dcd",
+    "/assets/img/official/gixxer-sf-250/colour-4.jpg"
+   ]
+  ],
+  "coloursShared": true,
+  "features": [
+   [
+    "LED Headlamp",
+    "To complement the mass forward design of the motorcycle. The wide LED headlamp design ensures the front look marks the essence of sporty motorcycle along with offering long and wide field of view from its extremely brigh",
+    "/assets/img/official/gixxer-sf-250/feature-1.jpg"
+   ],
+   [
+    "LED Tail Lamp",
+    "Styled LED tail lamp shares high resemblance to the original taillight design of GIXXER. The compact design with highly illuminated LED lights accomplishes the rear design of the motorcycle and serves the functionality a",
+    "/assets/img/official/gixxer-sf-250/feature-2.jpg"
+   ],
+   [
+    "Suzuki Easy Start System",
+    "smoothens ease of starting the motorcycling thus resulting in stress free starting every time. The rider can easily start the engine by simply pulling the clutch and pressing the starter switch just one time.",
+    "/assets/img/official/gixxer-sf-250/feature-3.jpg"
+   ],
+   [
+    "250cc SOCS Engine",
+    "Suzuki oil cooling system (SOCS) – Oil cooling system in engine was first introduced by Suzuki to the world for creating lightweight and fast engines which provides high performance for a wide range of needs, from city-r",
+    "/assets/img/official/gixxer-sf-250/feature-4.jpg"
+   ],
+   [
+    "6-Speed Gearbox",
+    "For extra relaxed cruising on long journeys without compromising on fuel efficiency",
+    "/assets/img/official/gixxer-sf-250/feature-5.jpg"
+   ],
+   [
+    "Front Bigger Disc with Dual Channel ABS",
+    "The motorcycle is equipped with a full-size 300 mm front disc brake that not only looks stylish but also delivers strong braking performance. ABS acts as a supplemental system, efficiently controlling braking force and p",
+    "/assets/img/official/gixxer-sf-250/feature-6.jpg"
+   ],
+   [
+    "Wider Tyres",
+    "ensures excellent road grip and superior performance while riding on different road conditions. The wide tyre combination boosts your confidence while going fast around corners by providing superb stability.",
+    "/assets/img/official/gixxer-sf-250/feature-7.jpg"
+   ],
+   [
+    "Rear Tyre Hugger",
+    "Equipped to the motorcycle which further accentuates the macho appeal of the motorcycle along with its rear wide tire.",
+    "/assets/img/official/gixxer-sf-250/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Cycle, 1-cylinder, Oil cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC"
+     ],
+     [
+      "Displacement",
+      "249 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "76 mm x 54.9 mm"
+     ],
+     [
+      "Max Power",
+      "26.5 PS @ 9,300 rpm"
+     ],
+     [
+      "Max Torque",
+      "22.2 Nm @ 7,300 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "ELECTRIC"
+     ],
+     [
+      "Transmission Type",
+      "6 Speed, MT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Wheels",
+      "CAST"
+     ],
+     [
+      "Overall Length",
+      "2,010 mm"
+     ],
+     [
+      "Overall Height",
+      "1,035 mm"
+     ],
+     [
+      "Ground Clearance",
+      "165 mm"
+     ],
+     [
+      "Seat Height",
+      "800 mm"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "12 L"
+     ],
+     [
+      "Overall Width",
+      "740 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,345 mm"
+     ],
+     [
+      "Kerb Mass",
+      "161 kg"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing arm"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "110/70R17M/C 54S"
+     ],
+     [
+      "Rear",
+      "150/60R17M/C 66S"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance free, 12V 6Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/gixxer-sf-250/gallery-1.jpg",
+   "/assets/img/official/gixxer-sf-250/gallery-2.jpg",
+   "/assets/img/official/gixxer-sf-250/gallery-3.jpg",
+   "/assets/img/official/gixxer-sf-250/gallery-4.jpg",
+   "/assets/img/official/gixxer-sf-250/gallery-5.jpg",
+   "/assets/img/official/gixxer-sf-250/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/gixxer-sf-250",
+  "similar": [
+   "gixxer-250",
+   "gixxer-sf",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "DC Socket",
+    "/assets/img/official/gixxer-sf-250/accessory-1.jpg"
+   ],
+   [
+    "Seat Cover",
+    "/assets/img/official/gixxer-sf-250/accessory-2.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Blue",
+    "/assets/img/official/gixxer-sf-250/accessory-3.jpg"
+   ],
+   [
+    "Tape Set Tank Pad Silver",
+    "/assets/img/official/gixxer-sf-250/accessory-4.jpg"
+   ],
+   [
+    "Tape Set Knee Grip Pad",
+    "/assets/img/official/gixxer-sf-250/accessory-5.jpg"
+   ],
+   [
+    "Tape Set Protection",
+    "/assets/img/official/gixxer-sf-250/accessory-6.jpg"
+   ],
+   [
+    "Meter Visor",
+    "/assets/img/official/gixxer-sf-250/accessory-7.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Gixxer SF 250 FFV",
+    "https://www.suzukimotorcycle.co.in/brochure/gixxer-250-sf-ffv-feb-25.pdf"
+   ],
+   [
+    "Gixxer SF 250",
+    "https://www.suzukimotorcycle.co.in/brochure/10795S-Gixxer-250-jan.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Gixxer SF 250 (OBD-2B)",
+    "₹1,94,870"
+   ],
+   [
+    "Gixxer SF 250 Special Edition (OBD-2B)",
+    "₹1,95,328"
+   ],
+   [
+    "Gixxer SF 250 FFV",
+    "₹1,99,989"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "v-strom-sx",
+  "name": "V-Strom SX",
+  "category": "motorcycles",
+  "url": "/motorcycles/v-strom-sx/",
+  "tagline": "The Everyday Explorer",
+  "summary": "250cc adventure sport tourer, built for the commute and the weekend trail.",
+  "overview": "The V-Strom SX is Suzuki’s 250cc sport adventure tourer. A 249cc oil-cooled single with 26.5 PS, a 19-inch front wheel, 205 mm of ground clearance and an upright riding position make it as comfortable on city streets as it is on broken roads.",
+  "image": "/assets/img/models/v-strom-sx.png",
+  "highlights": [
+   [
+    "Displacement",
+    "249 cc"
+   ],
+   [
+    "Max power",
+    "26.5 PS @ 9,300 rpm"
+   ],
+   [
+    "Max torque",
+    "22.2 Nm @ 7,300 rpm"
+   ],
+   [
+    "Kerb weight",
+    "167 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Champion Yellow No. 2 / Glass Sparkle Black",
+    "#e9d700",
+    ""
+   ],
+   [
+    "Pearl Fresh Blue / Glass Sparkle Black",
+    "#2644ebf0",
+    "/assets/img/official/v-strom-sx/colour-2.jpg"
+   ],
+   [
+    "Pearl Glacier White / Metallic Matte Stellar Blue",
+    "#c1c0c8",
+    "/assets/img/official/v-strom-sx/colour-3.jpg"
+   ],
+   [
+    "Glass Sparkle Black",
+    "#000",
+    "/assets/img/official/v-strom-sx/colour-4.jpg"
+   ],
+   [
+    "Glass Sparkle Black / Metallic Matte Fibroin Gray",
+    "#a2a2a2",
+    "/assets/img/official/v-strom-sx/colour-5.png"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "Suzuki Easy Start System",
+    "The Suzuki Easy Start System allows the engine to be started with no need to hold down the switch, requiring only a single, brief push (with the clutch pulled in).",
+    ""
+   ],
+   [
+    "USB Outlet",
+    "A USB outlet on the left side of the instrument cluster can be used to charge a device. It glows blue making it easy to use in low light situations.",
+    ""
+   ],
+   [
+    "Suzuki Eco Performance (SEP)",
+    "SEP engines feature weight saving and friction-reducing technology to allow both low fuel consumption and excellent power characteristics. In the V-STROM SX, the SEP engine offers brisk acceleration but uses little fuel in the process.",
+    ""
+   ],
+   [
+    "Suzuki Oil Cooling System (SOCS)",
+    "The world’s first oil-cooled motorcycle engine was developed by Suzuki and has been updated ever since, becoming the key to producing smaller, lighter engines as the use of an oil cooling system allows a smaller, more compact design. The en",
+    ""
+   ],
+   [
+    "Engine Performance",
+    "The 249cm3, 4-stroke 1-cylinder, 4-valve, oil-cooled SOHC engine featured in the V-STROM SX feels strong and linear, offering excellent torque at low rpm and a smooth run up, making it easy to use for beginners and veteran riders alike, as",
+    ""
+   ],
+   [
+    "MotoGP Technology",
+    "Analytic technology gained through MotoGP was used to develop the valves, shim type roller rocker arms, retainers and piston to reduce their weight. These combined result in a lighter engine with less friction loss. This reduces the overall",
+    ""
+   ],
+   [
+    "Piston",
+    "Printed surface treatment of the piston skirt area has reduced friction loss in the piston itself. This has contributed to increased output and better fuel efficiency. The cylinder liners' unique finish offers excellent heat transfer effect",
+    ""
+   ],
+   [
+    "Electronic Fuel Injection",
+    "Sensors monitor and record data like air pressure and air temperature to deliver and inject the ideal amount of fuel to match riding conditions. This allows a smooth, direct and linear throttle response in any kind of climate, environment o",
+    ""
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-stroke, Single-cylinder, oil-cooled, SOHC"
+     ],
+     [
+      "Valve System",
+      "4 valve"
+     ],
+     [
+      "Bore x Stroke",
+      "76.0 mm x 54.9 mm"
+     ],
+     [
+      "Displacement",
+      "249 cc"
+     ],
+     [
+      "Compression Ratio",
+      "10.7 : 1"
+     ],
+     [
+      "Max Power",
+      "26.5 PS @ 9,300 rpm"
+     ],
+     [
+      "Max Torque",
+      "22.2 Nm @ 7,300 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "Electric"
+     ],
+     [
+      "Lubrication System",
+      "Wet sump"
+     ],
+     [
+      "Transmission",
+      "6-speed constant mesh"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "2,180 mm"
+     ],
+     [
+      "Overall Width",
+      "880 mm"
+     ],
+     [
+      "Overall Height",
+      "1,355 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,440 mm"
+     ],
+     [
+      "Ground Clearance",
+      "205 mm"
+     ],
+     [
+      "Seat Height",
+      "835 mm"
+     ],
+     [
+      "Kerb Mass",
+      "167 kg"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "12 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc, single"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "100/90-19M/C 57S, tubeless"
+     ],
+     [
+      "Rear",
+      "140/70-17M/C 66S, tubeless"
+     ],
+     [
+      "Rake / Trail",
+      "27° / 97 mm"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic, coil spring, oil damped"
+     ],
+     [
+      "Rear",
+      "Swing arm type, coil spring, oil damped"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Ignition System",
+      "Electronic ignition"
+     ],
+     [
+      "Battery",
+      "Maintenance Free, 12V 6AH"
+     ],
+     [
+      "Headlight & Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/v-strom-sx/gallery-1.jpg",
+   "/assets/img/official/v-strom-sx/gallery-2.jpg",
+   "/assets/img/official/v-strom-sx/gallery-3.jpg",
+   "/assets/img/official/v-strom-sx/gallery-4.jpg",
+   "/assets/img/official/v-strom-sx/gallery-5.jpg",
+   "/assets/img/official/v-strom-sx/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/v-strom-sx",
+  "similar": [
+   "gixxer-sf-250",
+   "gixxer-250",
+   "v-strom-800de"
+  ],
+  "accessories": [
+   [
+    "Fuel Tank Pad",
+    "/assets/img/official/v-strom-sx/accessory-1.jpg"
+   ],
+   [
+    "Accessory Bar",
+    "/assets/img/official/v-strom-sx/accessory-2.jpg"
+   ],
+   [
+    "Fuel Tank Protection",
+    "/assets/img/official/v-strom-sx/accessory-3.jpg"
+   ],
+   [
+    "Seat Assembly-Low Height",
+    "/assets/img/official/v-strom-sx/accessory-4.jpg"
+   ],
+   [
+    "Wheel Decal (Red)",
+    "/assets/img/official/v-strom-sx/accessory-5.jpg"
+   ],
+   [
+    "Wheel Decal (Yellow)",
+    "/assets/img/official/v-strom-sx/accessory-6.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "V-Strom SX",
+    "https://www.suzukimotorcycle.co.in/brochure/V-Strom%20Brochure.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "V-Strom SX",
+    "₹2,04,220"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "access",
+  "name": "Access",
+  "category": "scooters",
+  "url": "/scooters/access/",
+  "tagline": "Pickup Bhi Mileage Bhi",
+  "summary": "125cc family scooter built for everyday comfort.",
+  "overview": "The Access is Suzuki’s 124cc family scooter. Its fuel-injected Suzuki Eco Performance engine is tuned for more torque at low rpm, and selected editions add ABS and a colour TFT digital console.",
+  "image": "/assets/img/models/access.png",
+  "highlights": [
+   [
+    "Displacement",
+    "124 cc"
+   ],
+   [
+    "Max power",
+    "6.2 kW @ 6,500 rpm"
+   ],
+   [
+    "Max torque",
+    "10.2 Nm @ 5,000 rpm"
+   ],
+   [
+    "Kerb weight",
+    "107 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Solid Ice Green",
+    "#70b1a3e8",
+    ""
+   ],
+   [
+    "Pearl Shiny Beige",
+    "#c1a585",
+    "/assets/img/official/access/colour-2.png"
+   ],
+   [
+    "Metallic Matte Stellar Blue",
+    "#182f4cf0",
+    "/assets/img/official/access/colour-3.png"
+   ],
+   [
+    "Pearl Grace White",
+    "#cbc0adbf",
+    "/assets/img/official/access/colour-4.png"
+   ],
+   [
+    "Metallic Matte Black No. 2",
+    "#000",
+    "/assets/img/official/access/colour-5.png"
+   ],
+   [
+    "Pearl Matte Aqua Silver",
+    "#9ad8f1",
+    "/assets/img/official/access/colour-6.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "ABS",
+    "The New Suzuki Access is now offered with Single Channel Anti-Lock Braking System (ABS) adding rider-assist braking support designed to operate during sudden or emergency braking situations, while retaining Access’s trus",
+    "/assets/img/official/access/feature-1.jpg"
+   ],
+   [
+    "Coloured TFT Digital Console",
+    "The new Access features a 4.2 inch colored TFT (Thin-Film Transistor) Digital Console. This modern display offers brighter, crisper, and has faster refresh rates than standard LCD displays thereby enabling better image q",
+    "/assets/img/official/access/feature-2.jpg"
+   ],
+   [
+    "Greater Torque at Lower RPM",
+    "The engine produces greater torque at lower rpm. Maximum torque has also been increased and is now achieved at a lower rpm (5,500->5,000 rpm). This change contributes to enhancing fuel efficiency, and to improving the fe",
+    "/assets/img/official/access/feature-3.jpg"
+   ],
+   [
+    "Optimized CVT Settings",
+    "The finely tuned CVT transmission delivers satisfying acceleration at low rpm, without having to open the throttle excessively, while its settings are also effective in limiting fuel consumption. By matching the CVT sett",
+    "/assets/img/official/access/feature-4.jpg"
+   ],
+   [
+    "Improved Combustion Efficiency and Engine Performance",
+    "This is achieved by implementing changes to the camshaft profile. Specifically, the intake cam lifts higher to increase the amount of air intake, while the exhaust cam timing was adjusted to minimize overlap.",
+    "/assets/img/official/access/feature-5.jpg"
+   ],
+   [
+    "Ideal Combustion Efficiency",
+    "Optimized intake port’s shape and combustion chamber shape to maximizes the flow velocity of the air-fuel mixture entering the combustion chamber from intake port. Optimized combustion chamber design helps in achieving a",
+    "/assets/img/official/access/feature-6.jpg"
+   ],
+   [
+    "Fuel Injection System & Optimized Intake Valve Shape",
+    "The mounting angle of the injector is also optimized to for excellent combustion efficiency. Precise control over fuel delivery also makes engine starts easier and more reliable, even in cold weather. The engine produces",
+    "/assets/img/official/access/feature-7.jpg"
+   ],
+   [
+    "Suzuki Eco Performance (SEP) Technology",
+    "The Engine is powered by cutting edge Suzuki Eco Performance (SEP) technology which is the forward-looking engine development concept behind the creation of the powerplant for Access. The resulting engine delivers Superi",
+    "/assets/img/official/access/feature-8.png"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4- Stroke, 1-Cylinder, Air Cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC, 2-Valve"
+     ],
+     [
+      "Displacement",
+      "124 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "52.5 X 57.4 mm"
+     ],
+     [
+      "Max Engine Output",
+      "6.2 kW @ 6,500 rpm"
+     ],
+     [
+      "Max Torque",
+      "10.2 Nm @ 5,000 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "Kick and Electric"
+     ],
+     [
+      "Transmission Type",
+      "CVT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "1,835 mm"
+     ],
+     [
+      "Overall Width",
+      "680 mm (Std) | 690 mm (SE/RC/RC ABS/RCT ABS)"
+     ],
+     [
+      "Overall Height",
+      "1,155 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,260 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Seat Length",
+      "856 mm"
+     ],
+     [
+      "Kerb Mass",
+      "107 kg (Std) | 106 kg (SE/RC/RC ABS/RCT ABS)"
+     ],
+     [
+      "Wheels",
+      "Alloy/Cast"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "5.3 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Drum/Disc"
+     ],
+     [
+      "Rear",
+      "Drum"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90 - 12 54J"
+     ],
+     [
+      "Rear",
+      "90/100 – 10 53J"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing Arm"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance Free 12V, 4Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/access/gallery-1.png",
+   "/assets/img/official/access/gallery-2.png",
+   "/assets/img/official/access/gallery-3.png",
+   "/assets/img/official/access/gallery-4.png",
+   "/assets/img/official/access/gallery-5.png"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/all-new-access-125-bluetooth-enabled",
+  "similar": [
+   "avenis",
+   "burgman-street",
+   "e-access"
+  ],
+  "accessories": [
+   [
+    "Meter Visor",
+    "/assets/img/official/access/accessory-1.png"
+   ],
+   [
+    "Floor Mat (Black)",
+    "/assets/img/official/access/accessory-2.png"
+   ],
+   [
+    "Floor Mat (Red)",
+    "/assets/img/official/access/accessory-3.png"
+   ],
+   [
+    "Rear Footrest",
+    "/assets/img/official/access/accessory-4.png"
+   ],
+   [
+    "Seat Cover (Brown)",
+    "/assets/img/official/access/accessory-5.png"
+   ],
+   [
+    "Seat Cover (Maroon)",
+    "/assets/img/official/access/accessory-6.png"
+   ],
+   [
+    "Seat Cover (Dark Brown)",
+    "/assets/img/official/access/accessory-7.png"
+   ]
+  ],
+  "brochures": [
+   [
+    "Access",
+    "https://www.suzukimotorcycle.co.in/brochure/Suzuki-Access-Brochure%20-A4-Web-1.pdf"
+   ],
+   [
+    "Access ABS",
+    "https://www.suzukimotorcycle.co.in/brochure/access-abs.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Standard Edition (drum brake)",
+    "₹85,187"
+   ],
+   [
+    "Special Edition (disc brake)",
+    "₹91,529"
+   ],
+   [
+    "Ride Connect Edition (disc, alloy)",
+    "₹93,728"
+   ],
+   [
+    "Ride Connect TFT Edition",
+    "₹95,977"
+   ],
+   [
+    "Ride Connect ABS Edition",
+    "₹1,00,534"
+   ],
+   [
+    "Ride Connect TFT ABS Edition",
+    "₹1,05,881"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "avenis",
+  "name": "Avenis",
+  "category": "scooters",
+  "url": "/scooters/avenis/",
+  "tagline": "Street Ka OG",
+  "summary": "Sporty 125cc scooter with sharp street styling.",
+  "overview": "The Avenis is Suzuki’s sporty 124cc scooter: 8.7 PS, a 106 kg kerb mass, a body-mounted LED headlamp, an external fuel cap and a front box with a USB socket.",
+  "image": "/assets/img/models/avenis.png",
+  "highlights": [
+   [
+    "Displacement",
+    "124 cc"
+   ],
+   [
+    "Max power",
+    "8.7 PS @ 6,750 rpm"
+   ],
+   [
+    "Max torque",
+    "10 Nm @ 5,500 rpm"
+   ],
+   [
+    "Kerb weight",
+    "106 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Glossy Sparkle Black / Pearl Mira",
+    "#f60a12fa",
+    ""
+   ],
+   [
+    "Metallic Matte Platinum Silver No. 2 / Glass Sparkle Black",
+    "#aaaaaad9",
+    "/assets/img/official/avenis/colour-2.png"
+   ],
+   [
+    "Glossy Sparkle Black",
+    "#000",
+    "/assets/img/official/avenis/colour-3.png"
+   ],
+   [
+    "Glossy Sparkle Black / Pearl Glacier White",
+    "#ffffff",
+    "/assets/img/official/avenis/colour-4.png"
+   ],
+   [
+    "Pearl Glacier White / Metallic Oort Gray",
+    "#cccccc",
+    "/assets/img/official/avenis/colour-5.jpg"
+   ],
+   [
+    "Metallic Matte Black No. 2 / Metallic Matte Titanium Silver",
+    "#3d3c41",
+    "/assets/img/official/avenis/colour-6.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "E20 Compliant",
+    "As a part of our effort towards carbon reduction, entire range of Suzuki scooters is now E20 compliant. E20 Fuel type is more environment friendly as its use results in lower carbon emission.",
+    "/assets/img/official/avenis/feature-1.png"
+   ],
+   [
+    "Advanced Sporty Styling",
+    "The sporty styling is reflected in each and every element of the scooter, for the youthful look.",
+    "/assets/img/official/avenis/feature-2.png"
+   ],
+   [
+    "External Hinge Type Fuel Cap",
+    "Refuel with ease without having to open the seat.",
+    "/assets/img/official/avenis/feature-3.png"
+   ],
+   [
+    "Motorcycle Inspired Rear Indicators",
+    "Motorcycle inspired indicators that complement the sporty style.",
+    "/assets/img/official/avenis/feature-4.png"
+   ],
+   [
+    "Body Mount Bright LED Headlamp",
+    "The super bright LED headlamp for enhanced visibility.",
+    "/assets/img/official/avenis/feature-5.png"
+   ],
+   [
+    "Large Under Seat Storage Space",
+    "A Helmet, Shopping Bags, Purse and shoes can be easily kept in the 21.8 L capacity under-seat storage, protecting them from rain and dust.",
+    "/assets/img/official/avenis/feature-6.png"
+   ],
+   [
+    "Front Box with USB Socket",
+    "Box with lid on the left side has a capacity of 1 L to withstand 0.5 kg, place small items and an USB socket is installed inside the box for charging.",
+    "/assets/img/official/avenis/feature-7.png"
+   ],
+   [
+    "Sporty LED Tail Lamp",
+    "Compact design with highly illuminated LED lights.",
+    "/assets/img/official/avenis/feature-8.png"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4- Stroke, 1-Cylinder, Air Cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC, 2-Valve"
+     ],
+     [
+      "Displacement",
+      "124 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "52.5 mm X 57.4 mm"
+     ],
+     [
+      "Max Power",
+      "8.7 PS @ 6,750 rpm"
+     ],
+     [
+      "Max Torque",
+      "10 Nm @ 5,500 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "Kick and Electric"
+     ],
+     [
+      "Transmission Type",
+      "CVT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "1,895 mm"
+     ],
+     [
+      "Overall Width",
+      "710 mm"
+     ],
+     [
+      "Overall Height",
+      "1,175 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,265 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Seat Height",
+      "780 mm"
+     ],
+     [
+      "Kerb Mass",
+      "106 kg"
+     ],
+     [
+      "Wheels",
+      "Alloy"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "5.2 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Drum"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90 - 12 - Tubeless"
+     ],
+     [
+      "Rear",
+      "90/100 – 10 - Tubeless"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing Arm"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance Free 12V, 4Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/avenis/gallery-1.jpg",
+   "/assets/img/official/avenis/gallery-2.jpg",
+   "/assets/img/official/avenis/gallery-3.jpg",
+   "/assets/img/official/avenis/gallery-4.jpg",
+   "/assets/img/official/avenis/gallery-5.jpg",
+   "/assets/img/official/avenis/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/avenis",
+  "similar": [
+   "access",
+   "burgman-street",
+   "burgman-street-ex"
+  ],
+  "accessories": [
+   [
+    "Rear Footrest",
+    "/assets/img/official/avenis/accessory-1.jpg"
+   ],
+   [
+    "Knuckle Cover",
+    "/assets/img/official/avenis/accessory-2.jpg"
+   ],
+   [
+    "Floor Mat Red",
+    "/assets/img/official/avenis/accessory-3.jpg"
+   ],
+   [
+    "Floor Mat Green",
+    "/assets/img/official/avenis/accessory-4.jpg"
+   ],
+   [
+    "Seat Cover Orange",
+    "/assets/img/official/avenis/accessory-5.jpg"
+   ],
+   [
+    "Seat Cover Grey",
+    "/assets/img/official/avenis/accessory-6.jpg"
+   ],
+   [
+    "Accessory Bar",
+    "/assets/img/official/avenis/accessory-7.jpg"
+   ],
+   [
+    "Body Cover",
+    "/assets/img/official/avenis/accessory-8.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Avenis",
+    "https://www.suzukimotorcycle.co.in/brochure/Avenis-Brochure-14-10-2026.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Avenis Standard Edition",
+    "₹93,994"
+   ],
+   [
+    "Avenis Special Edition",
+    "₹94,877"
+   ],
+   [
+    "Avenis",
+    "₹95,043"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "burgman-street",
+  "name": "Burgman Street",
+  "category": "scooters",
+  "url": "/scooters/burgman-street/",
+  "tagline": "One and Only",
+  "summary": "Maxi-style 125cc scooter with a relaxed riding position.",
+  "overview": "The Burgman Street brings maxi-scooter styling to a 124cc package, with a relaxed riding position, a one-way clutch for quieter starts and, on selected editions, a colour TFT console and keyless system.",
+  "image": "/assets/img/models/burgman-street.png",
+  "highlights": [
+   [
+    "Displacement",
+    "124 cc"
+   ],
+   [
+    "Max power",
+    "6.2 kW @ 6,500 rpm"
+   ],
+   [
+    "Max torque",
+    "10.2 Nm @ 5,250 rpm"
+   ],
+   [
+    "Kerb weight",
+    "114 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Pearl Grace White / Metallic Matte Luxe Copper",
+    "#e4ddce",
+    ""
+   ],
+   [
+    "Metallic Matte Black No. 2 / Metallic Matte Luxe Copper",
+    "#1c1a1a",
+    "/assets/img/official/burgman-street/colour-2.jpg"
+   ],
+   [
+    "Metallic Matte Stellar Blue / Metallic Matte Luxe Copper",
+    "#0d3761f0",
+    "/assets/img/official/burgman-street/colour-3.png"
+   ],
+   [
+    "Metallic Matte Platinum Silver No. 2 / Metallic Matte Luxe Copper",
+    "#848281",
+    "/assets/img/official/burgman-street/colour-4.png"
+   ],
+   [
+    "Metallic Royal Bronze / Metallic Matte Luxe Copper",
+    "#554c48fc",
+    "/assets/img/official/burgman-street/colour-5.png"
+   ],
+   [
+    "Metallic Royal Bronze",
+    "#554c48fc",
+    "/assets/img/official/burgman-street/colour-6.png"
+   ],
+   [
+    "Pearl Matte Shadow Green",
+    "#002022e0",
+    "/assets/img/official/burgman-street/colour-7.png"
+   ],
+   [
+    "Pearl Grace White",
+    "#d4cbbc",
+    "/assets/img/official/burgman-street/colour-8.png"
+   ],
+   [
+    "Metallic Matte Black No. 2",
+    "#1c1a1a",
+    "/assets/img/official/burgman-street/colour-9.png"
+   ],
+   [
+    "Metallic Matte Stellar Blue",
+    "#0d3761f0",
+    "/assets/img/official/burgman-street/colour-10.png"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "SEP Engine",
+    "SEP Enginge delivers high fuel efficiency and excellent acceleration performance. Its optimized intake system, high compression design, and precise fuel injection enhance power delivery and fuel efficiency. A lightweight",
+    "/assets/img/official/burgman-street/feature-1.jpg"
+   ],
+   [
+    "Greater Torque at Lower RPM",
+    "The engine is tuned to deliver higher torque at lower rpm, with peak torque now achieved earlier at 5,250 rpm. This enhances responsiveness during acceleration, especially in city riding conditions. The improved low-end",
+    "/assets/img/official/burgman-street/feature-2.jpg"
+   ],
+   [
+    "Optimized CVT Settings",
+    "The CVT is optimized to provide satisfying acceleration at low rpm, without having to open the throttle excessively, while its settings are also effective in limiting fuel consumption.",
+    "/assets/img/official/burgman-street/feature-3.jpg"
+   ],
+   [
+    "Ideal Combustion Efficiency",
+    "The engine is designed to achieve a high compression ratio for strong performance and improved fuel efficiency. Optimized intake port and combustion chamber design enhance airflow and mixture dispersion, enabling efficie",
+    "/assets/img/official/burgman-street/feature-4.jpg"
+   ],
+   [
+    "Fuel Injection System & Optimized Intake Valve Shape",
+    "The optimized fuel injector angle ensures precise fuel delivery for efficient combustion, smoother performance, and lower emissions. This also enables reliable engine starts, even in cold conditions. An advanced intake v",
+    "/assets/img/official/burgman-street/feature-5.png"
+   ],
+   [
+    "One Way Clutch for Quieter Start",
+    "The engine starts up more quietly with roller type one-way clutch. The new clutch springs continue to allow engine starts at temperatures as low as -10°C.",
+    "/assets/img/official/burgman-street/feature-6.jpg"
+   ],
+   [
+    "Colour TFT Instrument Cluster",
+    "Color TFT Instrument Cluster is available in Burgman Street TFT Edition. Burgman Street Ride Connect Edition comes with monochrome LED display",
+    "/assets/img/official/burgman-street/feature-7.jpg"
+   ],
+   [
+    "Multi-Function Keyless System",
+    "Keyless system lets riders start, open fuel lid, and access storage without using a key. Answer-back flashes indicators to locate the scooter. Loss alert warns if fob disconnects. Multi-function switch integrates seat, l",
+    "/assets/img/official/burgman-street/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Stroke, 1-Cylinder, Air-Cooled, SOHC"
+     ],
+     [
+      "Compression Ratio",
+      "10.3: 1"
+     ],
+     [
+      "Displacement",
+      "124 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "52.5 * 57.4 mm"
+     ],
+     [
+      "Max Power",
+      "6.2 kW @ 6,500 rpm"
+     ],
+     [
+      "Max Torque",
+      "10.2 Nm @ 5,250 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "Electric & Kick"
+     ],
+     [
+      "Transmission Type",
+      "CVT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "1,860 mm"
+     ],
+     [
+      "Overall Width",
+      "700 mm"
+     ],
+     [
+      "Overall Height",
+      "1,140 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,285 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Seat Height",
+      "775 mm"
+     ],
+     [
+      "Kerb Mass",
+      "114 kg (Ride Connect Edition) | 115 kg (Ride Connect TFT Edition)"
+     ],
+     [
+      "Wheels",
+      "Alloy"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "5.5 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Drum"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90-12 54J"
+     ],
+     [
+      "Rear",
+      "100/80-12 56J"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing Arm Type"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "Maintenance Free 12V, 4Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/burgman-street/gallery-1.jpg",
+   "/assets/img/official/burgman-street/gallery-2.jpg",
+   "/assets/img/official/burgman-street/gallery-3.jpg",
+   "/assets/img/official/burgman-street/gallery-4.jpg",
+   "/assets/img/official/burgman-street/gallery-5.jpg",
+   "/assets/img/official/burgman-street/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/burgman-street",
+  "similar": [
+   "burgman-street-ex",
+   "access",
+   "avenis"
+  ],
+  "accessories": [
+   [
+    "Floor Mat Red",
+    "/assets/img/official/burgman-street/accessory-1.jpg"
+   ],
+   [
+    "Floor Mat Grey",
+    "/assets/img/official/burgman-street/accessory-2.jpg"
+   ],
+   [
+    "Seat Cover Black",
+    "/assets/img/official/burgman-street/accessory-3.jpg"
+   ],
+   [
+    "Seat Cover Brown",
+    "/assets/img/official/burgman-street/accessory-4.jpg"
+   ],
+   [
+    "Rear Foot Rest",
+    "/assets/img/official/burgman-street/accessory-5.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Burgman Street",
+    "https://www.suzukimotorcycle.co.in/brochure/Burgman%20Brochure%208%20Pages_A-4_Web.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Ride Connect Edition",
+    "₹1,07,047"
+   ],
+   [
+    "Ride Connect TFT Edition",
+    "₹1,17,821"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "burgman-street-ex",
+  "name": "Burgman Street EX",
+  "category": "scooters",
+  "url": "/scooters/burgman-street-ex/",
+  "tagline": "The Special One. Now, More Special Than Ever",
+  "summary": "The Burgman with a 12-inch rear wheel and silent starter.",
+  "overview": "The Burgman Street EX adds a 12-inch rear wheel, Engine Auto Stop-Start, a Silent Starter System and a Bluetooth-enabled digital console to the Burgman formula.",
+  "image": "/assets/img/models/burgman-street-ex.png",
+  "highlights": [
+   [
+    "Displacement",
+    "124 cc"
+   ],
+   [
+    "Max power",
+    "8.6 PS @ 6,500 rpm"
+   ],
+   [
+    "Max torque",
+    "10.0 Nm @ 5,500 rpm"
+   ],
+   [
+    "Kerb weight",
+    "111 kg"
+   ]
+  ],
+  "colours": [
+   [
+    "Pearl Glacier White / Metallic Oort",
+    "#d9d4c1",
+    "/assets/img/official/burgman-street-ex/colour-1.jpg"
+   ],
+   [
+    "Metallic Matte Black No. 2",
+    "#000000",
+    "/assets/img/official/burgman-street-ex/colour-2.jpg"
+   ],
+   [
+    "Metallic Royal Bronze",
+    "#a97142",
+    "/assets/img/official/burgman-street-ex/colour-3.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "E20 Compliant",
+    "As a part of our effort towards carbon reduction, entire range of Suzuki scooters is now E20 compliant. E20 Fuel type is more environment friendly as its use results in lower carbon emission.",
+    "/assets/img/official/burgman-street-ex/feature-1.jpg"
+   ],
+   [
+    "Engine Auto Stop-Start (EASS)",
+    "The BURGMAN STREET 125EX is the first Suzuki motorcycle or scooter to adopt our new EASS Stop-Start system, which automatically shuts down the engine to reduce the amount of time the engine idles, and then restarts it wh",
+    "/assets/img/official/burgman-street-ex/feature-2.jpg"
+   ],
+   [
+    "Silent Starter System",
+    "The new Silent Starter System is also the first on a Suzuki Motorcycle or scooter. It Starts the scooter smoothly and quietly. The system works in conjunction with the idling stop function of EASS to silently restart the",
+    "/assets/img/official/burgman-street-ex/feature-3.jpg"
+   ],
+   [
+    "Suzuki Eco Performance Alpha",
+    "SEP is the development concept behind a new generation of engines proposed by Suzuki that combine both a high level of fuel efficiency and excellent acceleration performance. The new BURGMAN STREET EX further advances th",
+    "/assets/img/official/burgman-street-ex/feature-4.jpg"
+   ],
+   [
+    "12 Inch Rear Wheel (30.48cm)",
+    "The rear wheel size now becomes 12 inch (30.48cm) with 100/80-12 tyre profile. This enhances the look making it wider, bigger and more luxurious. This larger diameter wheel helps in improving the city riding efficiency l",
+    "/assets/img/official/burgman-street-ex/feature-5.jpg"
+   ],
+   [
+    "Bluetooth Enabled Digital Console",
+    "Bluetooth® Enabled Digital console with features like Turn by Turn Navigation, Missed Call alert and Caller ID, Call, SMS & WhatsApp Alert, Over-Speed Warning, ETA Updates, Phone Battery Level Display.",
+    "/assets/img/official/burgman-street-ex/feature-6.jpg"
+   ],
+   [
+    "USB Socket",
+    "A handy 2A USB outlet",
+    "/assets/img/official/burgman-street-ex/feature-7.jpg"
+   ],
+   [
+    "Front Disc Brake",
+    "190mm diameter disc brake in the front",
+    "/assets/img/official/burgman-street-ex/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-Stroke, 1 Cylinder, Air Cooled"
+     ],
+     [
+      "Valve System",
+      "SOHC, 2 Valve"
+     ],
+     [
+      "Displacement",
+      "124 cc"
+     ],
+     [
+      "Bore x Stroke",
+      "52.5 x 57.4 mm"
+     ],
+     [
+      "Max Power",
+      "8.6 PS @ 6,500 rpm"
+     ],
+     [
+      "Max Torque",
+      "10.0 Nm @ 5,500 rpm"
+     ],
+     [
+      "Fuel System",
+      "Fuel Injection"
+     ],
+     [
+      "Starter System",
+      "Kick And Electric"
+     ],
+     [
+      "Transmission Type",
+      "CVT"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "1,875 mm"
+     ],
+     [
+      "Overall Width",
+      "700 mm"
+     ],
+     [
+      "Overall Height",
+      "1,140 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,290 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Seat Height",
+      "780 mm"
+     ],
+     [
+      "Kerb Mass",
+      "111 kg"
+     ],
+     [
+      "Wheels",
+      "Alloy"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "5.5 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Drum"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90-12 54J Tubeless"
+     ],
+     [
+      "Rear",
+      "100/80-12 56J Tubeless"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic"
+     ],
+     [
+      "Rear",
+      "Swing Arm"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Battery",
+      "12V, 6Ah"
+     ],
+     [
+      "Headlight",
+      "LED"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/burgman-street-ex/gallery-1.jpg",
+   "/assets/img/official/burgman-street-ex/gallery-2.jpg",
+   "/assets/img/official/burgman-street-ex/gallery-3.jpg",
+   "/assets/img/official/burgman-street-ex/gallery-4.jpg",
+   "/assets/img/official/burgman-street-ex/gallery-5.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/burgman-street-ex",
+  "similar": [
+   "burgman-street",
+   "access",
+   "avenis"
+  ],
+  "accessories": [
+   [
+    "Rear Footrest Side",
+    "/assets/img/official/burgman-street-ex/accessory-1.jpg"
+   ],
+   [
+    "Bar Set, Accessories",
+    "/assets/img/official/burgman-street-ex/accessory-2.jpg"
+   ],
+   [
+    "Seat Cover",
+    "/assets/img/official/burgman-street-ex/accessory-3.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "Burgman Street EX",
+    "https://www.suzukimotorcycle.co.in/brochure/Burgman-Leaflet-may-23.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "Burgman Street EX",
+    "₹1,16,304"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "e-access",
+  "name": "e-Access",
+  "category": "electric",
+  "url": "/electric-vehicles/e-access/",
+  "tagline": "The new e-scooter standard",
+  "summary": "Suzuki’s electric scooter: quiet, smooth and familiar.",
+  "overview": "The e-Access is Suzuki’s electric scooter. A 3.072 kWh lithium iron phosphate (LFP) battery gives a certified range of 95 km (AIS 040), and the fast charger takes it from 0 to 80% in about 1 hour 12 minutes.",
+  "image": "/assets/img/models/e-access.png",
+  "highlights": [
+   [
+    "Range (AIS 040)",
+    "95 km"
+   ],
+   [
+    "Max power",
+    "4.1 kW"
+   ],
+   [
+    "Battery",
+    "60 Ah, 3.072 kWh"
+   ],
+   [
+    "Fast charge",
+    "0–80% in 1 h 12 min"
+   ]
+  ],
+  "colours": [
+   [
+    "Metallic Matte Black No. 2 / Metallic Matte Bordeaux Red",
+    "#000",
+    ""
+   ],
+   [
+    "Pearl Grace White / Metallic Matte Fibroin Gray",
+    "#e0dbc8",
+    "/assets/img/official/e-access/colour-2.png"
+   ],
+   [
+    "Pearl Jade Green / Metallic Matte Fibroin Gray",
+    "#698471",
+    "/assets/img/official/e-access/colour-3.png"
+   ],
+   [
+    "Metallic Matte Blue No. 2 / Metallic Matte Fibroin Gray",
+    "#2d418f",
+    "/assets/img/official/e-access/colour-4.png"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "Suzuki E Technology",
+    "Suzuki e technology indicates a continued focus on technologies that deliver (A) High Quailty and (B) Superior drivability while benefiting from suzuki`s long history of developing motorcycles and scooters, even as they",
+    "/assets/img/official/e-access/feature-1.jpg"
+   ],
+   [
+    "4× Longer of LFP Battery Life",
+    "Suzuki chose LFP (Lithium Iron Phosphate) batteries over NMC(Nickel Manganese Cobalt ) for the e-ACCESS’ lithium-ion battery pack specifically because LFP batteries deliver the betterbalance of capacity, durability, high",
+    "/assets/img/official/e-access/feature-2.jpg"
+   ],
+   [
+    "Durable & Safe EV Drivetrain",
+    "We believe that truly reliable craftsman ship comes from meticulous attention to details & the legacy built over time. Development test on E-Access follow the same rigorous test as large motorcycles like Hayabusa. This i",
+    "/assets/img/official/e-access/feature-3.jpg"
+   ],
+   [
+    "Smooth Pickup with Synchronised Throttle Response",
+    "The e-ACCESS improves on areas where users typically find the drivability of electric scooters lacking. For example, rather than establish a 1:1 setting between the actual degree of throttle opening and power output, the",
+    "/assets/img/official/e-access/feature-4.jpg"
+   ],
+   [
+    "Constant Power Delivery Even at Low Battery Charge",
+    "Priority was to provide constant power output, even when the SoC (State of Charge) drops. In contrast to competing models, the e-ACCESS is designed to continue delivering constant power and maintain the same responsive f",
+    "/assets/img/official/e-access/feature-5.jpg"
+   ],
+   [
+    "Maintenance-Free Drive Belt",
+    "One advantage of the belt is that it never requires lubrication, (which is necessary when usinga standard roller chain). The belt employs an auto-tensioner that eliminates the need for regular adjustments. And, by preven",
+    "/assets/img/official/e-access/feature-6.jpg"
+   ],
+   [
+    "Suzuki Drive Mode Selector-E (SDMS-e)",
+    "SDMS-e offers riders a choice of three drive modes optimized to best suit their preferences in addition to Reverse Mode for Convenience.Eco mode: Maximizes cruising range by limiting maximum speed to 55 km/h by restricti",
+    "/assets/img/official/e-access/feature-7.jpg"
+   ],
+   [
+    "Keyless System",
+    "This system lets the rider turn on the motor, open the charging inlet lid, or access the underseat utility compartment as long as they are carrying the remote fob on their person. That means there is no need to fumble ar",
+    "/assets/img/official/e-access/feature-8.jpg"
+   ]
+  ],
+  "specs": [
+   [
+    "Battery & motor",
+    [
+     [
+      "Battery voltage",
+      "51.2 V"
+     ],
+     [
+      "Maximum Power",
+      "4.1 kW"
+     ],
+     [
+      "Maximum torque",
+      "15 Nm"
+     ],
+     [
+      "EV battery type",
+      "Lithium Iron Phosphate(LFP)"
+     ],
+     [
+      "Fixing type",
+      "Fixed"
+     ],
+     [
+      "Battery capacity",
+      "60 Ah, 3.072 kWh"
+     ],
+     [
+      "Range (As per AIS 040)",
+      "95 km"
+     ],
+     [
+      "Energy consumption (As per AIS 039)",
+      "39 Wh/km"
+     ],
+     [
+      "Charger type",
+      "Off-board type. Single-phase AC200-240V 50/60Hz"
+     ],
+     [
+      "Charging time (portable charger)",
+      "0–80% in 4 h 30 min · 0–100% in 6 h 20 min"
+     ],
+     [
+      "Charging time (fast charger)",
+      "0–80% in 1 h 12 min · 0–100% in 2 h 12 min"
+     ],
+     [
+      "Frame type",
+      "Underbone"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "1,860 mm"
+     ],
+     [
+      "Overall Width",
+      "715 mm"
+     ],
+     [
+      "Overall Height",
+      "1,135 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,305 mm"
+     ],
+     [
+      "Ground Clearance",
+      "160 mm"
+     ],
+     [
+      "Seat Height",
+      "765 mm"
+     ],
+     [
+      "Curb mass",
+      "122 kg"
+     ],
+     [
+      "Wheels",
+      "Alloy"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc"
+     ],
+     [
+      "Rear",
+      "Drum"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90-12 54J, tubeless"
+     ],
+     [
+      "Rear",
+      "100/80-12 56J, tubeless"
+     ],
+     [
+      "Rake / Trail",
+      "27.4° / 92 mm"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Telescopic, Coil Spring ,Oil Damped"
+     ],
+     [
+      "Rear",
+      "Swingarm type, coil spring, oil damped"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Headlight",
+      "LED"
+     ],
+     [
+      "Tail Light",
+      "LED"
+     ],
+     [
+      "DRL",
+      "LED"
+     ],
+     [
+      "BATTERY",
+      "Maintenance -free 12V , 5Ah"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/e-access/gallery-1.png",
+   "/assets/img/official/e-access/gallery-2.png",
+   "/assets/img/official/e-access/gallery-3.png",
+   "/assets/img/official/e-access/gallery-4.png",
+   "/assets/img/official/e-access/gallery-5.png",
+   "/assets/img/official/e-access/gallery-6.png"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/e-access",
+  "similar": [
+   "access",
+   "burgman-street",
+   "avenis"
+  ],
+  "accessories": [
+   [
+    "Meter Visor (Tinted)",
+    "/assets/img/official/e-access/accessory-1.png"
+   ],
+   [
+    "Floor Mat (Black)",
+    "/assets/img/official/e-access/accessory-2.png"
+   ],
+   [
+    "Rear Footrest",
+    "/assets/img/official/e-access/accessory-3.png"
+   ],
+   [
+    "Seat Cover (Black)",
+    "/assets/img/official/e-access/accessory-4.png"
+   ]
+  ],
+  "brochures": [
+   [
+    "e-Access",
+    "https://www.suzukimotorcycle.co.in/brochure/10494_S_e-Access.pdf"
+   ]
+  ],
+  "prices": [
+   [
+    "e-Access",
+    "₹1,77,057"
+   ]
+  ],
+  "pricesNote": "Ex-showroom, Hyderabad (Telangana), as published by Suzuki Motorcycle India on 12 Nov 2026."
+ },
+ {
+  "id": "gsx-8r",
+  "name": "GSX-8R",
+  "category": "premium",
+  "url": "/premium-bikes/gsx-8r/",
+  "tagline": "The New Standard of Sport",
+  "summary": "776cc parallel-twin sport bike.",
+  "overview": "The GSX-8R is a 776cc parallel-twin sport bike. Liquid-cooled, DOHC and paired with a 6-speed gearbox, it balances sharp sport styling with an 810 mm seat height for real-world riding.",
+  "image": "/assets/img/official/gsx-8r/portrait.jpg",
+  "highlights": [
+   [
+    "Displacement",
+    "776 cc"
+   ],
+   [
+    "Gearbox",
+    "6-speed constant mesh"
+   ],
+   [
+    "Kerb weight",
+    "205 kg"
+   ],
+   [
+    "Seat height",
+    "810 mm"
+   ]
+  ],
+  "colours": [
+   [
+    "Metallic Triton Blue",
+    "#3d9dd6",
+    "/assets/img/official/gsx-8r/colour-1.jpg"
+   ],
+   [
+    "Metallic Matte Sword Silver",
+    "#aaa9ad",
+    "/assets/img/official/gsx-8r/colour-2.jpg"
+   ],
+   [
+    "Metallic Matte Black No. 2 (Ykv",
+    "#000",
+    "/assets/img/official/gsx-8r/colour-3.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-stroke, 2-cylinder, liquid-cooled, DOHC"
+     ],
+     [
+      "Bore x Stroke",
+      "84.0 mm x 70.0 mm (3.3 in. x 2.8 in.)"
+     ],
+     [
+      "Displacement",
+      "776 cc"
+     ],
+     [
+      "Transmission Type",
+      "6-speed constant mesh"
+     ],
+     [
+      "Compression Ratio",
+      "12.8 : 1"
+     ],
+     [
+      "Lubrication System",
+      "Forced feed circulation, Wet sump"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "2,155 mm"
+     ],
+     [
+      "Overall Width",
+      "770 mm"
+     ],
+     [
+      "Overall Height",
+      "1,135 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,465 mm"
+     ],
+     [
+      "Ground Clearance",
+      "145 mm"
+     ],
+     [
+      "Seat Height",
+      "810 mm"
+     ],
+     [
+      "Kerb Weight",
+      "205 kg"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc, twin"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "120/70ZR17M/C (58W) tubeless"
+     ],
+     [
+      "Rear",
+      "180/55ZR17M/C (73W) tubeless"
+     ],
+     [
+      "Rake / Trail",
+      "25° / 104 mm"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Inverted telescopic, coil spring, oil damped"
+     ],
+     [
+      "Rear",
+      "Link type, coil spring, oil damped"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Starter system",
+      "Electric"
+     ],
+     [
+      "Ignition System",
+      "Electronic ignition (transistorized)"
+     ]
+    ]
+   ],
+   [
+    "Fuel Tank",
+    [
+     [
+      "Fuel system",
+      "Fuel injection"
+     ],
+     [
+      "Fuel consumption",
+      "23.8 km/L (4.2 L/100km) in WMTC"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "14 L (3.7/3.1 US/lmp gal)"
+     ],
+     [
+      "Oil Capacity (Overhaul)",
+      "3.9 L (4.1/3.4 US/Imp qt)"
+     ],
+     [
+      "CO2 emissions",
+      "99 g/km in WMTC"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/gsx-8r/gallery-1.jpg",
+   "/assets/img/official/gsx-8r/gallery-2.jpg",
+   "/assets/img/official/gsx-8r/gallery-3.jpg",
+   "/assets/img/official/gsx-8r/gallery-4.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/gsx-8r",
+  "similar": [
+   "v-strom-800de",
+   "hayabusa",
+   "gixxer-sf-250"
+  ],
+  "accessories": [
+   [
+    "Touring Screen (Smoked Tint)",
+    "/assets/img/official/gsx-8r/accessory-1.png"
+   ],
+   [
+    "Single Seat Cowl",
+    "/assets/img/official/gsx-8r/accessory-2.png"
+   ],
+   [
+    "Stylish Seat",
+    "/assets/img/official/gsx-8r/accessory-3.png"
+   ],
+   [
+    "Soft Side Case Set",
+    "/assets/img/official/gsx-8r/accessory-4.png"
+   ],
+   [
+    "Frame Slider",
+    "/assets/img/official/gsx-8r/accessory-5.png"
+   ],
+   [
+    "Fuel Tank Pad",
+    "/assets/img/official/gsx-8r/accessory-6.png"
+   ],
+   [
+    "Billet Brake Lever (Anodized)",
+    "/assets/img/official/gsx-8r/accessory-7.png"
+   ],
+   [
+    "Billet Clutch Lever (Anodized)",
+    "/assets/img/official/gsx-8r/accessory-8.png"
+   ]
+  ],
+  "brochures": [
+   [
+    "GSX-8R",
+    "https://www.suzukimotorcycle.co.in/brochure/GSX-8R-Brochure-A4.pdf"
+   ]
+  ],
+  "prices": [],
+  "pricesNote": "",
+  "availability": "not-listed-telangana"
+ },
+ {
+  "id": "v-strom-800de",
+  "name": "V-Strom 800DE",
+  "category": "premium",
+  "url": "/premium-bikes/v-strom-800de/",
+  "tagline": "Adventure Is Its Purpose",
+  "summary": "776cc adventure tourer.",
+  "overview": "The V-Strom 800DE is Suzuki’s 776cc adventure tourer, with 220 mm of ground clearance, a colour TFT display and LED lighting. It is built to go from city errands to unpaved mountain roads.",
+  "image": "/assets/img/official/v-strom-800de/portrait.jpg",
+  "highlights": [
+   [
+    "Displacement",
+    "776 cc"
+   ],
+   [
+    "Gearbox",
+    "6-speed constant mesh"
+   ],
+   [
+    "Kerb weight",
+    "232 kg"
+   ],
+   [
+    "Seat height",
+    "855 mm"
+   ]
+  ],
+  "colours": [
+   [
+    "Champion Yellow No. 2",
+    "#e9d700",
+    "/assets/img/official/v-strom-800de/colour-1.jpg"
+   ],
+   [
+    "Pearl Tech White",
+    "#d3e0e8f5",
+    "/assets/img/official/v-strom-800de/colour-2.jpg"
+   ],
+   [
+    "Glass Sparkle Black",
+    "#1e2829",
+    "/assets/img/official/v-strom-800de/colour-3.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "Engineering with Purpose",
+    "The V-STROM 800DE is a top-performing adventure tourer that is equally adept in daily on-road use and at high speed touring as it is when exploring gravel roads and country trails.",
+    ""
+   ],
+   [
+    "Chassis Geometry Optimized for Adventure Touring",
+    "The chassis geometry features a long wheelbase, long rake, tall ground clearance and a wide handlebar grip. The purpose is to provide maximum stability and controllability when riding on unpaved surfaces, and to offer a riding position that",
+    ""
+   ],
+   [
+    "Comfort and Protection",
+    "The solid-mount seat is designed for comfort on long touring runs and to stand up well to input when exploring unpaved roads and trails. At the same time, it allows you freedom of movement and affords your passenger plenty of space, even wh",
+    ""
+   ],
+   [
+    "Purposeful Electrical Design",
+    "The V-STROM 800DE adopts a custom 5-inch color TFT LCD multifunction instrument panel. Clearly legible high-quality information displays keep you fully aware of all the bike’s systems and settings, and supply vital real-time operating statu",
+    ""
+   ],
+   [
+    "Distinctive LED Lighting",
+    "The vertically stacked pair of distinctive hexagonal LED headlights provide you with a clear view of the road ahead, while at the same time adding distinctive flair to the face of the V-STROM 800DE. Compact LED position light, LED turn sign",
+    ""
+   ],
+   [
+    "Handy USB Port",
+    "A USB port built into the left side of the multifunction instrument panel provide up to 5V output voltage and 2A maximum current",
+    ""
+   ],
+   [
+    "A Compact, Powerful and Versatile New Engine",
+    "The V-STROM 800DE is powered by Suzuki’s brand-new parallel twin 776cm 3 engine. It features a long-stroke configuration that delivers a fine balance of smooth, control - lable power and free-revving performance you will enjoy whether ridin",
+    ""
+   ],
+   [
+    "Suzuki Cross Balancer",
+    "All modern parallel twin engines with a 270-degree crank layout employ a primary balancer to suppress vibration. Suzuki has created a new biaxial primary balancer, that is the first on a production motorcycle, to position its two balancers",
+    ""
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Engine Type",
+      "4-stroke, 2-cylinder, liquid-cooled, DOHC"
+     ],
+     [
+      "Bore x Stroke",
+      "84.0 mm x 70.0 mm (3.3 in. x 2.8 in.)"
+     ],
+     [
+      "Displacement",
+      "776 cc"
+     ],
+     [
+      "Transmission Type",
+      "6-speed constant mesh"
+     ],
+     [
+      "Compression Ratio",
+      "12.8 : 1"
+     ],
+     [
+      "Lubrication System",
+      "Forced feed circulation, Wet sump"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "2,345 mm"
+     ],
+     [
+      "Overall Width",
+      "975 mm"
+     ],
+     [
+      "Overall Height",
+      "1,310 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,570 mm"
+     ],
+     [
+      "Ground Clearance",
+      "220 mm"
+     ],
+     [
+      "Seat Height",
+      "855 mm"
+     ],
+     [
+      "Kerb Weight",
+      "232 kg"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Disc, twin"
+     ],
+     [
+      "Rear",
+      "Disc"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "90/90-21M/C 54H cross ply with tube"
+     ],
+     [
+      "Rear",
+      "150/70R17M/C 69H, radial with tube"
+     ],
+     [
+      "Rake / Trail",
+      "28° / 114 mm"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Inverted telescopic, coil spring, oil damped"
+     ],
+     [
+      "Rear",
+      "Link type, coil spring, oil damped"
+     ]
+    ]
+   ],
+   [
+    "Electrical",
+    [
+     [
+      "Starter system",
+      "Electric"
+     ],
+     [
+      "Ignition System",
+      "Electronic ignition (transistorized)"
+     ]
+    ]
+   ],
+   [
+    "Fuel Tank",
+    [
+     [
+      "Fuel system",
+      "Fuel injection"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "20 L"
+     ],
+     [
+      "Oil Capacity (Overhaul)",
+      "3.9 L"
+     ],
+     [
+      "CO2 emissions",
+      "104 g/km"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/v-strom-800de/gallery-1.jpg",
+   "/assets/img/official/v-strom-800de/gallery-2.jpg",
+   "/assets/img/official/v-strom-800de/gallery-3.jpg",
+   "/assets/img/official/v-strom-800de/gallery-4.jpg",
+   "/assets/img/official/v-strom-800de/gallery-5.jpg",
+   "/assets/img/official/v-strom-800de/gallery-6.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/v-strom-800-de",
+  "similar": [
+   "gsx-8r",
+   "hayabusa",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "Aluminum Top Case (38l)",
+    "/assets/img/official/v-strom-800de/accessory-1.jpg"
+   ],
+   [
+    "Aluminum Side Case Set (37l Each)",
+    "/assets/img/official/v-strom-800de/accessory-2.jpg"
+   ],
+   [
+    "High Screen",
+    "/assets/img/official/v-strom-800de/accessory-3.jpg"
+   ],
+   [
+    "Center Stand",
+    "/assets/img/official/v-strom-800de/accessory-4.jpg"
+   ],
+   [
+    "Aluminum Skid Plate (Silver)",
+    "/assets/img/official/v-strom-800de/accessory-5.jpg"
+   ],
+   [
+    "Brake Pedal Height Adjuster",
+    "/assets/img/official/v-strom-800de/accessory-6.jpg"
+   ],
+   [
+    "Fuel Cap Protection Sticker",
+    "/assets/img/official/v-strom-800de/accessory-7.jpg"
+   ],
+   [
+    "Fuel Tank Pad",
+    "/assets/img/official/v-strom-800de/accessory-8.jpg"
+   ],
+   [
+    "Low Seat",
+    "/assets/img/official/v-strom-800de/accessory-9.jpg"
+   ],
+   [
+    "Side Case Bracket",
+    "/assets/img/official/v-strom-800de/accessory-10.jpg"
+   ],
+   [
+    "Side Stand Extension Plate",
+    "/assets/img/official/v-strom-800de/accessory-11.jpg"
+   ],
+   [
+    "Top Case Carrier Set",
+    "/assets/img/official/v-strom-800de/accessory-12.jpg"
+   ]
+  ],
+  "brochures": [
+   [
+    "V-Strom 800DE",
+    "https://www.suzukimotorcycle.co.in/brochure/v-strom-800-d-Brouchure.pdf"
+   ]
+  ],
+  "prices": [],
+  "pricesNote": "",
+  "availability": "not-listed-telangana"
+ },
+ {
+  "id": "hayabusa",
+  "name": "Hayabusa",
+  "category": "premium",
+  "url": "/premium-bikes/hayabusa/",
+  "tagline": "The Ultimate Sport Bike",
+  "summary": "1340cc. Suzuki’s ultimate sport bike.",
+  "overview": "The Hayabusa is Suzuki’s ultimate sport bike: a 1,340cc liquid-cooled in-line four with the Suzuki Intelligent Ride System, including power modes, a bi-directional quick shifter and traction control.",
+  "image": "/assets/img/official/hayabusa/portrait.jpg",
+  "highlights": [
+   [
+    "Displacement",
+    "1,340 cc"
+   ],
+   [
+    "Gearbox",
+    "6-speed constant mesh"
+   ],
+   [
+    "Kerb weight",
+    "266 kg"
+   ],
+   [
+    "Seat height",
+    "800 mm"
+   ]
+  ],
+  "colours": [
+   [
+    "Pearl Vigor Blue",
+    "#1456b7",
+    "/assets/img/official/hayabusa/colour-1.jpg"
+   ],
+   [
+    "Metallic Galaxy Gray / Candy Burnt Gold",
+    "#707479",
+    "/assets/img/official/hayabusa/colour-2.jpg"
+   ],
+   [
+    "Candy Daring Red / Glass Sparkle Black",
+    "#000000",
+    "/assets/img/official/hayabusa/colour-3.jpg"
+   ],
+   [
+    "Pearl Vigor Blue / Pearl Brilliant White",
+    "#ffffff",
+    "/assets/img/official/hayabusa/colour-4.jpg"
+   ]
+  ],
+  "coloursShared": false,
+  "features": [
+   [
+    "Suzuki Intelligent Ride System (S.I.R.S.)",
+    "Suzuki Drive Mode Selector Alpha (SDMS-α) groups together five advanced electronic control systems while enabling riders to select individual settings for each. It optimizes performance characteristics and behavior to best suit varying road",
+    ""
+   ],
+   [
+    "The Perfect Marriage of Power and Poise",
+    "Ultimate performance is born of the perfect marriage between power and poise, and between the rider and the bike. The Hayabusa delivers this in spades. Abundant power and torque offer a more confident ride in any gear and at any speed. Its",
+    ""
+   ]
+  ],
+  "specs": [
+   [
+    "Engine",
+    [
+     [
+      "Displacement",
+      "1,340 cc"
+     ],
+     [
+      "Engine Type",
+      "4-Stroke, Liquid-cooled, DOHC,in-line four"
+     ],
+     [
+      "Bore x Stroke",
+      "81.0 mm x 65.0 mm"
+     ],
+     [
+      "Compression Ratio",
+      "12.5:1"
+     ],
+     [
+      "Ignition Type",
+      "Electronic Ignition (Transistorized)"
+     ],
+     [
+      "Transmission Type",
+      "6-speed constant mesh"
+     ]
+    ]
+   ],
+   [
+    "Dimensions & weight",
+    [
+     [
+      "Overall Length",
+      "2,180 mm"
+     ],
+     [
+      "Overall Width",
+      "735 mm"
+     ],
+     [
+      "Overall Height",
+      "1,165 mm"
+     ],
+     [
+      "Wheel Base",
+      "1,480 mm"
+     ],
+     [
+      "Ground Clearance",
+      "125 mm"
+     ],
+     [
+      "Seat Height",
+      "800 mm"
+     ],
+     [
+      "Kerb Weight",
+      "266 kg"
+     ],
+     [
+      "Fuel Tank Capacity",
+      "20 L"
+     ]
+    ]
+   ],
+   [
+    "Brakes",
+    [
+     [
+      "Front",
+      "Brembo Stylema®, 4-piston, twin disc, ABS-equipped"
+     ],
+     [
+      "Rear",
+      "Nissin, 1-piston, single disc, ABS-equipped"
+     ]
+    ]
+   ],
+   [
+    "Tyres",
+    [
+     [
+      "Front",
+      "120/70ZR17M/C, tubeless"
+     ],
+     [
+      "Rear",
+      "190/50ZR17M/C, tubeless"
+     ]
+    ]
+   ],
+   [
+    "Suspension",
+    [
+     [
+      "Front",
+      "Inverted Telescopic, Coil Spring, Oil Damped"
+     ],
+     [
+      "Rear",
+      "Link Type, Coil Spring, Oil Damped"
+     ]
+    ]
+   ]
+  ],
+  "gallery": [
+   "/assets/img/official/hayabusa/gallery-1.jpg",
+   "/assets/img/official/hayabusa/gallery-2.jpg",
+   "/assets/img/official/hayabusa/gallery-3.jpg",
+   "/assets/img/official/hayabusa/gallery-4.jpg"
+  ],
+  "official": "https://www.suzukimotorcycle.co.in/product-details/hayabusa",
+  "similar": [
+   "gsx-8r",
+   "v-strom-800de",
+   "v-strom-sx"
+  ],
+  "accessories": [
+   [
+    "Touring Screen",
+    "/assets/img/official/hayabusa/accessory-1.jpg"
+   ],
+   [
+    "Carbon Look Mirror Cover",
+    "/assets/img/official/hayabusa/accessory-2.jpg"
+   ],
+   [
+    "Colour Seat",
+    "/assets/img/official/hayabusa/accessory-3.jpg"
+   ],
+   [
+    "Single Seat Cowling - Metallic Mat Black No. 2 / Glass Sparkle Black",
+    "/assets/img/official/hayabusa/accessory-4.jpg"
+   ],
+   [
+    "Single Seat Cowling - Metallic Thunder Gray / Candy Daring Red",
+    "/assets/img/official/hayabusa/accessory-5.jpg"
+   ],
+   [
+    "Single Seat Cowling - Pearl Vigor Blue / Pearl Brilliant White",
+    "/assets/img/official/hayabusa/accessory-6.jpg"
+   ],
+   [
+    "Hayabusa Fuel Tank Pad (Red)",
+    "/assets/img/official/hayabusa/accessory-7.jpg"
+   ],
+   [
+    "Hayabusa Fuel Tank Pad (Gold)",
+    "/assets/img/official/hayabusa/accessory-8.jpg"
+   ],
+   [
+    "Fuel Tank Protection Sticker",
+    "/assets/img/official/hayabusa/accessory-9.jpg"
+   ],
+   [
+    "Hayabusa Rim Decal (Red)",
+    "/assets/img/official/hayabusa/accessory-10.jpg"
+   ],
+   [
+    "Wheel Decal-Red & Clear (With Suzuki Logo)",
+    "/assets/img/official/hayabusa/accessory-11.jpg"
+   ],
+   [
+    "Wheel Decal-Red (With Suzuki Logo)",
+    "/assets/img/official/hayabusa/accessory-12.jpg"
+   ]
+  ],
+  "brochures": [],
+  "prices": [],
+  "pricesNote": "",
+  "availability": "not-listed-telangana"
+ }
+]

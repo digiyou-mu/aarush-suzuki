@@ -1,0 +1,39 @@
+  <header class="site-header{{HEADER_CLASS}}" data-header>
+    <div class="site-header__bar">
+      <a class="site-header__logo" href="/" aria-label="Aarush Suzuki home">
+        <img src="/assets/img/brand/aarush-suzuki-logo.png" alt="Aarush Suzuki" width="300" height="56">
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/motorcycles/">Motorcycles</a>
+        <a href="/scooters/">Scooters</a>
+        <a href="/electric-vehicles/">Electric</a>
+        <a href="/premium-bikes/">Premium Bikes</a>
+        <a href="/services/">Services</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      
+      <a class="btn btn--ink site-header__cta" href="/book-a-test-ride/">Book a test ride</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" hidden>
+    <nav aria-label="Mobile">
+      <a href="/">Home</a>
+      <a href="/motorcycles/">Motorcycles</a>
+      <a href="/scooters/">Scooters</a>
+      <a href="/electric-vehicles/">Electric Vehicles</a>
+      <a href="/premium-bikes/">Premium Bikes</a>
+      <a href="/services/">Services</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="drawer__foot">
+      <a class="btn btn--light" href="/book-a-test-ride/">Book a test ride</a>
+      <a class="drawer__phone" href="tel:+918885246633">Sales 88852 46633</a>
+      {{SOCIAL:drawer__social}}
+    </div>
+  </div>

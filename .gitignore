@@ -1,0 +1,7 @@
+# Local-only tools and build outputs
+tools/
+deliverables/
+_archive/
+.claude/
+*.log
+Thumbs.db

@@ -1,0 +1,86 @@
+<!--
+title: Suzuki Bike Service Centre in Hyderabad – Book a Service | Aarush Suzuki
+description: Book a Suzuki bike or scooter service at Aarush Suzuki. Service teams at 12 locations across Hyderabad and Telangana, genuine Suzuki parts and a simple online booking.
+path: /services/
+bodyClass: page-services
+crumbs: Services=/services/
+-->
+<main id="main">
+    <section class="svc-hero" aria-labelledby="svc-title">
+      <div class="svc-hero__inner">
+        <nav class="crumbs crumbs--light" aria-label="Breadcrumb"><a href="/">Home</a><i aria-hidden="true">/</i><span aria-current="page">Services</span></nav>
+        <h1 class="svc-hero__title" id="svc-title">Service that keeps you riding.</h1>
+        <p class="svc-hero__lead">Every Aarush Suzuki location has its own service team. Book a slot online, drop your vehicle in, and ride away with genuine Suzuki parts fitted.</p>
+        <div class="svc-hero__actions">
+          <a class="btn btn--light" href="#book-service">Book a service</a>
+          <a class="btn btn--glass" href="tel:+918885106633">Call service · 88851 06633</a>
+        </div>
+      </div>
+      <div class="svc-hero__bike" aria-hidden="true" data-parallax="-5">
+        <img src="/assets/img/models/gixxer-sf-250.png" alt="" width="568" height="321">
+      </div>
+    </section>
+
+    <section class="svc-offer" aria-labelledby="offer-title">
+      <div class="wrap svc-offer__grid">
+        <h2 class="sec-title" id="offer-title">What we look after</h2>
+        <dl class="svc-offer__list">
+          <div><dt>Periodic maintenance</dt><dd>Scheduled servicing for Suzuki motorcycles, scooters and the e-Access, following Suzuki’s service schedule for your model.</dd></div>
+          <div><dt>Repairs and inspections</dt><dd>Diagnosis and repair when something doesn’t feel right, from brakes and electrics to engine and suspension.</dd></div>
+          <div><dt>Genuine Suzuki parts</dt><dd>Replacement parts and consumables sourced from Suzuki, to keep your vehicle as it was designed.</dd></div>
+          <div><dt>Accessories</dt><dd>Genuine Suzuki accessories for your model, supplied and fitted by our team.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="svc-steps" aria-labelledby="steps-title">
+      <div class="wrap">
+        <h2 class="sec-title sec-title--light" id="steps-title">How it works</h2>
+        <ol class="svc-steps__list">
+          <li><span>1</span><h3>Book</h3><p>Choose a service centre and a date below, or call the service line.</p></li>
+          <li><span>2</span><h3>Drop in</h3><p>Bring your vehicle, its service booklet and any notes on what you’ve noticed.</p></li>
+          <li><span>3</span><h3>Ride away</h3><p>We’ll explain the work done and anything to plan for at your next visit.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="svc-care" aria-labelledby="care-title">
+      <div class="wrap svc-care__grid">
+        <div>
+          <h2 class="sec-title" id="care-title">Looking after your Suzuki between visits</h2>
+          <p class="svc-care__note">General guidance only. Your owner’s manual has the exact intervals and settings for your model.</p>
+        </div>
+        <ul class="svc-care__list">
+          <li><strong>Follow the service schedule</strong><span>Service at the intervals in your owner’s manual and service booklet, by distance or time, whichever comes first.</span></li>
+          <li><strong>Check tyre pressure</strong><span>Check when the tyres are cold, using the pressures printed in your manual or on the vehicle label.</span></li>
+          <li><strong>Watch the brakes</strong><span>If braking feels soft, noisy or uneven, book an inspection rather than waiting for the next service.</span></li>
+          <li><strong>Keep the chain clean</strong><span>On motorcycles, a clean, lubricated and correctly adjusted drive chain lasts longer and rides smoother.</span></li>
+          <li><strong>e-Access charging</strong><span>Use the supplied or a Suzuki-approved charger, and follow the charging guidance in the owner’s manual.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ev-enquire svc-book" id="book-service" aria-labelledby="book-title">
+      <div class="wrap ev-enquire__grid">
+        <div>
+          <h2 class="ev-enquire__title" id="book-title">Book a service.</h2>
+          <p>Tell us your vehicle and preferred date. Our service team will call to confirm a slot.</p>
+          <p class="ride__alt">Service line <a href="tel:+918885106633">88851 06633</a></p>
+        </div>
+        {{FORM:service||Sends your request to Aarush Suzuki on WhatsApp. Our service team will confirm by phone.}}
+      </div>
+    </section>
+
+    <section class="directory directory--compact" aria-labelledby="sc-title">
+      <div class="directory__head">
+        <h2 class="directory__title" id="sc-title">Service centres</h2>
+        <div class="seg" role="tablist" aria-label="Region" data-region-filter>
+          <button type="button" role="tab" aria-selected="true" data-region="hyderabad">Hyderabad</button>
+          <button type="button" role="tab" aria-selected="false" data-region="telangana">Telangana</button>
+        </div>
+      </div>
+      <ul class="branches" data-branches>
+        {{DIRECTORY:}}
+      </ul>
+    </section>
+  </main>
