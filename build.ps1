@@ -763,7 +763,7 @@ Get-ChildItem "$src/pages" -Filter *.html | ForEach-Object {
   if ($meta.schema -eq 'services') { $ld += Script-Ld (Services-JsonLd) }
   if ($meta.schema -eq 'home') {
     $ld += Script-Ld (Read-Text "$src/data/home-ld.json")
-    $qa = (Read-Text "$src/data/faqs.json" | ConvertFrom-Json | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_.q),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_.a)}}" }) -join ','
+    $qa = ((Read-Text "$src/data/faqs.json" | ConvertFrom-Json) | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_.q),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_.a)}}" }) -join ','
     $ld += Script-Ld "{`"@context`":`"https://schema.org`",`"@type`":`"FAQPage`",`"mainEntity`":[$qa]}"
   }
   $meta.jsonld = $ld
