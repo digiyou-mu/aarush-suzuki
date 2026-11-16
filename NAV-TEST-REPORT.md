@@ -115,3 +115,19 @@ It prints the URL it's using. If port 5180 is busy, it picks the next free port.
 - Tested: 1440px — all 4 play muted; 375px — reels 1–2 play, swiping to 3–4 plays them and pauses 1–2, swiping back reverses it; no horizontal overflow.
 - `serve.ps1` (preview server only): added video/mp4 type and byte-range (206) responses in 1 MB chunks, needed for Safari/iOS playback.
 - To swap a reel later: replace the MP4/JPG in `site/assets/video/reels/` (or edit `reels` in `src/data/site.json`) and rebuild.
+
+## Update — 16 Nov 2026: round 11 (11 requested changes)
+
+1. **Suncity service address** — `Sun City, Hydershakote, Bandlaguda Jagir, Hyderabad, Telangana 500091` added as Suncity's service centre (directory cards, contact/services lists, service booking form, AutoRepair schema).
+2. **Favicon** — red Aarush "A" mark: `favicon.ico` (16/32/48), `favicon-32.png`, 180px apple-touch icon, 192px manifest icon, `site.webmanifest`. Made from the mark in the supplied logo file; the 180/192px icons should be regenerated from a full-size mark file when available.
+3. **Ride it before you decide** — bike moved into the copy column directly under the heading, right-aligned next to the form, on a contact shadow; no overlap with the form. Mobile: heading → bike → text → form.
+4. **Header nav** — labels in capitals, 15.5px (14.5px between 1181–1320px), single line verified at 1240–1920px.
+5. **EV** — nav label "Electric" → "EV" (header + mobile menu). Route `/electric-vehicles/` kept (no broken links). Suzuki India sells one EV (e-Access, Jan 2026); EV page gains an e-Access colour explorer with all four official colours.
+6. **Rotating category word** — homepage categories heading is now "PICK YOUR BIKES / SCOOTERS / EVs", cycling every 2.2 s while on screen; screen readers get "Pick your bike, scooter or EV".
+7. **Contact hero** — Aarush Suzuki showroom photo as the background with dusk gradient and contrast overlays; phone lines in a glass panel under the heading.
+8. **Hero slider** — back / pause / forward buttons removed; auto-play continues (holds on hover/focus; progress bars kept).
+9. **Footer logo** — reversed logo (white lettering, red mark) directly on the dark footer; white panel removed.
+10. **Services page** — workshop photo hero; four image-and-text service rows (periodic service, diagnostics & engine repair, brakes/tyres/wheels, genuine parts & oil); "also included" strip; "Inside our service centres" photo section. Photos from aarushsuzuki.in's service page, resized/compressed.
+11. **SEO** — titles ≤ 70 and descriptions ≤ 160 characters on all pages; unique; one H1 per page with no skipped levels; alt text on every image; canonical on every page; sitemap (24 URLs) and robots.txt; Product + Breadcrumb schema on model pages, MotorcycleDealer schema (12) on Contact, new AutoRepair schema (12 service centres) on Services.
+
+Tests: 1,679 internal links/assets resolve; no horizontal overflow on any of the 24 pages at 375 / 768 / 1440 px; colour explorer, word rotator, hero auto-play and bike picker checked.

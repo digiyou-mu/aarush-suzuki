@@ -6,7 +6,7 @@ $base = Split-Path -Parent $MyInvocation.MyCommand.Path
 $root = [IO.Path]::GetFullPath((Join-Path $base $Root))
 $types = @{ '.html'='text/html; charset=utf-8'; '.css'='text/css'; '.js'='application/javascript'; '.json'='application/json';
   '.png'='image/png'; '.jpg'='image/jpeg'; '.jpeg'='image/jpeg'; '.webp'='image/webp'; '.svg'='image/svg+xml'; '.ico'='image/x-icon';
-  '.woff2'='font/woff2'; '.woff'='font/woff'; '.ttf'='font/ttf'; '.otf'='font/otf'; '.xml'='application/xml'; '.txt'='text/plain'; '.mp4'='video/mp4'; '.webm'='video/webm' }
+  '.woff2'='font/woff2'; '.woff'='font/woff'; '.ttf'='font/ttf'; '.otf'='font/otf'; '.xml'='application/xml'; '.txt'='text/plain'; '.webmanifest'='application/manifest+json'; '.mp4'='video/mp4'; '.webm'='video/webm' }
 
 $listener = $null
 for ($p = $Port; $p -lt $Port + 20; $p++) {

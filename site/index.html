@@ -4,19 +4,22 @@
   <meta charset="utf-8">
   <meta name="site-root" content="./">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Suzuki Showroom in Hyderabad | Aarush Suzuki – Bikes, Scooters &amp; EV</title>
-  <meta name="description" content="Aarush Suzuki has 12 Suzuki showrooms with sales and service across Hyderabad and Telangana. Explore the Gixxer, V-Strom SX, Access, Avenis, Burgman and e-Access, and book a test ride.">
+  <title>Suzuki Bikes &amp; Scooters Showroom in Hyderabad | Aarush Suzuki</title>
+  <meta name="description" content="12 Aarush Suzuki showrooms with sales and service across Hyderabad and Telangana. Explore Suzuki bikes, scooters and the e-Access EV, and book a test ride.">
   <link rel="canonical" href="https://aarushsuzuki.in/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aarush Suzuki">
-  <meta property="og:title" content="Suzuki Showroom in Hyderabad | Aarush Suzuki – Bikes, Scooters &amp; EV">
-  <meta property="og:description" content="Aarush Suzuki has 12 Suzuki showrooms with sales and service across Hyderabad and Telangana. Explore the Gixxer, V-Strom SX, Access, Avenis, Burgman and e-Access, and book a test ride.">
+  <meta property="og:title" content="Suzuki Bikes &amp; Scooters Showroom in Hyderabad | Aarush Suzuki">
+  <meta property="og:description" content="12 Aarush Suzuki showrooms with sales and service across Hyderabad and Telangana. Explore Suzuki bikes, scooters and the e-Access EV, and book a test ride.">
   <meta property="og:url" content="https://aarushsuzuki.in/">
   <meta property="og:image" content="https://aarushsuzuki.in/assets/img/photos/hero-v-strom-sx-riders.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0B0C0E">
-  <link rel="icon" href="./assets/img/brand/aarush-suzuki-logo.png">
+  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/brand/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <link rel="preload" href="./assets/fonts/SuzukiPro-Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" as="image" href="./assets/img/photos/hero-v-strom-sx-riders.jpg" fetchpriority="high">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -34,7 +37,7 @@
       <nav class="site-nav" aria-label="Main">
         <a href="./motorcycles/">Motorcycles</a>
         <a href="./scooters/">Scooters</a>
-        <a href="./electric-vehicles/">Electric</a>
+        <a href="./electric-vehicles/" aria-label="EV – Electric vehicles">EV</a>
         <a href="./premium-bikes/">Premium Bikes</a>
         <a href="./services/">Services</a>
         <a href="./about/">About</a>
@@ -53,7 +56,7 @@
       <a href="./">Home</a>
       <a href="./motorcycles/">Motorcycles</a>
       <a href="./scooters/">Scooters</a>
-      <a href="./electric-vehicles/">Electric Vehicles</a>
+      <a href="./electric-vehicles/">EV</a>
       <a href="./premium-bikes/">Premium Bikes</a>
       <a href="./services/">Services</a>
       <a href="./about/">About</a>
@@ -179,9 +182,6 @@
           </div>
           <div class="hs__controls">
             <div class="hs__dots" role="group" aria-label="Choose slide"><button type="button" class="hs__dot" data-goto="0" aria-label="Show slide 1" aria-current="true"><i></i></button><button type="button" class="hs__dot" data-goto="1" aria-label="Show slide 2" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="2" aria-label="Show slide 3" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="3" aria-label="Show slide 4" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="4" aria-label="Show slide 5" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="5" aria-label="Show slide 6" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="6" aria-label="Show slide 7" aria-current="false"><i></i></button><button type="button" class="hs__dot" data-goto="7" aria-label="Show slide 8" aria-current="false"><i></i></button></div>
-            <button type="button" class="hs__btn" data-hs-prev aria-label="Previous slide"><span aria-hidden="true">←</span></button>
-            <button type="button" class="hs__btn" data-hs-pause aria-label="Pause slideshow" aria-pressed="false"><span class="hs__pause" aria-hidden="true"></span></button>
-            <button type="button" class="hs__btn" data-hs-next aria-label="Next slide"><span aria-hidden="true">→</span></button>
           </div>
         </div>
       </section>
@@ -206,7 +206,7 @@
     <!-- ============ 2. Ways to ride (categories) ============ -->
     <section class="ways" id="ways" aria-labelledby="ways-title">
       <div class="ways__intro">
-        <h2 class="ways__title" id="ways-title">Three ways<br>to ride.</h2>
+        <h2 class="ways__title" id="ways-title"><span class="sr-only">Pick your bike, scooter or EV</span><span aria-hidden="true">Pick your<br><span class="word-rotator" data-rotator><b class="is-on">Bikes</b><b>Scooters</b><b>EVs</b></span></span></h2>
         <p>From a first scooter to a 250cc tourer, every Suzuki we sell is on the floor to see, sit on and ride.</p>
       </div>
 
@@ -331,13 +331,13 @@
 
     <!-- ============ 6. Test ride ============ -->
     <section class="ride" id="test-ride" aria-labelledby="ride-title">
-      <div class="ride__bike" aria-hidden="true" data-parallax="-6">
-        <img src="./assets/img/models/v-strom-sx.png" alt="" width="616" height="405" loading="lazy">
-        <span class="ride__shadow"></span>
-      </div>
       <div class="ride__inner">
         <div class="ride__copy">
           <h2 class="ride__title" id="ride-title">Ride it before you decide.</h2>
+          <figure class="ride__bike">
+            <img src="./assets/img/models/trim/v-strom-sx.png" alt="Suzuki V-Strom SX adventure motorcycle, available for test rides at Aarush Suzuki" width="523" height="332" loading="lazy">
+            <span class="ride__shadow" aria-hidden="true"></span>
+          </figure>
           <p>Pick a vehicle and a showroom. Our team will call to confirm a time that suits you.</p>
           <p class="ride__alt">Prefer to talk? <a href="tel:+918885246633">88852 46633</a> or <a href="https://wa.me/918885246633" target="_blank" rel="noopener">WhatsApp us</a>.</p>
         </div>
@@ -428,7 +428,7 @@
   <footer class="site-footer">
     <div class="site-footer__top">
       <div class="site-footer__brand">
-        <span class="site-footer__plate"><img src="./assets/img/brand/aarush-suzuki-logo.png" alt="Aarush Suzuki" width="300" height="56" loading="lazy"></span>
+        <a class="site-footer__logo" href="./" aria-label="Aarush Suzuki home"><img src="./assets/img/brand/aarush-suzuki-logo-light.png" alt="Aarush Suzuki" width="300" height="56" loading="lazy"></a>
         <p>Suzuki motorcycles, scooters and electric vehicles. Sales and service at 12 locations across Hyderabad and Telangana.</p>
       </div>
       <nav class="site-footer__col" aria-label="Vehicles">

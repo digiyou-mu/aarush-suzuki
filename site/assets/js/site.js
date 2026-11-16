@@ -145,15 +145,19 @@
     };
     const setPaused = (p) => {
       paused = p;
-      pauseBtn.setAttribute('aria-pressed', String(p));
-      pauseBtn.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
+      if (pauseBtn) {
+        pauseBtn.setAttribute('aria-pressed', String(p));
+        pauseBtn.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
+      }
       hs.classList.toggle('is-paused', p);
       schedule();
     };
     dots.forEach((d) => d.addEventListener('click', () => show(+d.dataset.goto)));
-    $('[data-hs-prev]', hs).addEventListener('click', () => show(i - 1));
-    $('[data-hs-next]', hs).addEventListener('click', () => show(i + 1));
-    pauseBtn.addEventListener('click', () => setPaused(!paused));
+    // Back / pause / forward buttons were removed by request; the slider runs on its own (hover or focus holds it).
+    const prevBtn = $('[data-hs-prev]', hs), nextBtn = $('[data-hs-next]', hs);
+    if (prevBtn) prevBtn.addEventListener('click', () => show(i - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => show(i + 1));
+    if (pauseBtn) pauseBtn.addEventListener('click', () => setPaused(!paused));
     hs.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { held = true; schedule(); } });
     hs.addEventListener('pointerleave', () => { held = false; schedule(); });
     hs.addEventListener('focusin', () => { held = true; schedule(); });
@@ -169,6 +173,62 @@
     });
     track.addEventListener('click', (e) => { if (track.dataset.swiped) { e.preventDefault(); delete track.dataset.swiped; } });
     if (reduce) setPaused(true); else show(0);
+  });
+
+  /* ---------- rotating category word: Bikes → Scooters → EVs ---------- */
+  $$('[data-rotator]').forEach((rot) => {
+    const words = $$('b', rot); if (words.length < 2) return;
+    let k = 0, timer = null;
+    const step = () => {
+      const cur = words[k]; k = (k + 1) % words.length; const next = words[k];
+      cur.classList.remove('is-on'); cur.classList.add('is-out');
+      next.classList.remove('is-out');
+      void next.offsetWidth; // start the incoming word from below
+      next.classList.add('is-on');
+      setTimeout(() => cur.classList.remove('is-out'), 750);
+    };
+    let inView = !('IntersectionObserver' in window);
+    const run = () => { clearInterval(timer); if (inView && !document.hidden) timer = setInterval(step, 2200); };
+    if (!inView) new IntersectionObserver((es) => { inView = es[0].isIntersecting; run(); }).observe(rot);
+    else run();
+    document.addEventListener('visibilitychange', run);
+  });
+
+  /* ---------- EV colour explorer ----------
+     Swatches swap the scooter image with a soft cross-fade. Until someone picks a colour it cycles
+     slowly while on screen; any interaction stops the cycle. */
+  $$('[data-colour-explorer]').forEach((box) => {
+    const img = $('[data-ce-img]', box), name = $('[data-ce-name]', box);
+    const btns = $$('[data-ce-src]', box);
+    if (!img || !btns.length) return;
+    btns.forEach((b) => { const p = new Image(); p.src = link(b.dataset.ceSrc); }); // warm all colours
+    let cur = 0, timer = null, userPicked = false, visible = false;
+    const select = (k, fromUser) => {
+      cur = (k + btns.length) % btns.length;
+      const b = btns[cur];
+      btns.forEach((x) => x.setAttribute('aria-checked', String(x === b)));
+      img.classList.add('is-swapping');
+      setTimeout(() => {
+        img.src = link(b.dataset.ceSrc);
+        img.alt = `Suzuki e-Access electric scooter in ${b.dataset.ceLabel}`;
+        name.textContent = b.dataset.ceLabel;
+        img.classList.remove('is-swapping');
+      }, reduce ? 0 : 220);
+      if (fromUser) { userPicked = true; clearInterval(timer); }
+    };
+    btns.forEach((b, k) => {
+      b.addEventListener('click', () => select(k, true));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); select(cur + 1, true); btns[cur].focus(); }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); select(cur - 1, true); btns[cur].focus(); }
+      });
+      b.tabIndex = k === 0 ? 0 : -1;
+    });
+    box.addEventListener('focusin', () => btns.forEach((x) => { x.tabIndex = x.getAttribute('aria-checked') === 'true' ? 0 : -1; }));
+    const run = () => { clearInterval(timer); if (!userPicked && visible && !reduce) timer = setInterval(() => select(cur + 1, false), 3200); };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (visible) run(); else clearInterval(timer); }, { threshold: 0.35 }).observe(box);
+    }
   });
 
   /* ---------- Instagram reels ----------

@@ -230,6 +230,17 @@ function Showrooms-JsonLd {
   "{`"@context`":`"https://schema.org`",`"@graph`":[" + ($items -join ',') + "]}"
 }
 
+# Local SEO for the Services page: one AutoRepair entry per service centre (service address and service line where known)
+function Services-JsonLd {
+  $items = foreach ($s in $showrooms) {
+    $addr = if ($s.serviceAddress) { $s.serviceAddress } else { $s.address }
+    $pc = if ($addr -match '(\d{6})\s*\.?$') { $Matches[1] } else { '' }
+    $loc = if ($s.region -eq 'hyderabad') { 'Hyderabad' } else { $s.name }
+    "{`"@type`":`"AutoRepair`",`"name`":$(JsonStr "Aarush Suzuki $($s.name) Service Centre"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"telephone`":$(JsonStr "+91-$($s.service)"),`"url`":$(JsonStr "$BASE/services/"),`"hasMap`":$(JsonStr ((DirUrl "$($s.name) service centre" $addr).Replace('&amp;','&'))),`"address`":{`"@type`":`"PostalAddress`",`"streetAddress`":$(JsonStr $addr),`"addressLocality`":$(JsonStr $loc),`"addressRegion`":`"Telangana`",`"postalCode`":$(JsonStr $pc),`"addressCountry`":`"IN`"}}"
+  }
+  "{`"@context`":`"https://schema.org`",`"@graph`":[" + ($items -join ',') + "]}"
+}
+
 function Render-Selector($ids) {
   $tabs = ''; $panels = ''; $i = 0
   foreach ($id in $ids) {
@@ -387,9 +398,6 @@ function Render-Token($name, $arg) {
           </div>
           <div class="hs__controls">
             <div class="hs__dots" role="group" aria-label="Choose slide">$dots</div>
-            <button type="button" class="hs__btn" data-hs-prev aria-label="Previous slide"><span aria-hidden="true">←</span></button>
-            <button type="button" class="hs__btn" data-hs-pause aria-label="Pause slideshow" aria-pressed="false"><span class="hs__pause" aria-hidden="true"></span></button>
-            <button type="button" class="hs__btn" data-hs-next aria-label="Next slide"><span aria-hidden="true">→</span></button>
           </div>
         </div>
       </section>
@@ -646,8 +654,8 @@ $gallery
   $product = "{`"@context`":`"https://schema.org`",`"@type`":`"Product`",`"name`":$(JsonStr "Suzuki $($v.name)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"category`":$(JsonStr $c.label),`"description`":$(JsonStr $v.overview),`"image`":$(JsonStr $(if ($photo) { $v.image } else { $BASE + $v.image })),`"url`":$(JsonStr ($BASE + $v.url))}"
   $crumb = Breadcrumb-JsonLd @(@('Home', '/'), @($c.plural, $c.url), @($v.name, $v.url))
   $meta = @{
-    title = "Suzuki $($v.name) in Hyderabad – Specs, Colours & Test Ride | Aarush Suzuki"
-    description = "$($v.summary) See the Suzuki $($v.name) specifications, colours and features, ask for the on-road price and book a test ride at Aarush Suzuki, Hyderabad."
+    title = "Suzuki $($v.name) in Hyderabad – Specs & Colours | Aarush Suzuki"
+    description = "$($v.summary) Suzuki $($v.name) specs, colours and test rides at Aarush Suzuki, Hyderabad."
     path = $v.url; bodyClass = "page-vehicle page-vehicle--$($v.category)"; ogImage = $v.image
     jsonld = (Script-Ld $product) + (Script-Ld $crumb)
   }
@@ -672,6 +680,7 @@ Get-ChildItem "$src/pages" -Filter *.html | ForEach-Object {
     $ld += Script-Ld (Breadcrumb-JsonLd $items)
   }
   if ($meta.schema -eq 'showrooms') { $ld += Script-Ld (Showrooms-JsonLd) }
+  if ($meta.schema -eq 'services') { $ld += Script-Ld (Services-JsonLd) }
   if ($meta.schema -eq 'home') { $ld += Script-Ld (Read-Text "$src/data/home-ld.json") }
   $meta.jsonld = $ld
   $html = Assemble $meta $body
