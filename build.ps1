@@ -294,7 +294,7 @@ function Render-RideForm($title, $note, $mode, $preset) {
           <label class="field"><span>Message <em>(optional)</em></span><textarea name="message" rows="3" maxlength="600"></textarea><small class="field__error" aria-live="polite"></small></label>
 "@
   }
-  $vehicleLabel = if ($mode -eq 'service') { 'Your vehicle' } elseif ($mode -eq 'contact') { 'Vehicle of interest' } else { 'Preferred vehicle' }
+  $vehicleLabel = if ($mode -eq 'service') { 'Your vehicle' } else { 'Vehicle of interest' }
   $showroomLabel = if ($mode -eq 'service') { 'Service centre' } else { 'Preferred showroom' }
   $dateBlock = if ($mode -eq 'contact') { '' } else { "<label class=`"field`"><span>Preferred date</span><input name=`"date`" type=`"date`" required data-date-min><small class=`"field__error`" aria-live=`"polite`"></small></label>" }
   $vehReq = if ($mode -eq 'contact') { '' } else { ' required' }

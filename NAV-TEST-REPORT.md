@@ -131,3 +131,12 @@ It prints the URL it's using. If port 5180 is busy, it picks the next free port.
 11. **SEO** — titles ≤ 70 and descriptions ≤ 160 characters on all pages; unique; one H1 per page with no skipped levels; alt text on every image; canonical on every page; sitemap (24 URLs) and robots.txt; Product + Breadcrumb schema on model pages, MotorcycleDealer schema (12) on Contact, new AutoRepair schema (12 service centres) on Services.
 
 Tests: 1,679 internal links/assets resolve; no horizontal overflow on any of the 24 pages at 375 / 768 / 1440 px; colour explorer, word rotator, hero auto-play and bike picker checked.
+
+## Update — 16 Nov 2026: round 12
+
+1. **Vehicle of interest on test-ride forms** — the Contact form's "Select your bike" picker (bike images + names, filters) now runs on every test-ride form: Book a Test Ride page, homepage "Ride it before you decide", EV and Premium enquiry forms. Label "Vehicle of interest"; still required on test rides (error shows under the picker and focus moves to it). Service form keeps its plain list. Tested: chosen vehicle appears in each submitted message ("Vehicle: Suzuki …"); EV/Premium presets (e-Access, Hayabusa) appear pre-selected.
+   - **Bug fixed:** the homepage test-ride form was missing the error/confirmation markup the submit script expects, so it threw an error and never sent. It now matches the other forms and submits correctly.
+2. **EV page images & shadows** — official e-Access colour images 2–4 had transparent padding (scooter drawn smaller / offset); trimmed copies in `official/e-access/trim/`. Hero scooter now stands on the ring's floor line with a contact shadow, clear of the figures strip (56px desktop). Colour explorer shadow moved inside the scooter frame. e-Access model page colour picture in a fixed studio frame with a contact shadow. Measured: wheel line = shadow centre (±2px) for every colour, desktop and mobile.
+3. **Scooters hero slider** — heading, intro and "Compare the range" stay fixed; the scooter auto-rotates Access → Avenis → Burgman Street → Burgman Street EX every 4.5 s (slide + fade), on a shared contact shadow, with name/tag link and homepage-style progress dots. Holds on hover/focus; swipe and arrow keys; reduced-motion = no auto-play. All four scooters draw at the same height, wheels on the shadow.
+
+Tests: all 24 pages, no horizontal overflow at 375 / 768 / 1440 px; 6 forms submitted with test data.

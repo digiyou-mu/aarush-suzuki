@@ -175,6 +175,56 @@
     if (reduce) setPaused(true); else show(0);
   });
 
+  /* ---------- vehicle hero slider (Scooters page) ----------
+     Auto-advances while on screen; holds on hover/focus; dots, swipe and arrow keys work.
+     Reduced-motion visitors get the first scooter without auto-play. */
+  $$('[data-vslider]').forEach((vs) => {
+    const slides = $$('[data-vslide]', vs), dots = $$('[data-vs-goto]', vs);
+    const n = slides.length; if (n < 2) return;
+    const info = $('[data-vs-link]', vs), nameEl = $('[data-vs-name]', vs), tagEl = $('[data-vs-tag]', vs);
+    const DURATION = 4500;
+    vs.style.setProperty('--vs-duration', `${DURATION}ms`);
+    let i = 0, timer = null, held = false, inView = !('IntersectionObserver' in window);
+    const schedule = () => {
+      clearTimeout(timer);
+      vs.classList.remove('is-running'); void vs.offsetWidth; // restart the progress bar
+      if (!reduce && !held && inView && !document.hidden) { vs.classList.add('is-running'); timer = setTimeout(() => show(i + 1), DURATION); }
+    };
+    const show = (k) => {
+      const prev = i; i = (k + n) % n;
+      if (prev !== i) {
+        slides[prev].classList.remove('is-active'); slides[prev].classList.add('is-leaving');
+        setTimeout(() => slides[prev].classList.remove('is-leaving'), 900);
+        const img = $('img', slides[i]); if (img.loading === 'lazy') img.loading = 'eager';
+        slides[i].classList.remove('is-leaving'); slides[i].classList.add('is-active');
+        info.classList.add('is-swapping');
+        setTimeout(() => {
+          nameEl.textContent = slides[i].dataset.name; tagEl.textContent = slides[i].dataset.tag || '';
+          info.href = link(slides[i].dataset.url); info.setAttribute('aria-label', `Explore the Suzuki ${slides[i].dataset.name}`);
+          info.classList.remove('is-swapping');
+        }, 250);
+      }
+      dots.forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
+      // warm the next scooter image
+      const nx = $('img', slides[(i + 1) % n]); if (nx.loading === 'lazy') nx.loading = 'eager';
+      schedule();
+    };
+    info.setAttribute('aria-label', `Explore the Suzuki ${slides[0].dataset.name}`);
+    dots.forEach((d) => d.addEventListener('click', () => show(+d.dataset.vsGoto)));
+    vs.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { held = true; schedule(); } });
+    vs.addEventListener('pointerleave', () => { held = false; schedule(); });
+    vs.addEventListener('focusin', () => { held = true; schedule(); });
+    vs.addEventListener('focusout', (e) => { if (!vs.contains(e.relatedTarget)) { held = false; schedule(); } });
+    vs.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+    let x0 = null;
+    const stage = $('.vslider__stage', vs);
+    stage.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+    stage.addEventListener('pointerup', (e) => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1); });
+    document.addEventListener('visibilitychange', schedule);
+    if (!inView) new IntersectionObserver((es) => { inView = es[0].isIntersecting; schedule(); }).observe(vs);
+    show(0);
+  });
+
   /* ---------- rotating category word: Bikes → Scooters → EVs ---------- */
   $$('[data-rotator]').forEach((rot) => {
     const words = $$('b', rot); if (words.length < 2) return;
@@ -432,7 +482,10 @@
     trigger.type = 'button';
     trigger.className = 'bike-pick';
     trigger.setAttribute('aria-haspopup', 'dialog');
-    field.after(trigger);
+    vSel.after(trigger); // inside the field, so the field's error line sits under the picker
+    // the field is a <label>: clicking its caption opens the picker instead of focusing the hidden select
+    field.addEventListener('click', (e) => { if (!trigger.contains(e.target)) { e.preventDefault(); trigger.click(); } });
+    vSel.addEventListener('change', () => { if (vSel.value) { field.classList.remove('is-invalid'); $('.field__error', field).textContent = ''; } });
     const sync = () => {
       const b = BIKES.find((x) => x.name === vSel.value);
       trigger.classList.toggle('is-set', !!b);
@@ -474,7 +527,8 @@
     const byId = D.vehicles.find((v) => v.id === new URLSearchParams(location.search).get('model'));
     const preset = byId ? byId.name : form.dataset.preset;
     if (preset) vSel.value = preset;
-    if (form.dataset.mode === 'contact' && typeof HTMLDialogElement === 'function') bikePicker(form, vSel);
+    // "Vehicle of interest" picker (bike images + names) on enquiry and test-ride forms; the service form keeps its list
+    if ((form.dataset.mode || 'ride') !== 'service' && typeof HTMLDialogElement === 'function') bikePicker(form, vSel);
     // contact form topic preset: ?topic=price|availability|testride|service|finance
     const TOPICS = { price: 'On-road price', availability: 'Availability and booking', testride: 'Test ride', service: 'Service', finance: 'Finance or insurance', accessories: 'Accessories' };
     const topicSel = $('select[name="type"]', form);
@@ -521,10 +575,14 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      errBox.hidden = true;
+      if (errBox) errBox.hidden = true;
       const els = fields();
       const res = els.map(check);
-      if (res.includes(false)) { els[res.indexOf(false)].focus(); return; }
+      if (res.includes(false)) {
+        const first = els[res.indexOf(false)];
+        const pickBtn = first === vSel && vSel.closest('.field').classList.contains('is-picker') ? $('.bike-pick', form) : null;
+        (pickBtn || first).focus(); return;
+      }
       const d = Object.fromEntries(new FormData(form));
       const when = d.date ? new Date(d.date + 'T00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : '';
       const lines = {
@@ -546,8 +604,8 @@
           if (!r.ok) throw new Error(`Server responded ${r.status}`);
           location.href = link('/thank-you/');
         } catch (err) {
-          errBox.textContent = 'Sorry, we couldn’t send your request just now. Please try again, call 88852 46633, or send it on WhatsApp.';
-          errBox.hidden = false;
+          if (errBox) errBox.textContent = 'Sorry, we couldn’t send your request just now. Please try again, call 88852 46633, or send it on WhatsApp.';
+          if (errBox) errBox.hidden = false;
           showDone('Not sent yet', 'Your details are still in the form. You can send the same request on WhatsApp instead.', waHref);
         } finally { submitBtn.disabled = false; submitBtn.textContent = label; }
         return;
@@ -557,7 +615,7 @@
       window.open(waHref, '_blank', 'noopener');
       showDone(`One more step, ${first}.`, 'WhatsApp has opened with your request written out. It is only sent to Aarush Suzuki when you press Send in WhatsApp. If WhatsApp didn’t open, use the button below.', waHref);
     });
-    $('[data-form-reset]', form).addEventListener('click', () => { form.reset(); if (preset) vSel.value = preset; done.hidden = true; errBox.hidden = true; $('[name="name"]', form).focus(); });
+    $('[data-form-reset]', form).addEventListener('click', () => { form.reset(); if (preset) vSel.value = preset; done.hidden = true; if (errBox) errBox.hidden = true; $('[name="name"]', form).focus(); });
   });
 
   /* ---------- test-ride page: live vehicle preview ---------- */

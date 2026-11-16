@@ -2777,17 +2777,17 @@ window.AARUSH = Object.assign({
    [
     "Pearl Grace White / Metallic Matte Fibroin Gray",
     "#e0dbc8",
-    "/assets/img/official/e-access/colour-2.png"
+    "/assets/img/official/e-access/trim/colour-2.png"
    ],
    [
     "Pearl Jade Green / Metallic Matte Fibroin Gray",
     "#698471",
-    "/assets/img/official/e-access/colour-3.png"
+    "/assets/img/official/e-access/trim/colour-3.png"
    ],
    [
     "Metallic Matte Blue No. 2 / Metallic Matte Fibroin Gray",
     "#2d418f",
-    "/assets/img/official/e-access/colour-4.png"
+    "/assets/img/official/e-access/trim/colour-4.png"
    ]
   ],
   "coloursShared": false,

@@ -163,7 +163,7 @@ schema: home
             </label>
           </div>
           <label class="field">
-            <span>Preferred vehicle</span>
+            <span>Vehicle of interest</span>
             <select name="vehicle" required data-vehicle-select><option value="">Choose a vehicle</option></select>
             <small class="field__error" aria-live="polite"></small>
           </label>
@@ -180,10 +180,12 @@ schema: home
             </label>
           </div>
           <button class="btn btn--red btn--block" type="submit">Submit enquiry</button>
-          <p class="ride-form__note">Sends your request to Aarush Suzuki sales on WhatsApp.</p>
-          <div class="ride-form__done" hidden role="status">
-            <strong>Thank you, <span data-done-name></span>.</strong>
-            <p>Your request is ready in WhatsApp. Press send, and we’ll call to confirm your test ride.</p>
+          <p class="ride-form__note" data-form-note>Sends your request to Aarush Suzuki sales on WhatsApp.</p>
+          <p class="ride-form__error" role="alert" hidden data-form-error></p>
+          <div class="ride-form__done" hidden role="status" aria-live="polite">
+            <strong data-done-title></strong>
+            <p data-done-text></p>
+            <a class="btn btn--light ride-form__wa" data-done-wa href="https://wa.me/918885246633" target="_blank" rel="noopener" hidden>Open WhatsApp</a>
             <button class="link-arrow link-arrow--light" type="button" data-form-reset>Book another</button>
           </div>
         </form>
