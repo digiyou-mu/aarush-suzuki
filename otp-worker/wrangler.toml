@@ -1,0 +1,8 @@
+name = "aarush-form-gate"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://digiyou-mu.github.io"
+# Secrets are set in the Cloudflare dashboard (or `wrangler secret put`), never here:
+#   MSG91_AUTHKEY, FORWARD_URL

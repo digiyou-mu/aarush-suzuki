@@ -34,6 +34,12 @@ window.AARUSH = Object.assign({
   "_help": "Optional. A URL that accepts a JSON POST (e.g. https://formspree.io/f/xxxx or https://api.web3forms.com/submit). When empty, forms hand the request to WhatsApp and say so honestly.",
   "accessKey": ""
  },
+ "otp": {
+  "_help": "Mobile OTP before any form is sent. Leave widgetId or tokenAuth empty to switch it off. widgetId and tokenAuth come from MSG91 > OTP > Widget (Tokens tab); both are safe to publish. verifyUrl is the Cloudflare Worker address from otp-worker/ (it holds the secret MSG91 authkey and the Formspree link). See OTP-SETUP.md.",
+  "widgetId": "",
+  "tokenAuth": "",
+  "verifyUrl": ""
+ },
  "showroomPhotos": [],
  "featured": ["v-strom-sx", "gixxer-sf-250", "gixxer-250", "avenis", "burgman-street-ex", "e-access"],
  "categories": [

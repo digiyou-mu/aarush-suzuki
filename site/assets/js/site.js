@@ -557,6 +557,128 @@
     });
   };
 
+  /* ---------- mobile OTP verification (MSG91 OTP widget API) ----------
+     Off until site.json → otp.widgetId and otp.tokenAuth are set. The widget token is MSG91's
+     browser-safe token; the secret authkey lives only in the Cloudflare Worker (otp-worker/). */
+  const OTP = D.otp || {};
+  const otpOn = !!(OTP.widgetId && OTP.tokenAuth);
+  const msg91 = async (path, body) => {
+    const r = await fetch(`https://api.msg91.com/api/v5/widget/${path}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ widgetId: OTP.widgetId, tokenAuth: OTP.tokenAuth, ...body }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (j.type !== 'success') throw new Error(j.message || `MSG91 ${r.status}`);
+    return j.message;
+  };
+  const otpGate = (form) => {
+    const phone = $('[name="phone"]', form);
+    const field = phone.closest('.field');
+    const tel = $('.field__tel', field);
+    const err = $('.field__error', field);
+    const RESEND = 30;
+    let reqId = '', token = '', verifiedFor = '', timer = null;
+
+    const sendBtn = document.createElement('button');
+    sendBtn.type = 'button'; sendBtn.className = 'otp-send'; sendBtn.textContent = 'Send OTP';
+    const badge = document.createElement('span');
+    badge.className = 'otp-badge'; badge.hidden = true;
+    badge.innerHTML = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7"/></svg><b>Verified</b>';
+    tel.append(sendBtn, badge);
+
+    const box = document.createElement('div');
+    box.className = 'otp'; box.hidden = true;
+    box.innerHTML = `
+      <label class="otp__label"><span data-otp-to></span>
+        <span class="otp__row">
+          <input class="otp__input" name="otp_code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="Enter OTP">
+          <button type="button" class="otp__verify">Verify</button>
+        </span>
+      </label>
+      <p class="otp__msg" aria-live="polite"></p>
+      <p class="otp__links"><button type="button" class="otp__resend" disabled></button><button type="button" class="otp__change">Change number</button></p>`;
+    (field.closest('.ride-form__row, .form-row') || field).after(box);
+    const code = $('.otp__input', box), verifyBtn = $('.otp__verify', box), resendBtn = $('.otp__resend', box);
+    const say = (t, bad) => { const m = $('.otp__msg', box); m.textContent = t; m.classList.toggle('is-bad', !!bad); };
+    const busy = (btn, on, label) => { btn.disabled = on; if (label) btn.textContent = label; };
+
+    const countdown = () => {
+      clearInterval(timer); let s = RESEND;
+      const tick = () => {
+        resendBtn.disabled = s > 0;
+        resendBtn.textContent = s > 0 ? `Resend OTP in 0:${String(s).padStart(2, '0')}` : 'Resend OTP';
+        if (s-- <= 0) clearInterval(timer);
+      };
+      tick(); timer = setInterval(tick, 1000);
+    };
+    const reset = () => {
+      clearInterval(timer); reqId = ''; token = ''; verifiedFor = '';
+      box.hidden = true; code.value = ''; say('');
+      phone.readOnly = false; field.classList.remove('is-verified');
+      sendBtn.hidden = false; badge.hidden = true; busy(sendBtn, false, 'Send OTP');
+    };
+    const send = async () => {
+      if (!/^[6-9]\d{9}$/.test(phone.value)) {
+        field.classList.add('is-invalid'); err.textContent = 'Enter a valid 10-digit mobile number first.'; phone.focus(); return;
+      }
+      field.classList.remove('is-invalid'); err.textContent = '';
+      busy(sendBtn, true, 'Sending…');
+      try {
+        reqId = await msg91('sendOtp', { identifier: `91${phone.value}` });
+        box.hidden = false; phone.readOnly = true;
+        $('[data-otp-to]', box).textContent = `Enter the OTP sent to +91 ${phone.value.slice(0, 5)} ${phone.value.slice(5)}`;
+        busy(sendBtn, false, 'Resend'); sendBtn.hidden = true;
+        say('');
+        countdown(); code.focus();
+      } catch (e) {
+        busy(sendBtn, false, 'Send OTP');
+        field.classList.add('is-invalid'); err.textContent = 'We couldn’t send the OTP just now. Please check the number and try again.';
+      }
+    };
+    const resend = async () => {
+      if (!reqId) return send();
+      busy(resendBtn, true, 'Sending…');
+      try { reqId = (await msg91('retryOtp', { reqId })) || reqId; say('A new OTP is on its way.'); countdown(); code.focus(); }
+      catch (e) { say('Couldn’t resend just now. Please wait a moment and try again.', true); resendBtn.disabled = false; resendBtn.textContent = 'Resend OTP'; }
+    };
+    const verify = async () => {
+      const v = code.value.trim();
+      if (!/^\d{4,8}$/.test(v)) { say('Enter the code from the SMS.', true); code.focus(); return; }
+      busy(verifyBtn, true, 'Checking…');
+      try {
+        token = await msg91('verifyOtp', { reqId, otp: v });
+        verifiedFor = phone.value; clearInterval(timer);
+        box.hidden = true; field.classList.add('is-verified'); badge.hidden = false;
+        err.textContent = ''; field.classList.remove('is-invalid');
+      } catch (e) {
+        say('That code isn’t right. Please check the SMS and try again.', true); code.select();
+      } finally { busy(verifyBtn, false, 'Verify'); }
+    };
+
+    sendBtn.addEventListener('click', send);
+    resendBtn.addEventListener('click', resend);
+    verifyBtn.addEventListener('click', verify);
+    $('.otp__change', box).addEventListener('click', () => { reset(); phone.focus(); phone.select(); });
+    code.addEventListener('input', () => {
+      code.value = code.value.replace(/\D/g, '').slice(0, 8);
+      if (code.value.length === 6) verify(); // auto-check a full 6-digit code (also catches SMS autofill)
+    });
+    code.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); verify(); } });
+    phone.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !verifiedFor) { e.preventDefault(); send(); } });
+    phone.addEventListener('input', () => { if (verifiedFor && phone.value !== verifiedFor) reset(); });
+
+    return {
+      ok: () => !!token && verifiedFor === phone.value,
+      token: () => token,
+      reset,
+      demand: () => {
+        field.classList.add('is-invalid');
+        err.textContent = box.hidden ? 'Please verify your mobile number with an OTP.' : 'Enter the OTP we sent to verify your number.';
+        (box.hidden ? sendBtn : code).focus();
+      },
+    };
+  };
+
   /* ---------- test ride form ---------- */
   $$('[data-ride-form]').forEach((form) => {
     const vSel = $('[data-vehicle-select]', form);
@@ -597,7 +719,7 @@
       $('.field__error', f).textContent = ok ? '' : msg[el.name];
       return ok;
     };
-    const fields = () => $$('input, select, textarea', form);
+    const fields = () => $$('input:not(.otp__input), select, textarea', form);
     $('[name="phone"]', form).addEventListener('input', (e) => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10); });
     fields().forEach((el) => el.addEventListener('blur', () => { if (el.value) check(el); }));
     vSel.addEventListener('change', () => document.dispatchEvent(new CustomEvent('aarush:vehicle', { detail: vSel.value })));
@@ -610,6 +732,8 @@
     const errBox = $('[data-form-error]', form);
     const done = $('.ride-form__done', form);
     const submitBtn = $('button[type="submit"]', form);
+    const gate = otpOn ? otpGate(form) : null;
+    if (gate && note) note.textContent = 'We’ll text a one-time password (OTP) to confirm your mobile number before sending.';
     const showDone = (title, text, waHref) => {
       $('[data-done-title]', form).textContent = title;
       $('[data-done-text]', form).textContent = text;
@@ -628,7 +752,9 @@
         const pickBtn = first === vSel && vSel.closest('.field').classList.contains('is-picker') ? $('.bike-pick', form) : null;
         (pickBtn || first).focus(); return;
       }
+      if (gate && !gate.ok()) { gate.demand(); return; }
       const d = Object.fromEntries(new FormData(form));
+      delete d.otp_code;
       const when = d.date ? new Date(d.date + 'T00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : '';
       const lines = {
         ride: ['Test ride request', `Name: ${d.name}`, `Mobile: +91 ${d.phone}`, `Vehicle: Suzuki ${d.vehicle}`, `Showroom: ${d.showroom}`, `Preferred date: ${when}`],
@@ -637,6 +763,33 @@
       }[mode].filter(Boolean).join('\n');
       const waHref = wa(lines);
       const first = d.name.trim().split(/\s+/)[0];
+
+      if (gate && OTP.verifyUrl) {
+        // Secure check: the Worker confirms the OTP with MSG91 (secret authkey), then forwards the
+        // enquiry to the form service. If no form service is set up yet, it replies forwarded:false
+        // and the verified request continues to WhatsApp as before.
+        submitBtn.disabled = true; const label = submitBtn.textContent; submitBtn.textContent = 'Sending…';
+        let j = null;
+        try {
+          const r = await fetch(OTP.verifyUrl, {
+            method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ ...d, form: mode, subject: lines.split('\n')[0], page: location.href, otpToken: gate.token() }),
+          });
+          j = await r.json().catch(() => ({}));
+          if (!r.ok && j.error !== 'otp') throw new Error(`Server responded ${r.status}`);
+        } catch (err) { j = null; } finally { submitBtn.disabled = false; submitBtn.textContent = label; }
+        if (j && j.error === 'otp') { gate.reset(); gate.demand(); return; }
+        if (j && j.ok && j.forwarded) { location.href = link('/thank-you/'); return; }
+        if (!j || !j.ok) {
+          if (errBox) { errBox.textContent = 'Sorry, we couldn’t send your request just now. Please try again, call 88852 46633, or send it on WhatsApp.'; errBox.hidden = false; }
+          showDone('Not sent yet', 'Your details are still in the form. You can send the same request on WhatsApp instead.', waHref);
+          return;
+        }
+        gate.reset();
+        window.open(waHref, '_blank', 'noopener');
+        showDone(`One more step, ${first}.`, 'Your number is verified and WhatsApp has opened with your request written out. It is only sent to Aarush Suzuki when you press Send in WhatsApp.', waHref);
+        return;
+      }
 
       if (getEndpoint()) {
         // Real submission: success is shown only after the server confirms.
@@ -657,10 +810,11 @@
       }
 
       // No form backend configured: hand the request to WhatsApp and say plainly that it isn't sent yet.
+      if (gate) gate.reset();
       window.open(waHref, '_blank', 'noopener');
       showDone(`One more step, ${first}.`, 'WhatsApp has opened with your request written out. It is only sent to Aarush Suzuki when you press Send in WhatsApp. If WhatsApp didn’t open, use the button below.', waHref);
     });
-    $('[data-form-reset]', form).addEventListener('click', () => { form.reset(); if (preset) vSel.value = preset; done.hidden = true; if (errBox) errBox.hidden = true; $('[name="name"]', form).focus(); });
+    $('[data-form-reset]', form).addEventListener('click', () => { form.reset(); if (gate) gate.reset(); if (preset) vSel.value = preset; done.hidden = true; if (errBox) errBox.hidden = true; $('[name="name"]', form).focus(); });
   });
 
   /* ---------- test-ride page: live vehicle preview ---------- */

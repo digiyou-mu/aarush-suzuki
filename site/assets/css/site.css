@@ -1973,3 +1973,52 @@ html.has-modal { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   [data-reviews].is-ready .rv__quote, [data-reviews].is-ready .rv__quote.is-active { transition: none; transform: none; }
 }
+
+/* ===== Mobile OTP verification (forms) ===== */
+.field__tel { position: relative; }
+.otp-send, .otp-badge {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  height: 40px; padding: 0 16px; border-radius: 9px; font: 600 14px var(--font); white-space: nowrap;
+}
+.otp-send { border: 0; background: #fff; color: var(--ink); cursor: pointer; transition: background-color .25s, opacity .25s; }
+.otp-send:hover { background: var(--ivory); }
+.otp-send:disabled { opacity: .6; cursor: progress; }
+.otp-send[hidden], .otp-badge[hidden], .otp[hidden] { display: none; }
+.otp-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(31, 168, 85, .16); color: #7BE0A3; pointer-events: none; }
+.otp-badge svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.field:has(.otp-send:not([hidden])) .field__tel input { padding-right: 116px; }
+.field.is-verified .field__tel input { padding-right: 120px; border-color: rgba(31, 168, 85, .55); }
+.field__tel input[readonly] { cursor: default; }
+.otp { display: grid; gap: 10px; padding: 16px; border-radius: var(--r-sm); background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .12); animation: otpIn .4s var(--ease); }
+@keyframes otpIn { from { opacity: 0; transform: translateY(-6px); } }
+.otp__label { display: grid; gap: 8px; font-size: 13.5px; color: rgba(255, 255, 255, .72); }
+.otp__row { display: flex; gap: 10px; }
+.field .otp__input, .otp__input {
+  flex: 1; min-width: 0; height: 52px; padding: 0 16px; border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .22); color: #fff;
+  font: 600 20px var(--font); letter-spacing: .35em; outline: none; color-scheme: dark;
+}
+.otp__input::placeholder { font-size: 15px; font-weight: 400; letter-spacing: .02em; color: rgba(255, 255, 255, .4); }
+.otp__input:focus { border-color: rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .1); }
+.otp__verify { flex: none; height: 52px; padding: 0 22px; border: 0; border-radius: var(--r-sm); background: var(--red); color: #fff; font: 600 15px var(--font); cursor: pointer; transition: background-color .25s; }
+.otp__verify:hover { background: var(--red-deep); }
+.otp__verify:disabled { opacity: .65; cursor: progress; }
+.otp__msg { font-size: 13px; color: rgba(255, 255, 255, .7); }
+.otp__msg:empty { display: none; }
+.otp__msg.is-bad { color: #FF8A8A; }
+.otp__links { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.otp__links button { padding: 4px 0; border: 0; background: none; color: #fff; font: 500 13.5px var(--font); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, .35); cursor: pointer; }
+.otp__links button:disabled { color: rgba(255, 255, 255, .45); text-decoration: none; cursor: default; }
+@media (max-width: 420px) {
+  .otp-send, .otp-badge { padding: 0 12px; font-size: 13px; }
+  .field:has(.otp-send:not([hidden])) .field__tel input { padding-right: 104px; }
+  .otp__verify { padding: 0 16px; }
+}
+.otp-badge b { font-weight: 600; }
+@media (max-width: 420px) {
+  .otp-badge { padding: 0; width: 36px; justify-content: center; }
+  .otp-badge b { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .field.is-verified .field__tel input { padding-right: 50px; }
+  .otp-send { padding: 0 10px; right: 5px; }
+  .field:has(.otp-send:not([hidden])) .field__tel input { padding-right: 92px; }
+}
