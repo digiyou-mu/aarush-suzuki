@@ -91,13 +91,24 @@ function Breadcrumb-JsonLd($items) {
 function Script-Ld($json) { "  <script type=`"application/ld+json`">$json</script>`n" }
 
 function Assemble($meta, $body) {
-  $robots = if ($meta.robots) { $meta.robots } else { 'index, follow, max-image-preview:large' }
+  $robots = if ($meta.robots) { $meta.robots } else { 'index, follow, max-image-preview:large, max-snippet:-1' }
   $og = if ($meta.ogImage) { if ($meta.ogImage -like 'http*') { $meta.ogImage } else { $BASE + $meta.ogImage } } else { "$BASE/assets/img/photos/hero-v-strom-sx-riders.jpg" }
+  $ogAlt = if ($meta.ogAlt) { $meta.ogAlt } elseif ($meta.ogImage) { $meta.title } else { 'Riders on Suzuki V-Strom SX motorcycles' }
+  $ogType = if ($meta.ogType) { $meta.ogType } else { 'website' }
   $pre = ''
-  if ($meta.preload) { $pre = "  <link rel=`"preload`" as=`"image`" href=`"$($meta.preload)`" fetchpriority=`"high`">`n" }
+  if ($meta.preload -eq 'hero-banner') {
+    # Preload the banner the slider shows first (the LCP image), mobile and desktop versions by breakpoint
+    $todayIso = Get-Date -Format 'yyyy-MM-dd'
+    $hs = @($site.heroSlides | Where-Object { -not $_.until -or $_.until -ge $todayIso })[0]
+    $pre = "  <link rel=`"preload`" as=`"image`" href=`"/assets/img/banners/$($hs.model)-mobile.jpg`" media=`"(max-width: 767px)`" fetchpriority=`"high`">`n" +
+           "  <link rel=`"preload`" as=`"image`" href=`"/assets/img/banners/$($hs.model)-desktop.jpg`" media=`"(min-width: 768px)`" fetchpriority=`"high`">`n"
+  } elseif ($meta.preload) { $pre = "  <link rel=`"preload`" as=`"image`" href=`"$($meta.preload)`" fetchpriority=`"high`">`n" }
+  # Organization + WebSite on every page, so search and AI engines tie each page to the same business
+  $jsonld = (Script-Ld (Read-Text "$src/data/home-ld.json").Trim()) + [string]$meta.jsonld
   $h = $partHead.Replace('{{TITLE}}', (Enc $meta.title)).Replace('{{DESCRIPTION}}', (Enc $meta.description)).
     Replace('{{CANONICAL}}', $BASE + $meta.path).Replace('{{ROBOTS}}', $robots).Replace('{{OG_IMAGE}}', $og).
-    Replace('{{BODY_CLASS}}', $meta.bodyClass).Replace('{{PRELOAD}}', $pre).Replace('{{JSONLD}}', [string]$meta.jsonld)
+    Replace('{{OG_TYPE}}', $ogType).Replace('{{OG_ALT}}', (Enc $ogAlt)).Replace("{{ANALYTICS}}`r`n", (Analytics-Head)).Replace("{{ANALYTICS}}`n", (Analytics-Head)).Replace('{{ANALYTICS}}', (Analytics-Head)).
+    Replace('{{BODY_CLASS}}', $meta.bodyClass).Replace('{{PRELOAD}}', $pre).Replace('{{JSONLD}}', $jsonld)
   $hdr = $partHeader.Replace('{{HEADER_CLASS}}', $(if ($meta.headerClass) { ' ' + $meta.headerClass } else { '' }))
   $html = $h + "`n" + (Expand-Tokens $hdr) + "`n" + $body.Trim() + "`n`n" + (Expand-Tokens $partFooter)
   # The 404 page is served at arbitrary URLs by the host, so it keeps root-absolute links.
@@ -191,7 +202,7 @@ function Render-Compare($ids, $rows) {
 function Render-Features($v, $max, $cls) {
   $list = @($v.features | Select-Object -First $max)
   ($list | ForEach-Object {
-    $img = if ($_[2]) { "<img src=`"$($_[2])`" alt=`"`" loading=`"lazy`" width=`"520`" height=`"420`">" } else { '' }
+    $img = if ($_[2]) { "<img src=`"$($_[2])`" alt=`"$(Enc "Suzuki $($v.name) – $($_[0])")`" loading=`"lazy`" width=`"520`" height=`"420`">" } else { '' }
     $hasImg = if ($_[2]) { ' feat--img' } else { '' }
     "<article class=`"feat$hasImg $cls`">$img<div><h3>$(Enc $_[0])</h3><p>$(Enc (Clip $_[1]))</p></div></article>"
   }) -join "`n"
@@ -325,8 +336,187 @@ function Render-RideForm($title, $note, $mode, $preset) {
 "@
 }
 
+# ------------------------------------------------- SEO / AEO helpers ----
+# Names people type in searches ("Access 125", "Gixxer 155"); used in titles, descriptions and FAQs.
+$ALIAS = @{ 'gixxer' = 'Gixxer 155'; 'access' = 'Access 125'; 'avenis' = 'Avenis 125'; 'v-strom-sx' = 'V-Strom SX 250' }
+function AliasOf($v) { if ($ALIAS[$v.id]) { $ALIAS[$v.id] } else { $v.name } }
+function PriceNums($v) { @($v.prices | ForEach-Object { [int64](($_[1]) -replace '[^\d]', '') }) }
+function Rupees($n) { '₹' + ([int64]$n).ToString('N0', [Globalization.CultureInfo]::GetCultureInfo('en-IN')) }
+function HL($v, $label) { foreach ($h in $v.highlights) { if ($h[0] -eq $label) { return (($h[1] -split ' @ ')[0]).Trim() } }; return $null }
+function PriceDate($v) { if ($v.pricesNote -match 'on (\d{1,2} \w+ \d{4})') { $Matches[1] } else { '' } }
+
+function Model-Title($v) {
+  $a = AliasOf $v
+  if (-not $v.prices -or -not $v.prices.Count) { return "Suzuki $a in Hyderabad – Specs | Aarush Suzuki" }
+  $extra = if ($v.category -eq 'electric') { 'Range' } else { 'Specs' }
+  $t = "Suzuki $a Price in Hyderabad & $extra | Aarush Suzuki"
+  if ($t.Length -gt 60) { $t = "Suzuki $a Price in Hyderabad | Aarush Suzuki" }
+  return $t
+}
+function Model-Description($v) {
+  $a = AliasOf $v; $nc = @($v.colours).Count
+  $spec = if ($v.category -eq 'electric') { "$(HL $v 'Range (AIS 040)') certified range (AIS 040), $nc colours" }
+          else { "$(HL $v 'Displacement'), $(@((HL $v 'Max power'), (HL $v 'Gearbox')) | Where-Object { $_ } | Select-Object -First 1), $nc colours" }
+  if ($v.prices -and $v.prices.Count) {
+    $nums = PriceNums $v
+    $lead = if ($nums.Count -gt 1) { "from $(Rupees (($nums | Measure-Object -Minimum).Minimum))" } else { ": $(Rupees $nums[0])" }
+    $d = "Suzuki $a ex-showroom price in Hyderabad$(if ($lead -like 'from*') { ' ' })$lead. $spec. Get the on-road price and book a test ride at Aarush Suzuki."
+    if ($d.Length -gt 155) { $d = "Suzuki $a ex-showroom price in Hyderabad$(if ($lead -like 'from*') { ' ' })$lead. $spec. Get the on-road price and book a test ride." }
+    return $d
+  }
+  $d = "Suzuki $a in Hyderabad: $($v.summary.TrimEnd('.')). $spec. Check availability and get the on-road price at Aarush Suzuki."
+  if ($d.Length -gt 155) { $d = "Suzuki $a in Hyderabad: $($v.summary.TrimEnd('.')). Specs, colours, availability and the on-road price." }
+  return $d
+}
+
+# Model-page FAQs, built only from the page's own data (price table, colours, highlights).
+function Model-Faqs($v) {
+  $a = AliasOf $v; $n = $v.name; $f = @()
+  $branches = @($showrooms).Count
+  if ($v.prices -and $v.prices.Count) {
+    $nums = PriceNums $v; $lo = Rupees (($nums | Measure-Object -Minimum).Minimum); $hi = Rupees (($nums | Measure-Object -Maximum).Maximum)
+    $pd = PriceDate $v; $when = if ($pd) { " as published by Suzuki Motorcycle India on $pd" } else { '' }
+    $variants = ($v.prices | ForEach-Object { "$($_[0]) $($_[1])" }) -join '; '
+    $ans = if ($nums.Count -gt 1) { "The Suzuki $a costs $lo to $hi ex-showroom in Hyderabad across $($nums.Count) variants$($when): $variants." } else { "The Suzuki $a costs $lo ex-showroom in Hyderabad$($when)." }
+    $f += , @("What is the ex-showroom price of the Suzuki $a in Hyderabad?", $ans, '#price', 'See the price table')
+    $f += , @("What is the on-road price of the Suzuki $a in Hyderabad?", "The on-road price is the ex-showroom price (from $lo) plus registration (RTO), insurance and any accessories you choose, so it depends on the variant and options. Aarush Suzuki sales will give you an exact quote: call 88852 46633 or ask on WhatsApp.", "/contact/?model=$($v.id)&topic=price#enquire", 'Get the on-road price')
+  } else {
+    $f += , @("Is the Suzuki $n available at Aarush Suzuki?", "Ask your nearest Aarush Suzuki showroom about availability, bookings and the on-road price of the Suzuki $n. Call 88852 46633 or send an enquiry and our team will call you back.", "/contact/?model=$($v.id)&topic=availability#enquire", 'Ask about availability')
+  }
+  $cols = @($v.colours | ForEach-Object { $_[0] })
+  if ($cols.Count) { $f += , @("How many colours does the Suzuki $a come in?", "Suzuki lists the $n in $($cols.Count) colours: $($cols -join '; '). Ask us which colours are in stock.", '#colours', 'See the colours') }
+  if ($v.category -eq 'electric') {
+    $f += , @("What is the range of the Suzuki $n?", "The $n has a certified range of $(HL $v 'Range (AIS 040)') as per AIS 040, from a $(HL $v 'Battery') lithium iron phosphate (LFP) battery. A fast charger takes it from 0 to 80% in 1 h 12 min.", '#specifications', 'Full specifications')
+  } else {
+    $bits = @(); foreach ($k in 'Displacement', 'Max power', 'Max torque', 'Gearbox', 'Kerb weight', 'Seat height') { $x = HL $v $k; if ($x) { $bits += "$($k.ToLower()) $x" } }
+    $f += , @("What are the key specifications of the Suzuki $a?", "The Suzuki $n has $(($bits | Select-Object -First 4) -join ', '), as published by Suzuki Motorcycle India.", '#specifications', 'Full specifications')
+  }
+  $f += , @("Where can I test ride the Suzuki $a in Hyderabad?", "Book a test ride online, or visit any of Aarush Suzuki's $branches showrooms in Hyderabad and Telangana. Bring a valid driving licence; our team will call to confirm a time.", "/book-a-test-ride/?model=$($v.id)", 'Book a test ride')
+  return , $f
+}
+function Faq-Section($faqs, $title, $lead, $id) {
+  $k = 0
+  $items = foreach ($q in $faqs) {
+    $k++
+    $more = if ($q[2]) { " <a class=`"faq__link`" href=`"$(Enc $q[2])`">$(Enc $q[3])</a>" } else { '' }
+@"
+<details class="faq__item" name="$id"$(if ($k -eq 1) { ' open' })>
+            <summary><span class="faq__num">$('{0:D2}' -f $k)</span><h3 class="faq__q">$(Enc $q[0])</h3><i class="faq__icon" aria-hidden="true"></i></summary>
+            <div class="faq__a"><p>$(Enc $q[1])$more</p></div>
+          </details>
+"@
+  }
+@"
+    <section class="faq faq--page" id="$id" aria-labelledby="$id-title">
+      <div class="faq__inner">
+        <header class="faq__head">
+          <p class="faq__kicker">FAQs</p>
+          <h2 class="faq__title" id="$id-title">$(Enc $title)</h2>
+          <p class="faq__lead">$(Enc $lead)</p>
+          <a class="link-arrow" href="https://wa.me/$($site.contact.whatsapp)" target="_blank" rel="noopener">Ask us on WhatsApp</a>
+        </header>
+        <div class="faq__list">
+          $($items -join "`n          ")
+        </div>
+      </div>
+    </section>
+"@
+}
+function Faq-JsonLd($faqs) {
+  $qa = ($faqs | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_[0]),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_[1])}}" }) -join ','
+  "{`"@context`":`"https://schema.org`",`"@type`":`"FAQPage`",`"mainEntity`":[$qa]}"
+}
+function Offers-Json($v) {
+  if (-not $v.prices -or -not $v.prices.Count) { return '' }
+  $nums = PriceNums $v
+  $seller = "`"seller`":{`"@id`":`"$BASE/#org`"}"
+  if ($nums.Count -gt 1) {
+    return ",`"offers`":{`"@type`":`"AggregateOffer`",`"priceCurrency`":`"INR`",`"lowPrice`":$(($nums | Measure-Object -Minimum).Minimum),`"highPrice`":$(($nums | Measure-Object -Maximum).Maximum),`"offerCount`":$($nums.Count),`"url`":$(JsonStr "$BASE$($v.url)#price"),$seller}"
+  }
+  return ",`"offers`":{`"@type`":`"Offer`",`"priceCurrency`":`"INR`",`"price`":$($nums[0]),`"url`":$(JsonStr "$BASE$($v.url)#price"),$seller}"
+}
+function ItemList-JsonLd($cg) {
+  $i = 0
+  $items = foreach ($v in @($vehicles | Where-Object { $_.category -eq $cg -and $_.published -ne $false })) { $i++; "{`"@type`":`"ListItem`",`"position`":$i,`"name`":$(JsonStr "Suzuki $($v.name)"),`"url`":$(JsonStr "$BASE$($v.url)")}" }
+  "{`"@context`":`"https://schema.org`",`"@type`":`"ItemList`",`"name`":$(JsonStr "Suzuki $($CAT[$cg].plural) at Aarush Suzuki"),`"itemListElement`":[" + ($items -join ',') + "]}"
+}
+
+# Homepage blocks that used to exist only after JavaScript ran (crawlers and AI bots now see them).
+$CATLABEL = @{ motorcycles = 'Motorcycle'; scooters = 'Scooter'; electric = 'Electric' }
+function Render-Lineup {
+  (@($vehicles | Where-Object { $_.category -ne 'premium' -and $site.featured -contains $_.id }) | ForEach-Object {
+    $v = $_; $pf = PriceFrom $v
+    $price = if ($pf) { "<span class=`"slide__price`">Ex-showroom Hyderabad from <b>$pf</b></span>" } else { '' }
+@"
+<article class="slide">
+        <div class="slide__scene">
+          <span class="slide__word" aria-hidden="true">$(Enc ($v.name.Split(' ')[0]))</span>
+          <a class="slide__vehicle" href="$($v.url)" tabindex="-1" aria-hidden="true">
+            <img src="$($v.image.Replace('/img/models/', '/img/models/trim/'))" alt="" loading="lazy">
+          </a>
+          <span class="slide__shadow" aria-hidden="true"></span>
+        </div>
+        <div class="slide__info">
+          <span class="slide__cat">$($CATLABEL[$v.category])</span>
+          <h3 class="slide__name"><a href="$($v.url)">$(Enc $v.name)</a></h3>
+          <p class="slide__line">$(Enc $v.summary)$price</p>
+          <div class="slide__actions">
+            <a class="link-arrow" href="$($v.url)">Explore <span class="sr-only">the Suzuki $(Enc $v.name) </span>model</a>
+            <a class="slide__enquire" href="/contact/?model=$($v.id)&amp;topic=price#enquire">Enquire now<span class="sr-only"> about the $(Enc $v.name)</span></a>
+          </div>
+        </div>
+      </article>
+"@ }) -join ''
+}
+function Render-PremiumCards {
+  (@($vehicles | Where-Object { $_.category -eq 'premium' }) | ForEach-Object {
+@"
+<a class="bike" href="$($_.url)">
+        <img src="$($_.image)" alt="$(Enc "Suzuki $($_.name) on the road")" width="550" height="640" loading="lazy">
+        <span class="bike__body">
+          <span><h3>$(Enc $_.name)</h3><p>$(Enc $_.summary)</p></span>
+          <span class="bike__go" aria-hidden="true"></span>
+        </span>
+      </a>
+"@ }) -join ''
+}
+function Render-HomeDirectory($region) {
+  (@($showrooms | Where-Object { $_.region -eq $region }) | ForEach-Object {
+    $s = $_
+    $tag = if ($s.id -like 'best-value*') { 'Suzuki Best Value · Sales &amp; service' } else { 'Sales &amp; service' }
+    $svc = if ($s.serviceAddress) { "<small>Service centre: $(Enc $s.serviceAddress)</small>" } else { '' }
+@"
+<li class="dir-row">
+          <div><h3>$(Enc $s.name)</h3><span class="dir-row__tag">$tag</span></div>
+          <address>$(Enc $s.address)$svc</address>
+          <div class="dir-row__phones">
+            <a href="tel:+91$($s.sales)"><span>Sales</span>$(Phone $s.sales)</a>
+            <a href="tel:+91$($s.service)"><span>Service</span>$(Phone $s.service)</a>
+          </div>
+          <a class="link-arrow dir-row__map" href="$(DirUrl $s.name $s.address)" target="_blank" rel="noopener" aria-label="Directions to Aarush Suzuki $(Enc $s.name) on Google Maps">Directions</a>
+        </li>
+"@ }) -join ''
+}
+
+# Analytics / verification tags from site.json → "analytics" (empty = nothing is added).
+function Analytics-Head {
+  $a = $site.analytics; if (-not $a) { return '' }
+  $out = ''
+  if ($a.googleVerification) { $out += "  <meta name=`"google-site-verification`" content=`"$(Enc $a.googleVerification)`">`n" }
+  if ($a.bingVerification) { $out += "  <meta name=`"msvalidate.01`" content=`"$(Enc $a.bingVerification)`">`n" }
+  if ($a.ga4) {
+    $out += "  <script async src=`"https://www.googletagmanager.com/gtag/js?id=$($a.ga4)`"></script>`n"
+    $out += "  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','$($a.ga4)');</script>`n"
+  }
+  return $out
+}
+
 function Render-Token($name, $arg) {
   switch ($name) {
+    'LINEUP' { return Render-Lineup }
+    'CATFROM' { $nums = @($vehicles | Where-Object { $_.category -eq $arg -and $_.prices } | ForEach-Object { PriceNums $_ }); return Rupees (($nums | Measure-Object -Minimum).Minimum) }
+    'PREMIUM_CARDS' { return Render-PremiumCards }
+    'HOME_DIRECTORY' { return Render-HomeDirectory $arg }
     'MODEL_ROWS' {
       $groups = [ordered]@{}
       foreach ($part in $arg.Split(';')) { $kv = $part.Split('='); $groups[$kv[0]] = $kv[1].Split(',') }
@@ -359,12 +549,14 @@ function Render-Token($name, $arg) {
       return "<nav class=`"social $arg`" aria-label=`"Social media`">" + ($items -join '') + "</nav>"
     }
     'HERO_SLIDES' {
-      $slides = @($site.heroSlides); $n = $slides.Count; $i = 0
+      $todayIso = Get-Date -Format 'yyyy-MM-dd'
+      $slides = @($site.heroSlides | Where-Object { -not $_.until -or $_.until -ge $todayIso }); $n = $slides.Count; $i = 0
       $html = foreach ($s in $slides) {
         $v = $VM[$s.model]; $i++
         $load = if ($i -eq 1) { 'eager" fetchpriority="high' } else { 'lazy' }
         $active = if ($i -eq 1) { ' is-active' } else { '' }
         $note = if ($s.note) { " data-note=`"$(Enc $s.note)`"" } else { '' }
+        if ($s.until) { $note += " data-until=`"$($s.until)`"" }
 @"
 <div class="hs__slide$active" data-slide data-label="$(Enc $s.label)" data-url="$($v.url)" data-ride="/book-a-test-ride/?model=$($v.id)"$note role="group" aria-roledescription="slide" aria-label="$($i) of $($n): Suzuki $(Enc $s.label)">
             <picture class="hs__amb" aria-hidden="true">
@@ -451,7 +643,7 @@ function Render-Token($name, $arg) {
       }
       $dots = (1..$n | ForEach-Object { "<button type=`"button`" class=`"hs__dot`" data-rv-goto=`"$($_ - 1)`" aria-label=`"Show review $_`" aria-current=`"$(if ($_ -eq 1) {'true'} else {'false'})`"><i></i></button>" }) -join ''
 @"
-<section class="rv" aria-labelledby="rv-title">
+<section class="rv" id="reviews" aria-labelledby="rv-title">
       <div class="rv__inner">
         <header class="rv__head">
           <p class="rv__kicker"><span class="rv__g" aria-hidden="true">G</span>Google reviews</p>
@@ -648,6 +840,7 @@ function Render-Vehicle($v) {
     "<a class=`"sim`" href=`"$($s.url)`"><span class=`"sim__media`">$media</span><span class=`"sim__cat`">$($CAT[$s.category].label)</span><strong>$(Enc $s.name)</strong><span>$(Enc $s.summary)</span></a>"
   }) -join ''
 
+  $faqs = Model-Faqs $v
   $enqForm = "/contact/?model=$($v.id)&amp;topic=price#enquire"
   $enqWA = WA "Hi Aarush Suzuki, I'm interested in the Suzuki $($v.name). Please share colours in stock and the on-road price."
   $heroCls = if ($photo) { 'v-hero v-hero--photo' } else { 'v-hero' }
@@ -659,7 +852,7 @@ function Render-Vehicle($v) {
         <div class="v-hero__text">
           $(Crumbs @(@('Home', '/'), @($c.plural, $c.url), @($v.name, $v.url)))
           <p class="v-hero__tag">$(Enc $v.tagline)</p>
-          <h1 class="v-hero__name" id="v-name">Suzuki <span>$(Enc $v.name)</span></h1>
+          <h1 class="v-hero__name" id="v-name">Suzuki <span>$(Enc $v.name)</span> <small class="h1-sub">$(if ($v.prices -and $v.prices.Count) { 'Price in Hyderabad' } else { 'in Hyderabad' })</small></h1>
           <p class="v-hero__summary">$(Enc $v.summary)</p>
           $(PriceLine $v 'price-from--hero')
           <div class="v-hero__actions">
@@ -676,7 +869,7 @@ function Render-Vehicle($v) {
       <div class="wrap v-overview__grid">
         <p id="o-title" class="v-overview__lead">$(Enc $v.overview)</p>
         <nav class="v-jump" aria-label="On this page">
-          $(if ($priceSec) { '<a href="#price">Price</a>' })<a href="#colours">Colours</a>$(if ($v.features.Count) { '<a href="#features">Features</a>' })$(if ($accSec) { '<a href="#accessories">Accessories</a>' })<a href="#specifications">Specifications</a><a href="#enquire">Enquire</a>
+          $(if ($priceSec) { '<a href="#price">Price</a>' })<a href="#colours">Colours</a>$(if ($v.features.Count) { '<a href="#features">Features</a>' })$(if ($accSec) { '<a href="#accessories">Accessories</a>' })<a href="#specifications">Specifications</a><a href="#faq">FAQs</a><a href="#enquire">Enquire</a>
         </nav>
       </div>
     </section>
@@ -701,12 +894,13 @@ $accSec
           <h2 id="s-title" class="sec-title">Specifications</h2>
           <p>Technical data as published by Suzuki Motorcycle India. Specifications can change without notice; our team will confirm details for the variant you choose.</p>
           $brochures
-          <a class="link-arrow" href="$($v.official)" target="_blank" rel="noopener">Official $(Enc $v.name) page</a>
+          <a class="link-arrow" href="$($v.official)" target="_blank" rel="noopener">$(if ($v.id -eq 'gixxer') { 'Official Gixxer range page (Gixxer SF)' } elseif ($v.id -eq 'gixxer-250') { 'Official Gixxer 250 range page (Gixxer SF 250)' } else { "Official $(Enc $v.name) page" })</a>
         </div>
         <div class="specs">$specGroups</div>
       </div>
     </section>
 $gallery
+$(Faq-Section $faqs "Suzuki $(AliasOf $v) questions" "Price, colours, specifications and test rides for the $($v.name) at Aarush Suzuki, answered from the details on this page." 'faq')
     <section class="v-enquire" id="enquire" aria-labelledby="e-title">
       <div class="wrap v-enquire__grid">
         <div>
@@ -731,13 +925,15 @@ $gallery
   </main>
 "@
 
-  $product = "{`"@context`":`"https://schema.org`",`"@type`":`"Product`",`"name`":$(JsonStr "Suzuki $($v.name)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"category`":$(JsonStr $c.label),`"description`":$(JsonStr $v.overview),`"image`":$(JsonStr $(if ($photo) { $v.image } else { $BASE + $v.image })),`"url`":$(JsonStr ($BASE + $v.url))}"
+  $img = if ($v.image -like 'http*') { $v.image } else { $BASE + $v.image }
+  $colourList = (@($v.colours | ForEach-Object { JsonStr $_[0] }) -join ',')
+  $product = "{`"@context`":`"https://schema.org`",`"@type`":`"Product`",`"@id`":$(JsonStr "$BASE$($v.url)#product"),`"name`":$(JsonStr "Suzuki $($v.name)"),`"alternateName`":$(JsonStr "Suzuki $(AliasOf $v)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"category`":$(JsonStr $c.label),`"description`":$(JsonStr $v.overview),`"image`":$(JsonStr $img),`"color`":[$colourList],`"url`":$(JsonStr ($BASE + $v.url))$(Offers-Json $v)}"
   $crumb = Breadcrumb-JsonLd @(@('Home', '/'), @($c.plural, $c.url), @($v.name, $v.url))
   $meta = @{
-    title = "Suzuki $($v.name) in Hyderabad – Specs & Colours | Aarush Suzuki"
-    description = "$($v.summary) Suzuki $($v.name) specs, colours and test rides at Aarush Suzuki, Hyderabad."
-    path = $v.url; bodyClass = "page-vehicle page-vehicle--$($v.category)"; ogImage = $v.image
-    jsonld = (Script-Ld $product) + (Script-Ld $crumb)
+    title = Model-Title $v
+    description = Model-Description $v
+    path = $v.url; bodyClass = "page-vehicle page-vehicle--$($v.category)"; ogImage = $v.image; ogType = 'product'; ogAlt = Alt $v
+    jsonld = (Script-Ld $product) + (Script-Ld $crumb) + (Script-Ld (Faq-JsonLd $faqs))
   }
   if (-not $photo) { $meta.preload = $v.image }
   return Assemble $meta $body
@@ -754,6 +950,7 @@ Get-ChildItem "$src/pages" -Filter *.html | ForEach-Object {
     if ($line -match '^\s*([A-Za-z]+)\s*:\s*(.+?)\s*$') { $meta[$Matches[1]] = $Matches[2] }
   }
   $body = Expand-Tokens ($raw.Substring($m.Length))
+  foreach ($k in 'title', 'description') { if ($meta[$k]) { $meta[$k] = Expand-Tokens $meta[$k] } }
   $ld = ''
   if ($meta.crumbs) {
     $items = @(, @('Home', '/')); foreach ($c in $meta.crumbs.Split(';')) { $kv = $c.Split('='); $items += , @($kv[0], $kv[1]) }
@@ -761,9 +958,9 @@ Get-ChildItem "$src/pages" -Filter *.html | ForEach-Object {
   }
   if ($meta.schema -eq 'showrooms') { $ld += Script-Ld (Showrooms-JsonLd) }
   if ($meta.schema -eq 'services') { $ld += Script-Ld (Services-JsonLd) }
+  if ($meta.itemlist) { $ld += Script-Ld (ItemList-JsonLd $meta.itemlist) }
   if ($meta.schema -eq 'home') {
-    $ld += Script-Ld (Read-Text "$src/data/home-ld.json")
-    $qa = ((Read-Text "$src/data/faqs.json" | ConvertFrom-Json) | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_.q),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_.a)}}" }) -join ','
+    $qa =((Read-Text "$src/data/faqs.json" | ConvertFrom-Json) | ForEach-Object { "{`"@type`":`"Question`",`"name`":$(JsonStr $_.q),`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":$(JsonStr $_.a)}}" }) -join ','
     $ld += Script-Ld "{`"@context`":`"https://schema.org`",`"@type`":`"FAQPage`",`"mainEntity`":[$qa]}"
   }
   $meta.jsonld = $ld
@@ -790,7 +987,40 @@ Write-Text (Join-Path $out 'sitemap.xml') "<?xml version=`"1.0`" encoding=`"UTF-
 Write-Text (Join-Path $out 'robots.txt') "User-agent: *`nAllow: /`n`nSitemap: $BASE/sitemap.xml`n"
 
 $redirects = Read-Text "$src/data/redirects.json" | ConvertFrom-Json
-$ht = "# Generated by build.ps1 – 301 redirects from the old WordPress URLs`nRewriteEngine On`nErrorDocument 404 /404.html`n"
+$ht = @'
+# Generated by build.ps1 – server settings and 301 redirects from the old WordPress URLs
+AddDefaultCharset UTF-8
+AddType application/manifest+json .webmanifest
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+</IfModule>
+
+# Preview / staging hosts stay out of search results (never matches aarushsuzuki.in)
+SetEnvIfNoCase Host "hostingersite\.com$" STAGING_HOST
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow" env=STAGING_HOST
+</IfModule>
+
+RewriteEngine On
+
+# /index.html and /folder/index.html → the folder URL
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# Old WordPress system URLs
+RewriteRule ^wp-sitemap.*\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^(feed|comments/feed)/?$ / [R=301,L]
+RewriteRule ^(wp-admin|wp-includes|wp-json|wp-login\.php|xmlrpc\.php)(/.*)?$ - [G,L]
+RewriteRule ^wp-content/ - [G,L]
+
+# Old WordPress pages → new pages
+
+'@
 $nl = "# Generated by build.ps1 – Netlify/Cloudflare Pages format`n"
 foreach ($r in $redirects) {
   $from = $r[0].Trim('/')
@@ -799,4 +1029,21 @@ foreach ($r in $redirects) {
 }
 Write-Text (Join-Path $out '.htaccess') $ht
 Write-Text (Join-Path $out '_redirects') $nl
+
+# llms.txt – a plain map of the site for AI assistants and agents (generated from the same data)
+$lm = "# Aarush Suzuki`n`n> Suzuki two-wheeler dealer with $(@($showrooms).Count) sales and service locations in Hyderabad and Telangana, India. Sells and services Suzuki motorcycles, scooters and the e-Access electric scooter.`n`n"
+$lm += "- Sales: +91 $(Phone $site.contact.sales) · Service: +91 $(Phone $site.contact.service) · WhatsApp: +91 $(Phone $site.contact.whatsapp.Substring(2))`n"
+$lm += "- Hours: Monday to Sunday, 9:30 AM to 9:30 PM`n"
+$lm += "- Hyderabad: " + ((@($showrooms | Where-Object { $_.region -eq 'hyderabad' }) | ForEach-Object { $_.name }) -join ', ') + "`n"
+$lm += "- Telangana: " + ((@($showrooms | Where-Object { $_.region -eq 'telangana' }) | ForEach-Object { $_.name }) -join ', ') + "`n"
+$lm += "- Prices are ex-showroom Hyderabad as published by Suzuki Motorcycle India; the on-road price is quoted on request.`n"
+foreach ($cg in 'motorcycles', 'scooters', 'electric', 'premium') {
+  $lm += "`n## Suzuki $($CAT[$cg].plural)`n"
+  foreach ($v in @($vehicles | Where-Object { $_.category -eq $cg -and $_.published -ne $false })) {
+    $pf = PriceFrom $v; $p = if ($pf) { ", ex-showroom from $pf" } else { '' }
+    $lm += "- [Suzuki $(AliasOf $v)]($BASE$($v.url)): $($v.summary.TrimEnd('.'))$p`n"
+  }
+}
+$lm += "`n## Service, showrooms and booking`n- [Service centres and service booking]($BASE/services/)`n- [All showrooms: addresses, phones and directions]($BASE/contact/)`n- [Book a test ride]($BASE/book-a-test-ride/)`n`n## Optional`n- [About Aarush Suzuki]($BASE/about/)`n- [Privacy policy]($BASE/privacy-policy/)`n"
+Write-Text (Join-Path $out 'llms.txt') $lm
 Write-Host "Built $($pages.Count) indexable pages into $out"

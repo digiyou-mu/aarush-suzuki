@@ -465,7 +465,7 @@ body.is-locked { overflow: hidden; }
 .site-footer__plate img { width: 160px; }
 .site-footer__brand p { margin-top: 22px; max-width: 34ch; }
 .site-footer__col { display: grid; align-content: start; gap: 10px; }
-.site-footer__col h2 { margin-bottom: 8px; font-size: 14px; color: #fff; }
+.site-footer__col h2, .site-footer__col .site-footer__title { margin-bottom: 8px; font-size: 14px; color: #fff; }
 .site-footer a:hover { color: #fff; }
 .site-footer__social { display: flex; gap: 18px; margin-top: 10px; }
 .site-footer__legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 72px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .1); font-size: 13.5px; color: rgba(255, 255, 255, .45); }
@@ -1421,7 +1421,7 @@ h1, h2, h3 { text-wrap: balance; }
 .site-nav a, .drawer a, .btn, .link-arrow, .seg button, .quickbar a, .hs__label,
 .slide__cat, .slide__name, .mrow__tag, .v-hero__tag, .sim__cat, .stats dd, .compare thead th,
 .selector__tabs button span, .ev-figures dd, .ab-numbers dd, .specs__group summary, .v-price__table td,
-.svc-steps__list span, .simple__code, .site-footer__col h2, .directory__lines a, .ride-form__title {
+.svc-steps__list span, .simple__code, .site-footer__col h2, .site-footer__col .site-footer__title, .directory__lines a, .ride-form__title {
   font-family: var(--font-head); font-weight: 500;
 }
 .site-nav a, .btn, .link-arrow, .seg button, .quickbar a { letter-spacing: .01em; }
@@ -1430,7 +1430,7 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* All H1 and H2 headings in uppercase. Capitals read best with neutral tracking. */
 h1, h2, h1 span, h2 em { text-transform: uppercase; letter-spacing: .005em !important; }
-.site-footer__col h2 { font-size: 13px; letter-spacing: .08em !important; color: rgba(255, 255, 255, .55); }
+.site-footer__col h2, .site-footer__col .site-footer__title { font-size: 13px; letter-spacing: .08em !important; color: rgba(255, 255, 255, .55); }
 .legal h2 { font-size: 20px; }
 
 /* ---- Map band (sits above the footer on every page) ---- */
@@ -1440,7 +1440,7 @@ h1, h2, h1 span, h2 em { text-transform: uppercase; letter-spacing: .005em !impo
   grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(32px, 5vw, 80px); align-items: center;
 }
 .map-band__kicker { margin-bottom: 14px; font-size: 14px; color: var(--grey); }
-.map-band__title { font-size: var(--h2); line-height: 1.1; max-width: 14ch; }
+.map-band__title { font-family: var(--font-head); font-weight: 500; text-wrap: balance; font-size: var(--h2); line-height: 1.1; max-width: 14ch; }
 .map-band__lead { margin-top: clamp(18px, 1.6vw, 24px); color: var(--grey); font-size: 17px; max-width: 40ch; }
 .map-band__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .map-band__frame {
@@ -2022,3 +2022,25 @@ html.has-modal { overflow: hidden; }
   .otp-send { padding: 0 10px; right: 5px; }
   .field:has(.otp-send:not([hidden])) .field__tel input { padding-right: 92px; }
 }
+
+/* ===== SEO round: footer headings are <p> now (same look as the old <h2>) ===== */
+.site-footer__title, .map-band__title { text-transform: uppercase; letter-spacing: .005em; }
+.site-footer__col .site-footer__title { display: block; }
+/* keyword line inside an H1, shown like the small kicker it replaced */
+.h1-kicker { display: block; }
+.h1-sub { display: block; font-size: .42em; line-height: 1.15; letter-spacing: .01em; margin-top: .35em; opacity: .72; }
+h1 .h1-kicker {
+  display: block; margin-bottom: 14px; max-width: none;
+  font: 500 14px/1.4 var(--font); letter-spacing: .02em !important; text-transform: none;
+  color: inherit; opacity: .62;
+}
+.intro__title .h1-kicker { color: var(--grey); opacity: 1; }
+h1 .ev-hero__kicker { display: flex; margin-bottom: 18px; opacity: 1; color: rgba(255, 255, 255, .75); }
+.ev-hero__title { margin-top: 0; }
+.cat-hero__title { hyphens: auto; -webkit-hyphens: auto; }
+/* rotating heading is now a decorative <p>; the real H2 is visually hidden */
+.ways__intro p.ways__title { max-width: none; color: var(--ink); font-size: var(--h2); font-family: var(--font-head); font-weight: 500; text-transform: uppercase; letter-spacing: .005em; line-height: 1.1; text-wrap: balance; }
+/* FAQ questions on model pages are <h3> (question headings) but look like the homepage FAQ */
+h3.faq__q { font-family: var(--font); font-weight: 400; }
+.faq--page { border-top: 1px solid var(--line); }
+.v-hero__name .h1-sub { font: 500 15px/1.3 var(--font); letter-spacing: .08em !important; text-transform: uppercase; margin-top: 10px; opacity: .6; }

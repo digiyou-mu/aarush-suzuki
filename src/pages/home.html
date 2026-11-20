@@ -1,9 +1,9 @@
 <!--
-title: Suzuki Bikes & Scooters Showroom in Hyderabad | Aarush Suzuki
-description: 12 Aarush Suzuki showrooms with sales and service across Hyderabad and Telangana. Explore Suzuki bikes, scooters and the e-Access EV, and book a test ride.
+title: Suzuki Bike & Scooter Showroom in Hyderabad | Aarush Suzuki
+description: Suzuki two-wheeler dealer with 12 showrooms and service centres in Hyderabad & Telangana. See prices, get an on-road quote, book a test ride.
 path: /
 bodyClass: page-home
-preload: /assets/img/photos/hero-v-strom-sx-riders.jpg
+preload: hero-banner
 schema: home
 -->
   <main id="main">
@@ -15,8 +15,8 @@ schema: home
     <section class="intro" aria-labelledby="hero-title">
       <div class="wrap intro__grid">
         <div>
-          <p class="intro__kicker">Aarush Suzuki · Hyderabad &amp; Telangana</p>
-          <h1 class="intro__title" id="hero-title">Find your perfect ride.</h1>
+
+          <h1 class="intro__title" id="hero-title"><span class="h1-kicker">Suzuki bike &amp; scooter showroom in Hyderabad</span> Find your perfect ride.</h1>
         </div>
         <div class="intro__side">
           <p class="intro__lead">Discover the Suzuki experience with Aarush Suzuki. Explore performance, comfort and innovation at twelve showrooms near you.</p>
@@ -31,7 +31,8 @@ schema: home
     <!-- ============ 2. Ways to ride (categories) ============ -->
     <section class="ways" id="ways" aria-labelledby="ways-title">
       <div class="ways__intro">
-        <h2 class="ways__title" id="ways-title"><span class="sr-only">Pick your bike, scooter or EV</span><span aria-hidden="true">Pick your<br><span class="word-rotator" data-rotator><b class="is-on">Bikes</b><b>Scooters</b><b>EVs</b></span></span></h2>
+        <h2 class="sr-only" id="ways-title">Pick your Suzuki bike, scooter or EV</h2>
+        <p class="ways__title" aria-hidden="true">Pick your<br><span class="word-rotator" data-rotator><b class="is-on">Bikes</b><b>Scooters</b><b>EVs</b></span></p>
         <p>From a first scooter to a 250cc tourer, every Suzuki we sell is on the floor to see, sit on and ride.</p>
       </div>
 
@@ -86,7 +87,7 @@ schema: home
             <span class="lineup__bar"><i data-lineup-bar></i></span>
           </div>
         </header>
-        <div class="lineup__track" data-lineup-track tabindex="0" aria-label="Featured Suzuki vehicles"></div>
+        <div class="lineup__track" data-lineup-track tabindex="0" aria-label="Featured Suzuki vehicles">{{LINEUP}}</div>
       </div>
     </section>
 
@@ -128,7 +129,7 @@ schema: home
             <a class="link-arrow link-arrow--light" href="/premium-bikes/">Explore premium bikes</a>
           </div>
         </div>
-        <div class="premium__gallery" data-premium></div>
+        <div class="premium__gallery" data-premium>{{PREMIUM_CARDS}}</div>
       </div>
     </section>
 
@@ -212,7 +213,7 @@ schema: home
           </div>
         </div>
       </div>
-      <ul class="directory__list" data-directory></ul>
+      <ul class="directory__list" data-directory>{{HOME_DIRECTORY:hyderabad}}</ul>
       <a class="link-arrow" href="/contact/">Full contact details</a>
     </section>
 

@@ -19,7 +19,7 @@
  ],
  "_reelsHelp": "Reels show as a video-only grid. Without a local MP4 each reel shows Instagram's player cropped to the video (plays on tap). To autoplay muted when visible, put the reel MP4 in site/assets/video/reels/ and set video to /assets/video/reels/<file>.mp4 (optionally a poster image), then rebuild.",
  "heroSlides": [
-  { "model": "v-strom-sx", "label": "V-Strom SX", "note": "Suzuki festive offer valid till 30 Nov 2026" },
+  { "model": "v-strom-sx", "label": "V-Strom SX", "note": "Suzuki festive offer valid till 30 Nov 2026", "until": "2026-11-30" },
   { "model": "gixxer-sf-250", "label": "Gixxer SF 250" },
   { "model": "e-access", "label": "e-Access" },
   { "model": "avenis", "label": "Avenis" },
@@ -32,6 +32,12 @@
   "endpoint": "",
   "_help": "Optional. A URL that accepts a JSON POST (e.g. https://formspree.io/f/xxxx or https://api.web3forms.com/submit). When empty, forms hand the request to WhatsApp and say so honestly.",
   "accessKey": ""
+ },
+ "analytics": {
+  "_help": "Paste IDs and rebuild. ga4 = GA4 Measurement ID (G-XXXXXXX): adds Google Analytics with events click_call, click_whatsapp, click_directions, download_brochure, submit_test_ride, submit_service, submit_enquiry. googleVerification / bingVerification = the content value of the Search Console / Bing Webmaster Tools HTML tag (not needed if you verify by DNS).",
+  "ga4": "",
+  "googleVerification": "",
+  "bingVerification": ""
  },
  "otp": {
   "_help": "Mobile OTP before any form is sent. Leave widgetId or tokenAuth empty to switch it off. widgetId and tokenAuth come from MSG91 > OTP > Widget (Tokens tab); both are safe to publish. verifyUrl is the Cloudflare Worker address from otp-worker/ (it holds the secret MSG91 authkey and the Formspree link). See OTP-SETUP.md.",

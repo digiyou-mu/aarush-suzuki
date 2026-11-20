@@ -35,6 +35,16 @@
   const phone = (n) => `${n.slice(0, 5)} ${n.slice(5)}`;
   const CAT = { motorcycles: 'Motorcycle', scooters: 'Scooter', electric: 'Electric' };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Analytics events: sent only when GA4 is set up (site.json → analytics.ga4); otherwise a no-op.
+  const trackEvent = (name, params) => { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]'); if (!a) return;
+    const h = a.getAttribute('href');
+    if (h.startsWith('tel:')) trackEvent('click_call', { phone: h.slice(4) });
+    else if (/wa\.me\//.test(h)) trackEvent('click_whatsapp');
+    else if (/google\.com\/maps/.test(h)) trackEvent('click_directions');
+    else if (/\.pdf($|[?#])/i.test(h)) trackEvent('download_brochure');
+  }, true);
   const desktop = matchMedia('(min-width: 961px)');
   const hasGsap = () => !reduce && window.gsap && window.ScrollTrigger;
 
@@ -111,6 +121,16 @@
      Auto-advances every 6 s with a cross-fade; pauses on hover/focus, when the tab is hidden, or via the
      pause button; dots, arrows, swipe and arrow keys. Reduced-motion visitors get it paused. */
   $$('[data-hs]').forEach((hs) => {
+    // Dated offer slides (data-until="YYYY-MM-DD", end of that day in India) drop out by themselves
+    // even if nobody rebuilds the site; their dot goes too, and the next slide becomes the first.
+    $$('[data-slide][data-until]', hs).forEach((s) => {
+      if (Date.now() <= Date.parse(`${s.dataset.until}T23:59:59+05:30`)) return;
+      const k = $$('[data-slide]', hs).indexOf(s);
+      const d = $$('.hs__dot', hs)[k]; if (d) d.remove();
+      s.remove();
+    });
+    $$('.hs__dot', hs).forEach((d, k) => { d.dataset.goto = k; d.setAttribute('aria-label', `Show slide ${k + 1}`); });
+    { const all = $$('[data-slide]', hs); if (all.length && !all.some((s) => s.classList.contains('is-active'))) all[0].classList.add('is-active'); }
     const slides = $$('[data-slide]', hs);
     const dots = $$('.hs__dot', hs);
     const n = slides.length; if (!n) return;
@@ -172,7 +192,7 @@
       if (Math.abs(dx) > 50) { track.dataset.swiped = '1'; show(dx < 0 ? i + 1 : i - 1); } // a swipe must not also open the banner link
     });
     track.addEventListener('click', (e) => { if (track.dataset.swiped) { e.preventDefault(); delete track.dataset.swiped; } });
-    if (reduce) setPaused(true); else show(0);
+    if (reduce) setPaused(true); show(0);
   });
 
   /* ---------- vehicle hero slider (Scooters page) ----------
@@ -350,7 +370,7 @@
   const track = $('[data-lineup-track]');
   if (track) {
     const featured = D.models.filter((m) => m.featured);
-    track.innerHTML = featured.map((m) => `
+    if (!track.children.length) track.innerHTML = featured.map((m) => `
       <article class="slide">
         <div class="slide__scene">
           <span class="slide__word" aria-hidden="true">${esc(m.name.split(' ')[0])}</span>
@@ -364,8 +384,8 @@
           <h3 class="slide__name"><a href="${m.url}">${esc(m.name)}</a></h3>
           <p class="slide__line">${esc(m.line)}${priceFrom(m) ? `<span class="slide__price">Ex-showroom Hyderabad from <b>${priceFrom(m)}</b></span>` : ""}</p>
           <div class="slide__actions">
-            <a class="link-arrow" href="${m.url}">Explore model</a>
-            <a class="slide__enquire" href="${m.enquire}">Enquire now</a>
+            <a class="link-arrow" href="${m.url}">Explore <span class="sr-only">the Suzuki ${esc(m.name)} </span>model</a>
+            <a class="slide__enquire" href="${m.enquire}">Enquire now<span class="sr-only"> about the ${esc(m.name)}</span></a>
           </div>
         </div>
       </article>`).join('');
@@ -442,7 +462,7 @@
 
   /* ---------- premium bikes ---------- */
   const premium = $('[data-premium]');
-  if (premium) {
+  if (premium && !premium.children.length) {
     premium.innerHTML = D.premium.map((p) => `
       <a class="bike" href="${p.url}">
         <img src="${p.img}" alt="${esc(p.alt)}" width="550" height="640" loading="lazy">
@@ -755,6 +775,7 @@
       if (gate && !gate.ok()) { gate.demand(); return; }
       const d = Object.fromEntries(new FormData(form));
       delete d.otp_code;
+      trackEvent({ ride: 'submit_test_ride', service: 'submit_service', contact: 'submit_enquiry' }[form.dataset.mode || 'ride'], { vehicle: d.vehicle || '', showroom: d.showroom || '' });
       const when = d.date ? new Date(d.date + 'T00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : '';
       const lines = {
         ride: ['Test ride request', `Name: ${d.name}`, `Mobile: +91 ${d.phone}`, `Vehicle: Suzuki ${d.vehicle}`, `Showroom: ${d.showroom}`, `Preferred date: ${when}`],
@@ -917,6 +938,8 @@
   if (lb && typeof lb.showModal === 'function') {
     document.addEventListener('click', (e) => {
       const b = e.target.closest('[data-lightbox-src]'); if (!b) return;
+      // the viewer's <img> is created on first open (an <img> with no src is invalid HTML)
+      if (!$('img', lb)) lb.prepend(document.createElement('img'));
       $('img', lb).src = $('img', b)?.src || link(b.dataset.lightboxSrc); $('img', lb).alt = $('img', b)?.alt || '';
       lb.showModal();
     });
