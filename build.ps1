@@ -216,7 +216,7 @@ function Render-Directory($region, $withHeading) {
     $svc = if ($s.serviceAddress) { "<p class=`"branch__svc`"><span>Service centre</span>$(Enc $s.serviceAddress)" + " <a href=`"$(DirUrl "$($s.name) service centre" $s.serviceAddress)`" target=`"_blank`" rel=`"noopener`" aria-label=`"Directions to Aarush Suzuki $(Enc $s.name) service centre`">Directions</a>" + "</p>" } else { '' }
 @"
 <li class="branch" data-region="$($s.region)" id="$($s.id)">
-            <div class="branch__name"><h3>$(Enc $s.name)</h3><span>$tag</span></div>
+            <div class="branch__name"><h3><a href="/showrooms/$($s.id)/">$(Enc $s.name)</a></h3><span>$tag</span></div>
             <div class="branch__addr"><address>$(Enc $s.address)</address>$svc</div>
             <div class="branch__phones">
               <a href="tel:+91$($s.sales)"><span>Sales</span>$(Phone $s.sales)</a>
@@ -236,7 +236,7 @@ function Showrooms-JsonLd {
   $items = foreach ($s in $showrooms) {
     $pc = if ($s.address -match '(\d{6})\s*$') { $Matches[1] } else { '' }
     $loc = if ($s.region -eq 'hyderabad') { 'Hyderabad' } else { $s.name }
-    "{`"@type`":`"MotorcycleDealer`",`"name`":$(JsonStr "Aarush Suzuki $($s.name)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"telephone`":$(JsonStr "+91-$($s.sales)"),`"url`":$(JsonStr "$BASE/contact/#$($s.id)"),`"hasMap`":$(JsonStr ((DirUrl $s.name $s.address).Replace('&amp;','&'))),`"address`":{`"@type`":`"PostalAddress`",`"streetAddress`":$(JsonStr $s.address),`"addressLocality`":$(JsonStr $loc),`"addressRegion`":`"Telangana`",`"postalCode`":$(JsonStr $pc),`"addressCountry`":`"IN`"}}"
+    "{`"@type`":`"MotorcycleDealer`",`"@id`":$(JsonStr "$BASE/showrooms/$($s.id)/#dealer"),`"name`":$(JsonStr "Aarush Suzuki $($s.name)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"telephone`":$(JsonStr "+91-$($s.sales)"),`"url`":$(JsonStr "$BASE/showrooms/$($s.id)/"),`"hasMap`":$(JsonStr ((DirUrl $s.name $s.address).Replace('&amp;','&'))),`"address`":{`"@type`":`"PostalAddress`",`"streetAddress`":$(JsonStr $s.address),`"addressLocality`":$(JsonStr $loc),`"addressRegion`":`"Telangana`",`"postalCode`":$(JsonStr $pc),`"addressCountry`":`"IN`"}}"
   }
   "{`"@context`":`"https://schema.org`",`"@graph`":[" + ($items -join ',') + "]}"
 }
@@ -487,7 +487,7 @@ function Render-HomeDirectory($region) {
     $svc = if ($s.serviceAddress) { "<small>Service centre: $(Enc $s.serviceAddress)</small>" } else { '' }
 @"
 <li class="dir-row">
-          <div><h3>$(Enc $s.name)</h3><span class="dir-row__tag">$tag</span></div>
+          <div><h3><a href="/showrooms/$($s.id)/">$(Enc $s.name)</a></h3><span class="dir-row__tag">$tag</span></div>
           <address>$(Enc $s.address)$svc</address>
           <div class="dir-row__phones">
             <a href="tel:+91$($s.sales)"><span>Sales</span>$(Phone $s.sales)</a>
@@ -978,6 +978,178 @@ foreach ($v in $vehicles) {
   Write-Host "model $($v.url)"
 }
 
+# ------------------------------------------------------ showroom pages ----
+# One page per location, built only from src/data/showrooms.json (the client's published addresses,
+# phones and Google Maps pins) and reviews.json (reviews that name the branch).
+$HOURS_TEXT = 'Monday to Sunday, 9:30 AM to 9:30 PM'
+$reviewData = Read-Text "$src/data/reviews.json" | ConvertFrom-Json
+function Pc($addr) { if ($addr -match '(\d{6})\s*\.?$') { $Matches[1] } else { '' } }
+function Street($addr) { ($addr -replace ',?\s*(Hyderabad|Telangana)?,?\s*\d{6}\s*\.?$', '' -replace ',\s*(Hyderabad|Telangana)\s*$', '').Trim(' ', ',') }
+function Locality($s) { if ($s.region -eq 'hyderabad') { 'Hyderabad' } else { $s.name } }
+function ShowroomUrl($s) { "/showrooms/$($s.id)/" }
+function PostalJson($addr, $s) { "{`"@type`":`"PostalAddress`",`"streetAddress`":$(JsonStr (Street $addr)),`"addressLocality`":$(JsonStr (Locality $s)),`"addressRegion`":`"Telangana`",`"postalCode`":$(JsonStr (Pc $addr)),`"addressCountry`":`"IN`"}" }
+$HOURS_JSON = "[{`"@type`":`"OpeningHoursSpecification`",`"dayOfWeek`":[`"Monday`",`"Tuesday`",`"Wednesday`",`"Thursday`",`"Friday`",`"Saturday`",`"Sunday`"],`"opens`":`"09:30`",`"closes`":`"21:30`"}]"
+function Dealer-Json($s) {
+  $u = "$BASE$(ShowroomUrl $s)"
+  $svcAddr = if ($s.serviceAddress) { $s.serviceAddress } else { $s.address }
+  $svcMap = if ($s.serviceShortLink) { $s.serviceShortLink } elseif ($s.shortLink) { $s.shortLink } else { '' }
+  $map = if ($s.shortLink) { ",`"hasMap`":$(JsonStr $s.shortLink)" } else { '' }
+  $smap = if ($svcMap) { ",`"hasMap`":$(JsonStr $svcMap)" } else { '' }
+  "{`"@type`":`"MotorcycleDealer`",`"@id`":$(JsonStr "$u#dealer"),`"name`":$(JsonStr "Aarush Suzuki $($s.name)"),`"url`":$(JsonStr $u),`"telephone`":$(JsonStr "+91-$($s.sales)"),`"brand`":{`"@type`":`"Brand`",`"name`":`"Suzuki`"},`"parentOrganization`":{`"@id`":`"$BASE/#org`"},`"address`":$(PostalJson $s.address $s)$map,`"openingHoursSpecification`":$HOURS_JSON,`"department`":{`"@type`":`"AutoRepair`",`"@id`":$(JsonStr "$u#service"),`"name`":$(JsonStr "Aarush Suzuki $($s.name) Service Centre"),`"telephone`":$(JsonStr "+91-$($s.service)"),`"address`":$(PostalJson $svcAddr $s)$smap,`"openingHoursSpecification`":$HOURS_JSON}}"
+}
+
+function Render-Showroom($s) {
+  $u = ShowroomUrl $s
+  $full = "Aarush Suzuki $($s.name)"
+  $isBV = $s.id -like 'best-value*'
+  $place = if ($s.region -eq 'hyderabad') { 'Hyderabad' } else { "$($s.name), Telangana" }
+  $areaWord = ($s.name -replace '^Best Value ', '')
+  $mapsSales = if ($s.shortLink) { $s.shortLink } else { (DirUrl $s.name $s.address).Replace('&amp;', '&') }
+  $svcBlock = if ($s.serviceAddress) {
+    $svcMaps = if ($s.serviceShortLink) { $s.serviceShortLink } else { (DirUrl "$($s.name) service centre" $s.serviceAddress).Replace('&amp;', '&') }
+    "<div class=`"sr-card`"><p class=`"sr-card__label`">Service centre</p><address>$(Enc $s.serviceAddress)</address><a class=`"sr-card__phone`" href=`"tel:+91$($s.service)`">$(Phone $s.service)</a><a class=`"link-arrow`" href=`"$(Enc $svcMaps)`" target=`"_blank`" rel=`"noopener`">Service centre on Google Maps</a></div>"
+  } else {
+    "<div class=`"sr-card`"><p class=`"sr-card__label`">Service</p><p>Servicing is at the same address.</p><a class=`"sr-card__phone`" href=`"tel:+91$($s.service)`">$(Phone $s.service)</a><a class=`"link-arrow`" href=`"/services/#book-service`">Book a service</a></div>"
+  }
+  $svcWhere = if ($s.serviceAddress) { "at its service centre, $($s.serviceAddress)" } else { 'at the same address' }
+
+  # reviews that name this branch, quoted as written
+  $revs = @($reviewData.items | Where-Object { $_.branch -and $_.branch -eq $s.name })
+  $revBlock = ''
+  if ($revs.Count) {
+    $q = ($revs | ForEach-Object { "<figure class=`"sr-review`"><blockquote><p>&ldquo;$(Enc $_.text)&rdquo;</p></blockquote><figcaption><strong>$(Enc $_.name)</strong> · Google review, rated $($_.rating) out of 5</figcaption></figure>" }) -join ''
+    $revBlock = @"
+
+    <section class="sr-sec" aria-labelledby="sr-rev-title">
+      <div class="wrap">
+        <h2 class="sec-title" id="sr-rev-title">What customers say about $(Enc $areaWord)</h2>
+        <div class="sr-reviews">$q</div>
+        <a class="link-arrow" href="$(Enc $reviewData.moreUrl)" target="_blank" rel="noopener">Read more reviews on Google</a>
+      </div>
+    </section>
+"@
+  }
+
+  $faqs = @(
+    , @("Where is $full?", "$full is at $($s.address). $(if ($s.serviceAddress) { "Its service centre is at $($s.serviceAddress)." } else { 'Sales and service are at the same address.' })", $mapsSales, 'Open in Google Maps')
+    , @("What are the timings of $full?", "Aarush Suzuki showrooms are open $HOURS_TEXT. On festival holidays, call $(Phone $s.sales) before you visit.", '', '')
+    , @("What is the phone number of $full?", "Call sales on $(Phone $s.sales) and service on $(Phone $s.service). You can also message Aarush Suzuki on WhatsApp at $(Phone $site.contact.sales).", '', '')
+    , @("Can I book a test ride at $full?", "Yes. Book a test ride online and choose $($s.name) as your showroom, or call $(Phone $s.sales). Bring a valid driving licence; the team will call to confirm a time.", "/book-a-test-ride/", 'Book a test ride')
+    , @("How do I book a Suzuki service at $($s.name)?", "Book a service slot online and choose $($s.name), or call the service team on $(Phone $s.service). Your vehicle is serviced $svcWhere.", "/services/#book-service", 'Book a service')
+  )
+
+  $others = (@($showrooms | Where-Object { $_.region -eq $s.region -and $_.id -ne $s.id }) | ForEach-Object { "<li><a href=`"$(ShowroomUrl $_)`">Aarush Suzuki $(Enc $_.name)</a></li>" }) -join ''
+  $mapQ = [Uri]::EscapeDataString("Aarush Suzuki, $($s.address)")
+  $lineup = if ($isBV) { "Ask the team which vehicles are on the floor today, or browse the Suzuki range online." } else { "See the Suzuki range in person, from the Access and Avenis scooters to the Gixxer and V-Strom SX motorcycles. Ask which models and colours are in stock today." }
+
+  $body = @"
+<main id="main" class="sr-page">
+    <section class="sr-hero" aria-labelledby="sr-title">
+      <div class="wrap sr-hero__grid">
+        <div class="sr-hero__copy">
+          $(Crumbs @(@('Home', '/'), @('Showrooms', '/showrooms/'), @($s.name, $u)))
+          <h1 class="sr-hero__title" id="sr-title"><span class="h1-kicker">Suzuki showroom &amp; service centre in $(Enc $place)</span> $(Enc $full)</h1>
+          <p class="sr-hero__lead">$(Enc $full) is open $(Enc $HOURS_TEXT). Call sales on <a href="tel:+91$($s.sales)">$(Phone $s.sales)</a> or service on <a href="tel:+91$($s.service)">$(Phone $s.service)</a>.</p>
+          <div class="sr-hero__actions">
+            <a class="btn btn--ink" href="$(Enc $mapsSales)" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn--outline" href="/book-a-test-ride/">Book a test ride</a>
+            <a class="btn btn--outline" href="$(WA "Hi Aarush Suzuki $($s.name), I have a question.")" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div class="sr-map" data-map-facade>
+          <button type="button" class="sr-map__btn" data-map-load="https://maps.google.com/maps?q=$mapQ&amp;z=15&amp;output=embed" data-map-title="Map: $(Enc $full)">
+            <span class="sr-map__pin" aria-hidden="true"></span>
+            <strong>Show $(Enc $s.name) on the map</strong>
+            <small>Loads Google Maps</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sr-sec sr-sec--info" aria-labelledby="sr-info-title">
+      <div class="wrap">
+        <h2 class="sr-visually-hidden" id="sr-info-title">Address, phone and timings</h2>
+        <div class="sr-cards">
+          <div class="sr-card"><p class="sr-card__label">$(if ($isBV) { 'Suzuki Best Value · Sales' } else { 'Showroom · Sales' })</p><address>$(Enc $s.address)</address><a class="sr-card__phone" href="tel:+91$($s.sales)">$(Phone $s.sales)</a><a class="link-arrow" href="$(Enc $mapsSales)" target="_blank" rel="noopener">Showroom on Google Maps</a></div>
+          $svcBlock
+          <div class="sr-card"><p class="sr-card__label">Timings</p><p class="sr-card__big">Mon – Sun</p><p>9:30 AM – 9:30 PM</p><p class="sr-card__note">Call ahead on festival holidays.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sr-sec" aria-labelledby="sr-do-title">
+      <div class="wrap sr-do">
+        <h2 class="sec-title" id="sr-do-title">At Aarush Suzuki $(Enc $s.name)</h2>
+        <ul class="sr-do__list">
+          <li><strong>Buy a Suzuki</strong><span>$(Enc $lineup)</span><a class="link-arrow" href="/motorcycles/">Motorcycles</a> <a class="link-arrow" href="/scooters/">Scooters</a> <a class="link-arrow" href="/electric-vehicles/">EV</a></li>
+          <li><strong>Test ride</strong><span>Book online and pick $(Enc $s.name) as your showroom. Bring a valid driving licence.</span><a class="link-arrow" href="/book-a-test-ride/">Book a test ride</a></li>
+          <li><strong>Service &amp; repairs</strong><span>Periodic service and repairs by the Aarush Suzuki service team, with genuine Suzuki parts.</span><a class="link-arrow" href="/services/">Service details</a></li>
+          <li><strong>Finance &amp; paperwork</strong><span>Help with finance, insurance and registration, and a clear on-road price.</span><a class="link-arrow" href="/contact/?topic=finance#enquire">Ask about finance</a></li>
+        </ul>
+      </div>
+    </section>
+$revBlock
+$(Faq-Section $faqs "$($full): questions" "Location, timings, phone numbers and bookings for this branch." 'faq')
+
+    <section class="sr-sec sr-sec--others" aria-labelledby="sr-oth-title">
+      <div class="wrap">
+        <h2 class="sec-title" id="sr-oth-title">Other Aarush Suzuki showrooms in $(if ($s.region -eq 'hyderabad') { 'Hyderabad' } else { 'Telangana' })</h2>
+        <ul class="sr-others">$others</ul>
+        <a class="link-arrow" href="/showrooms/">All 12 showrooms</a>
+      </div>
+    </section>
+  </main>
+"@
+  $crumb = Breadcrumb-JsonLd @(@('Home', '/'), @('Showrooms', '/showrooms/'), @($s.name, $u))
+  $titleArea = if ($s.region -eq 'hyderabad') { "$areaWord, Hyderabad" } else { "$areaWord, Telangana" }
+  $t = "Suzuki Showroom in $titleArea | Aarush Suzuki"
+  if ($isBV) { $t = "Aarush Suzuki Best Value $areaWord | Suzuki Hyderabad" }
+  $meta = @{
+    title = $t
+    description = "$($full): address, sales $(Phone $s.sales), service $(Phone $s.service), timings ($HOURS_TEXT) and directions. Book a Suzuki test ride or service."
+    path = $u; bodyClass = 'page-showroom'; ogImage = '/assets/img/showrooms/aarush-suzuki-showroom.webp'; ogAlt = 'Aarush Suzuki showroom with Suzuki signage'
+    jsonld = (Script-Ld "{`"@context`":`"https://schema.org`",$((Dealer-Json $s).Substring(1))") + (Script-Ld $crumb) + (Script-Ld (Faq-JsonLd $faqs))
+  }
+  return Assemble $meta $body
+}
+
+function Render-ShowroomHub {
+  $groups = foreach ($rg in @(@('hyderabad', 'Hyderabad'), @('telangana', 'Telangana'))) {
+    $cards = (@($showrooms | Where-Object { $_.region -eq $rg[0] }) | ForEach-Object {
+      "<li class=`"sr-hubcard`"><a href=`"$(ShowroomUrl $_)`"><strong>Aarush Suzuki $(Enc $_.name)</strong><span>$(Enc $_.address)</span><span class=`"sr-hubcard__tel`">Sales $(Phone $_.sales) · Service $(Phone $_.service)</span></a></li>"
+    }) -join ''
+    "<section class=`"sr-sec`" aria-labelledby=`"hub-$($rg[0])`"><div class=`"wrap`"><h2 class=`"sec-title`" id=`"hub-$($rg[0])`">$($rg[1]) ($(@($showrooms | Where-Object { $_.region -eq $rg[0] }).Count))</h2><ul class=`"sr-hub`">$cards</ul></div></section>"
+  }
+  $body = @"
+<main id="main" class="sr-page">
+    <section class="sr-hero sr-hero--hub" aria-labelledby="hub-title">
+      <div class="wrap">
+        $(Crumbs @(@('Home', '/'), @('Showrooms', '/showrooms/')))
+        <h1 class="sr-hero__title" id="hub-title"><span class="h1-kicker">Suzuki showrooms near you</span> Aarush Suzuki showrooms in Hyderabad &amp; Telangana</h1>
+        <p class="sr-hero__lead">$(@($showrooms).Count) locations, each with sales and service, open $HOURS_TEXT. Pick a branch for its address, phone numbers and directions.</p>
+      </div>
+    </section>
+    $($groups -join "`n    ")
+  </main>
+"@
+  $i = 0
+  $items = ($showrooms | ForEach-Object { $i++; "{`"@type`":`"ListItem`",`"position`":$i,`"name`":$(JsonStr "Aarush Suzuki $($_.name)"),`"url`":$(JsonStr "$BASE$(ShowroomUrl $_)")}" }) -join ','
+  $meta = @{
+    title = 'Suzuki Showrooms in Hyderabad & Telangana | Aarush Suzuki'
+    description = "All $(@($showrooms).Count) Aarush Suzuki showrooms and service centres in Hyderabad and Telangana: addresses, sales and service numbers, timings and directions."
+    path = '/showrooms/'; bodyClass = 'page-showroom page-showroom--hub'; ogImage = '/assets/img/showrooms/aarush-suzuki-showroom.webp'; ogAlt = 'Aarush Suzuki showroom with Suzuki signage'
+    jsonld = (Script-Ld "{`"@context`":`"https://schema.org`",`"@type`":`"ItemList`",`"name`":`"Aarush Suzuki showrooms`",`"itemListElement`":[$items]}") + (Script-Ld (Breadcrumb-JsonLd @(@('Home', '/'), @('Showrooms', '/showrooms/'))))
+  }
+  return Assemble $meta $body
+}
+
+Write-Text (Join-Path $out 'showrooms/index.html') (Render-ShowroomHub)
+$pages += '/showrooms/'; Write-Host 'page  /showrooms/'
+foreach ($s in $showrooms) {
+  Write-Text (Join-Path $out ("showrooms/$($s.id)/index.html")) (Render-Showroom $s)
+  $pages += (ShowroomUrl $s); Write-Host "shop  $(ShowroomUrl $s)"
+}
+
 # ---------------------------------------------------- data, seo, hosting ----
 Write-Text (Join-Path $out 'assets/js/data.js') ("/* Generated by build.ps1 from src/data/*.json. Do not edit by hand. */`nwindow.AARUSH = Object.assign($($siteRaw.Trim()), {`n vehicles: $($vehRaw.Trim()),`n showrooms: $($showRaw.Trim())`n});`n")
 
@@ -1044,6 +1216,6 @@ foreach ($cg in 'motorcycles', 'scooters', 'electric', 'premium') {
     $lm += "- [Suzuki $(AliasOf $v)]($BASE$($v.url)): $($v.summary.TrimEnd('.'))$p`n"
   }
 }
-$lm += "`n## Service, showrooms and booking`n- [Service centres and service booking]($BASE/services/)`n- [All showrooms: addresses, phones and directions]($BASE/contact/)`n- [Book a test ride]($BASE/book-a-test-ride/)`n`n## Optional`n- [About Aarush Suzuki]($BASE/about/)`n- [Privacy policy]($BASE/privacy-policy/)`n"
+$lm += "`n## Service, showrooms and booking`n- [Service centres and service booking]($BASE/services/)`n- [All 12 showrooms: addresses, phones and directions]($BASE/showrooms/)`n- [Contact and enquiries]($BASE/contact/)`n- [Book a test ride]($BASE/book-a-test-ride/)`n`n## Optional`n- [About Aarush Suzuki]($BASE/about/)`n- [Privacy policy]($BASE/privacy-policy/)`n"
 Write-Text (Join-Path $out 'llms.txt') $lm
 Write-Host "Built $($pages.Count) indexable pages into $out"

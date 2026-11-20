@@ -31,7 +31,8 @@
 
 ## Service, showrooms and booking
 - [Service centres and service booking](https://aarushsuzuki.in/services/)
-- [All showrooms: addresses, phones and directions](https://aarushsuzuki.in/contact/)
+- [All 12 showrooms: addresses, phones and directions](https://aarushsuzuki.in/showrooms/)
+- [Contact and enquiries](https://aarushsuzuki.in/contact/)
 - [Book a test ride](https://aarushsuzuki.in/book-a-test-ride/)
 
 ## Optional

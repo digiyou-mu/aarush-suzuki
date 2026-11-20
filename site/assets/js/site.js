@@ -479,7 +479,7 @@
     const render = (region) => {
       dir.innerHTML = D.showrooms.filter((s) => s.region === region).map((s) => `
         <li class="dir-row">
-          <div><h3>${esc(s.name)}</h3><span class="dir-row__tag">${s.id.startsWith('best-value') ? 'Suzuki Best Value · Sales & service' : 'Sales & service'}</span></div>
+          <div><h3><a href="${link(`/showrooms/${s.id}/`)}">${esc(s.name)}</a></h3><span class="dir-row__tag">${s.id.startsWith('best-value') ? 'Suzuki Best Value · Sales & service' : 'Sales & service'}</span></div>
           <address>${esc(s.address)}${s.serviceAddress ? `<small>Service centre: ${esc(s.serviceAddress)}</small>` : ''}</address>
           <div class="dir-row__phones">
             <a href="tel:+91${s.sales}"><span>Sales</span>${phone(s.sales)}</a>
@@ -932,6 +932,14 @@
     });
     if (location.hash) $(location.hash)?.classList.add('is-current');
   }
+
+  /* ---------- click-to-load map (showroom pages): Google Maps loads only when asked ---------- */
+  $$('[data-map-load]').forEach((b) => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = b.dataset.mapLoad; f.title = b.dataset.mapTitle || 'Map';
+    f.loading = 'lazy'; f.referrerPolicy = 'no-referrer-when-downgrade'; f.allowFullscreen = true;
+    b.replaceWith(f);
+  }));
 
   /* ---------- gallery lightbox ---------- */
   const lb = $('[data-lightbox]');
